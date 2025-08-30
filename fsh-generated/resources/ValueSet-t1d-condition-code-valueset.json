@@ -1,0 +1,39 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "T1DConditionCodeValueSet",
+  "id": "t1d-condition-code-valueset",
+  "title": "T1D Condition Code Value Set",
+  "description": "Condition codes relevant to T1D Exchange",
+  "url": "http://t1dexchange.org/fhir/ValueSet/t1d-condition-code-valueset",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "46635009",
+            "display": "Type 1 diabetes mellitus"
+          },
+          {
+            "code": "4855003",
+            "display": "Retinopathy due to diabetes mellitus"
+          },
+          {
+            "code": "127013003",
+            "display": "Diabetic nephropathy"
+          },
+          {
+            "code": "230572002",
+            "display": "Diabetic neuropathy"
+          },
+          {
+            "code": "421895002",
+            "display": "Diabetic ketoacidosis"
+          }
+        ]
+      }
+    ]
+  }
+}

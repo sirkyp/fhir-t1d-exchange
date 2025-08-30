@@ -1,0 +1,85 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "T1DCodes",
+  "id": "t1d-codes",
+  "title": "T1D Exchange Codes",
+  "description": "T1D-specific codes for observations and measurements",
+  "url": "http://t1dexchange.org/fhir/CodeSystem/t1d-codes",
+  "concept": [
+    {
+      "code": "t1d-dx-dt",
+      "display": "T1D Diagnosis Date",
+      "definition": "Date of Type 1 diabetes diagnosis"
+    },
+    {
+      "code": "bgm-mean",
+      "display": "BGM Mean",
+      "definition": "Blood glucose meter mean/average"
+    },
+    {
+      "code": "cgm-high-above-180",
+      "display": "CGM High Above 180",
+      "definition": "Percentage of time above 180 mg/dL"
+    },
+    {
+      "code": "time-in-range",
+      "display": "Time in Range",
+      "definition": "Percentage of time in target glucose range"
+    },
+    {
+      "code": "ins-regimen",
+      "display": "Insulin Regimen",
+      "definition": "Type of insulin regimen"
+    },
+    {
+      "code": "bgm-company",
+      "display": "BGM Company",
+      "definition": "Blood glucose meter manufacturer"
+    },
+    {
+      "code": "cgm-company",
+      "display": "CGM Company",
+      "definition": "Continuous glucose monitor manufacturer"
+    },
+    {
+      "code": "documented-transition-plan",
+      "display": "Documented Transition Plan",
+      "definition": "Transition plan from pediatric to adult care"
+    },
+    {
+      "code": "transportation-insecurity",
+      "display": "Transportation Insecurity",
+      "definition": "Transportation access challenges"
+    },
+    {
+      "code": "housing-insecurity",
+      "display": "Housing Insecurity",
+      "definition": "Housing stability challenges"
+    },
+    {
+      "code": "basal-bolus",
+      "display": "Basal-Bolus",
+      "definition": "Basal-bolus insulin regimen"
+    },
+    {
+      "code": "pump",
+      "display": "Insulin Pump",
+      "definition": "Insulin pump therapy"
+    },
+    {
+      "code": "mixed",
+      "display": "Mixed Insulin",
+      "definition": "Mixed insulin regimen"
+    },
+    {
+      "code": "other",
+      "display": "Other",
+      "definition": "Other insulin regimen type"
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": true,
+  "count": 14
+}

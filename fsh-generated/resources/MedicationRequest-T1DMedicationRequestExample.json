@@ -1,0 +1,82 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "T1DMedicationRequestExample",
+  "meta": {
+    "profile": [
+      "http://t1dexchange.org/fhir/StructureDefinition/t1d-medication-request"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-insulin-regimen",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "basal-bolus",
+            "system": "http://t1dexchange.org/fhir/CodeSystem/t1d-codes"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-insulin-delivery-method",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "61968008",
+            "system": "http://snomed.info/sct"
+          }
+        ]
+      }
+    }
+  ],
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "253182",
+        "display": "insulin, regular, human"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/T1DPatientExample"
+  },
+  "encounter": {
+    "reference": "Encounter/T1DEncounterExample"
+  },
+  "authoredOn": "2024-01-15",
+  "requester": {
+    "reference": "Practitioner/T1DProviderExample"
+  },
+  "dosageInstruction": [
+    {
+      "timing": {
+        "repeat": {
+          "frequency": 4,
+          "period": 1,
+          "periodUnit": "d"
+        }
+      },
+      "route": {
+        "coding": [
+          {
+            "code": "263887005",
+            "system": "http://snomed.info/sct",
+            "display": "Subcutaneous"
+          }
+        ]
+      },
+      "doseAndRate": [
+        {
+          "doseQuantity": {
+            "value": 10,
+            "unit": "units"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "T1DProviderSpecialtyValueSet",
+  "id": "t1d-provider-specialty-valueset",
+  "title": "T1D Provider Specialty Value Set",
+  "description": "Healthcare provider specialties relevant to T1D care",
+  "url": "http://t1dexchange.org/fhir/ValueSet/t1d-provider-specialty-valueset",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://nucc.org/provider-taxonomy",
+        "concept": [
+          {
+            "code": "207RE0101X",
+            "display": "Endocrinology, Diabetes & Metabolism Physician"
+          },
+          {
+            "code": "208000000X",
+            "display": "Pediatrics Physician"
+          },
+          {
+            "code": "207R00000X",
+            "display": "Internal Medicine Physician"
+          },
+          {
+            "code": "363L00000X",
+            "display": "Nurse Practitioner"
+          },
+          {
+            "code": "364S00000X",
+            "display": "Clinical Nurse Specialist"
+          },
+          {
+            "code": "133V00000X",
+            "display": "Dietitian, Registered"
+          }
+        ]
+      }
+    ]
+  }
+}

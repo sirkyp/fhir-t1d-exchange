@@ -1,0 +1,31 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "T1DMedicationRouteValueSet",
+  "id": "t1d-medication-route-valueset",
+  "title": "T1D Medication Route Value Set",
+  "description": "Routes of administration for T1D medications",
+  "url": "http://t1dexchange.org/fhir/ValueSet/t1d-medication-route-valueset",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "263887005",
+            "display": "Subcutaneous"
+          },
+          {
+            "code": "26643006",
+            "display": "Oral"
+          },
+          {
+            "code": "47625008",
+            "display": "Intravenous"
+          }
+        ]
+      }
+    ]
+  }
+}

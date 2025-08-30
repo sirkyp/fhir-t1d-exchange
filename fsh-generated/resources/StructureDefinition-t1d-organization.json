@@ -1,0 +1,97 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "t1d-organization",
+  "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-organization",
+  "name": "T1DOrganization",
+  "title": "T1D Exchange Organization",
+  "status": "draft",
+  "description": "Organization profile for T1D Exchange healthcare facilities",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Organization",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Organization",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Organization.identifier",
+        "path": "Organization.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "type"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.identifier:t1d-org-id",
+        "path": "Organization.identifier",
+        "sliceName": "t1d-org-id",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.identifier:t1d-org-id.type",
+        "path": "Organization.identifier.type",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "T1D-ORG-ID",
+              "system": "http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type"
+            }
+          ]
+        }
+      },
+      {
+        "id": "Organization.identifier:t1d-org-id.system",
+        "path": "Organization.identifier.system",
+        "patternUri": "http://t1dexchange.org/fhir/organization-id"
+      },
+      {
+        "id": "Organization.identifier:t1d-org-id.value",
+        "path": "Organization.identifier.value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.active",
+        "path": "Organization.active",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.type",
+        "path": "Organization.type",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "http://t1dexchange.org/fhir/ValueSet/t1d-organization-type-valueset"
+        }
+      },
+      {
+        "id": "Organization.name",
+        "path": "Organization.name",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.telecom",
+        "path": "Organization.telecom",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.address",
+        "path": "Organization.address",
+        "mustSupport": true
+      }
+    ]
+  }
+}

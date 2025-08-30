@@ -1,0 +1,75 @@
+Profile: T1DMedicationRequest
+Parent: MedicationRequest
+Id: t1d-medication-request
+Title: "T1D Medication Request"
+Description: "Medication request profile for T1D Exchange including insulin and diabetes medications"
+
+* identifier MS
+* status 1..1 MS
+* intent 1..1 MS
+* category MS
+* category from T1DMedicationCategoryValueSet (extensible)
+* medication[x] 1..1 MS
+* medicationCodeableConcept from T1DMedicationCodeValueSet (extensible)
+* medicationCodeableConcept MS
+* subject 1..1 MS
+* subject only Reference(T1DPatient)
+* encounter MS
+* encounter only Reference(T1DEncounter)
+* authoredOn 1..1 MS
+* requester MS
+* requester only Reference(T1DProvider)
+* dosageInstruction MS
+* dosageInstruction.timing MS
+* dosageInstruction.route MS
+* dosageInstruction.route from T1DMedicationRouteValueSet (extensible)
+* dosageInstruction.doseAndRate MS
+* dosageInstruction.doseAndRate.dose[x] MS
+
+* extension contains
+    T1DInsulinRegimen named insulinRegimen 0..1 MS and
+    T1DInsulinDeliveryMethod named deliveryMethod 0..1 MS
+
+Extension: T1DInsulinRegimen
+Id: t1d-insulin-regimen
+Title: "T1D Insulin Regimen Extension"
+Description: "Type of insulin regimen for T1D patients"
+* ^context.type = #element
+* ^context.expression = "MedicationRequest"
+* value[x] only CodeableConcept
+* valueCodeableConcept from T1DInsulinRegimenValueSet (required)
+
+Extension: T1DInsulinDeliveryMethod
+Id: t1d-insulin-delivery-method
+Title: "T1D Insulin Delivery Method Extension"
+Description: "Method of insulin delivery (pump, pen, syringe, etc.)"
+* ^context.type = #element
+* ^context.expression = "MedicationRequest"
+* value[x] only CodeableConcept
+* valueCodeableConcept from T1DInsulinDeliveryValueSet (required)
+
+Profile: T1DMedicationStatement
+Parent: MedicationStatement
+Id: t1d-medication-statement
+Title: "T1D Medication Statement"
+Description: "Medication statement profile for documenting current T1D medications"
+
+* identifier MS
+* status 1..1 MS
+* category MS
+* category from T1DMedicationCategoryValueSet (preferred)
+* medication[x] 1..1 MS
+* medicationCodeableConcept from T1DMedicationCodeValueSet (extensible)
+* medicationCodeableConcept MS
+* subject 1..1 MS
+* subject only Reference(T1DPatient)
+* context MS
+* context only Reference(T1DEncounter)
+* effective[x] MS
+* informationSource MS
+* informationSource only Reference(T1DProvider or T1DPatient)
+* dosage MS
+* dosage.timing MS
+* dosage.route MS
+* dosage.route from T1DMedicationRouteValueSet (extensible)
+* dosage.doseAndRate MS

@@ -1,0 +1,26 @@
+{
+  "name": "t1d-exchange-ig",
+  "version": "0.3.0",
+  "description": "T1D Exchange FHIR Implementation Guide",
+  "scripts": {
+    "prereq": "./_download-tools.sh",
+    "prebuild": "npm run prereq",
+    "build": "./_genonce.sh",
+    "sushi": "sushi .",
+    "prevalidate": "npm run prereq",
+    "validate": "sushi . && java -jar input-cache/validator_cli.jar -ig . -recurse input/examples",
+    "prepublish": "npm run prereq",
+    "publish": "./_genonce.sh"
+  },
+  "devDependencies": {
+    "fsh-sushi": "^3.8.0"
+  },
+  "keywords": [
+    "fhir",
+    "t1d",
+    "diabetes",
+    "implementation-guide"
+  ],
+  "author": "T1D Exchange",
+  "license": "CC0-1.0"
+}

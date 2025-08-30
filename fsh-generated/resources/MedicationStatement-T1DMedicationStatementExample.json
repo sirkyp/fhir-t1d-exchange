@@ -1,0 +1,57 @@
+{
+  "resourceType": "MedicationStatement",
+  "id": "T1DMedicationStatementExample",
+  "meta": {
+    "profile": [
+      "http://t1dexchange.org/fhir/StructureDefinition/t1d-medication-statement"
+    ]
+  },
+  "status": "active",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "274783",
+        "display": "insulin glargine"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/T1DPatientExample"
+  },
+  "context": {
+    "reference": "Encounter/T1DEncounterExample"
+  },
+  "effectiveDateTime": "2024-01-15",
+  "informationSource": {
+    "reference": "Practitioner/T1DProviderExample"
+  },
+  "dosage": [
+    {
+      "timing": {
+        "repeat": {
+          "frequency": 3,
+          "period": 1,
+          "periodUnit": "d"
+        }
+      },
+      "route": {
+        "coding": [
+          {
+            "code": "263887005",
+            "system": "http://snomed.info/sct",
+            "display": "Subcutaneous"
+          }
+        ]
+      },
+      "doseAndRate": [
+        {
+          "doseQuantity": {
+            "value": 8,
+            "unit": "units"
+          }
+        }
+      ]
+    }
+  ]
+}

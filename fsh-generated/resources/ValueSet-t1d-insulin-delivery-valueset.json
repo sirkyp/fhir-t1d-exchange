@@ -1,0 +1,27 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "T1DInsulinDeliveryValueSet",
+  "id": "t1d-insulin-delivery-valueset",
+  "title": "T1D Insulin Delivery Value Set",
+  "description": "Methods of insulin delivery",
+  "url": "http://t1dexchange.org/fhir/ValueSet/t1d-insulin-delivery-valueset",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "63718003",
+            "display": "Insulin pump"
+          },
+          {
+            "code": "61968008",
+            "display": "Syringe"
+          }
+        ]
+      }
+    ]
+  }
+}

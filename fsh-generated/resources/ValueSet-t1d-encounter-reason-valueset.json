@@ -1,0 +1,35 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "T1DEncounterReasonValueSet",
+  "id": "t1d-encounter-reason-valueset",
+  "title": "T1D Encounter Reason Value Set",
+  "description": "Reasons for T1D-related encounters",
+  "url": "http://t1dexchange.org/fhir/ValueSet/t1d-encounter-reason-valueset",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "46635009",
+            "display": "Type 1 diabetes mellitus"
+          },
+          {
+            "code": "182836005",
+            "display": "Review of care plan"
+          },
+          {
+            "code": "408403008",
+            "display": "Patient referral to specialist"
+          },
+          {
+            "code": "182840001",
+            "display": "Drug monitoring"
+          }
+        ]
+      }
+    ]
+  }
+}

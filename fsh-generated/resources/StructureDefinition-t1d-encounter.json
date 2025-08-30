@@ -1,0 +1,200 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "t1d-encounter",
+  "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-encounter",
+  "name": "T1DEncounter",
+  "title": "T1D Exchange Encounter",
+  "status": "draft",
+  "description": "Encounter profile for T1D Exchange patient interactions with healthcare providers",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Encounter",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Encounter",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Encounter.extension",
+        "path": "Encounter.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Encounter.extension:encounterLocation",
+        "path": "Encounter.extension",
+        "sliceName": "encounterLocation",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://t1dexchange.org/fhir/StructureDefinition/t1d-encounter-location"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.extension:encounterDuration",
+        "path": "Encounter.extension",
+        "sliceName": "encounterDuration",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://t1dexchange.org/fhir/StructureDefinition/t1d-encounter-duration"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.identifier",
+        "path": "Encounter.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "type"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.identifier:t1d-encounter-id",
+        "path": "Encounter.identifier",
+        "sliceName": "t1d-encounter-id",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.identifier:t1d-encounter-id.type",
+        "path": "Encounter.identifier.type",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "T1D-ENCOUNTER-ID",
+              "system": "http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type"
+            }
+          ]
+        }
+      },
+      {
+        "id": "Encounter.identifier:t1d-encounter-id.system",
+        "path": "Encounter.identifier.system",
+        "patternUri": "http://t1dexchange.org/fhir/encounter-id"
+      },
+      {
+        "id": "Encounter.identifier:t1d-encounter-id.value",
+        "path": "Encounter.identifier.value",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.status",
+        "path": "Encounter.status",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.class",
+        "path": "Encounter.class",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://t1dexchange.org/fhir/ValueSet/t1d-encounter-class-valueset"
+        }
+      },
+      {
+        "id": "Encounter.type",
+        "path": "Encounter.type",
+        "mustSupport": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://t1dexchange.org/fhir/ValueSet/t1d-encounter-type-valueset"
+        }
+      },
+      {
+        "id": "Encounter.subject",
+        "path": "Encounter.subject",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://t1dexchange.org/fhir/StructureDefinition/t1d-patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.participant",
+        "path": "Encounter.participant",
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.participant.individual",
+        "path": "Encounter.participant.individual",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://t1dexchange.org/fhir/StructureDefinition/t1d-provider"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Encounter.period",
+        "path": "Encounter.period",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.period.start",
+        "path": "Encounter.period.start",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Encounter.reasonCode",
+        "path": "Encounter.reasonCode",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "http://t1dexchange.org/fhir/ValueSet/t1d-encounter-reason-valueset"
+        }
+      },
+      {
+        "id": "Encounter.serviceProvider",
+        "path": "Encounter.serviceProvider",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://t1dexchange.org/fhir/StructureDefinition/t1d-organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

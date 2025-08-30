@@ -1,0 +1,54 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "t1d-education-level",
+  "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-education-level",
+  "name": "T1DEducationLevel",
+  "title": "T1D Education Level Extension",
+  "status": "draft",
+  "description": "Education level of patient or parent/legal guardian",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "Patient"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "T1D Education Level Extension",
+        "definition": "Education level of patient or parent/legal guardian"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://t1dexchange.org/fhir/StructureDefinition/t1d-education-level"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://t1dexchange.org/fhir/ValueSet/t1d-education-level-valueset"
+        }
+      }
+    ]
+  }
+}

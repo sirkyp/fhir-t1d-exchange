@@ -1,0 +1,56 @@
+{
+  "resourceType": "MeasureReport",
+  "id": "t1d-measure-report-example",
+  "status": "complete",
+  "type": "summary",
+  "period": {
+    "start": "2023-10-01",
+    "end": "2023-12-31"
+  },
+  "reporter": {
+    "reference": "Organization/T1DOrganizationExample"
+  },
+  "measure": "http://example.org/Measure/hba1c-control",
+  "group": [
+    {
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "code": "initial-population",
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population"
+              }
+            ]
+          },
+          "count": 250
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "code": "numerator",
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population"
+              }
+            ]
+          },
+          "count": 175
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "code": "denominator",
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population"
+              }
+            ]
+          },
+          "count": 250
+        }
+      ],
+      "measureScore": {
+        "value": 0.7
+      }
+    }
+  ]
+}

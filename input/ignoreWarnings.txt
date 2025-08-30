@@ -1,0 +1,16 @@
+== Suppressed Messages ==
+
+# ignore the info msgs about the pinned versions
+Pinned the version%
+
+# ignore the references to draft codesystems as we have many of them
+Reference to draft CodeSystem%
+
+# ignore the IG defined codesystems that do not yet have a formal definition
+No definition could be found for URL value 'http://t1dexchange.org/fhir%
+
+# ignore this info msg (read and understood)
+The repeating element has a pattern%
+
+# ignore deprecated extension warning (auto-generated)
+The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet%

@@ -1,0 +1,117 @@
+{
+  "resourceType": "Bundle",
+  "id": "t1d-quality-report-example",
+  "meta": {
+    "profile": [
+      "http://t1dexchange.org/fhir/StructureDefinition/t1d-quality-report-bundle"
+    ]
+  },
+  "type": "collection",
+  "timestamp": "2024-01-31T23:59:59Z",
+  "entry": [
+    {
+      "fullUrl": "http://example.org/Organization/T1DOrganizationExample",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "T1DOrganizationExample",
+        "meta": {
+          "profile": [
+            "http://t1dexchange.org/fhir/StructureDefinition/t1d-organization"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "T1D-ORG-ID",
+                  "system": "http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type"
+                }
+              ]
+            },
+            "system": "http://t1dexchange.org/fhir/organization-id",
+            "value": "ORG-12345"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "code": "prov",
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "Children's Diabetes Center",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-123-4567"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/MeasureReport/t1d-measure-report-example",
+      "resource": {
+        "resourceType": "MeasureReport",
+        "id": "t1d-measure-report-example",
+        "status": "complete",
+        "type": "summary",
+        "period": {
+          "start": "2023-10-01",
+          "end": "2023-12-31"
+        },
+        "reporter": {
+          "reference": "Organization/T1DOrganizationExample"
+        },
+        "measure": "http://example.org/Measure/hba1c-control",
+        "group": [
+          {
+            "population": [
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "code": "initial-population",
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population"
+                    }
+                  ]
+                },
+                "count": 250
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "code": "numerator",
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population"
+                    }
+                  ]
+                },
+                "count": 175
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "code": "denominator",
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population"
+                    }
+                  ]
+                },
+                "count": 250
+              }
+            ],
+            "measureScore": {
+              "value": 0.7
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

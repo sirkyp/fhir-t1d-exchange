@@ -1,0 +1,43 @@
+{
+  "resourceType": "OperationDefinition",
+  "id": "extract-patient-data",
+  "url": "http://t1dexchange.org/fhir/OperationDefinition/extract-patient-data",
+  "title": "Extract T1D Patient Data",
+  "description": "Operation for extracting comprehensive T1D data for a specific patient",
+  "name": "ExtractT1DPatientData",
+  "status": "active",
+  "kind": "operation",
+  "code": "extract-patient-data",
+  "resource": [
+    "Patient"
+  ],
+  "system": false,
+  "type": false,
+  "instance": true,
+  "parameter": [
+    {
+      "name": "start",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "type": "date",
+      "documentation": "Start date for data extraction (inclusive)"
+    },
+    {
+      "name": "end",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "type": "date",
+      "documentation": "End date for data extraction (inclusive)"
+    },
+    {
+      "name": "return",
+      "use": "out",
+      "min": 1,
+      "max": "1",
+      "type": "Bundle",
+      "documentation": "A Bundle of type 'collection' containing comprehensive T1D data for the patient within the specified date range."
+    }
+  ]
+}

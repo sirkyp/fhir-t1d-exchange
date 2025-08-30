@@ -1,0 +1,31 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "T1DFamilyHistoryConditionValueSet",
+  "id": "t1d-family-history-condition-valueset",
+  "title": "T1D Family History Condition Value Set",
+  "description": "Conditions relevant for family history in T1D",
+  "url": "http://t1dexchange.org/fhir/ValueSet/t1d-family-history-condition-valueset",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "46635009",
+            "display": "Type 1 diabetes mellitus"
+          },
+          {
+            "code": "44054006",
+            "display": "Type 2 diabetes mellitus"
+          },
+          {
+            "code": "73211009",
+            "display": "Diabetes mellitus"
+          }
+        ]
+      }
+    ]
+  }
+}

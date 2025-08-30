@@ -1,0 +1,32 @@
+# FHIR IG Build artifacts
+output/
+temp/
+node_modules/
+cgm-ig/
+t1d-exchange-specs/
+input-cache/
+venv/
+template/
+
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+node_modules

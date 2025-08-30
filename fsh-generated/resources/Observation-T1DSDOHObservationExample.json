@@ -1,0 +1,50 @@
+{
+  "resourceType": "Observation",
+  "id": "T1DSDOHObservationExample",
+  "meta": {
+    "profile": [
+      "http://t1dexchange.org/fhir/StructureDefinition/t1d-sdoh-observation"
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "social-history",
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category"
+        }
+      ]
+    }
+  ],
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "code": "93030-5",
+        "system": "http://loinc.org",
+        "display": "Has lack of transportation kept you from medical appointments, meetings, work, or from getting things needed for daily living"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/T1DPatientExample"
+  },
+  "encounter": {
+    "reference": "Encounter/T1DEncounterExample"
+  },
+  "effectiveDateTime": "2024-01-15T09:15:00Z",
+  "performer": [
+    {
+      "reference": "Practitioner/T1DProviderExample"
+    }
+  ],
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "code": "LA32-8",
+        "system": "http://loinc.org",
+        "display": "No"
+      }
+    ]
+  }
+}

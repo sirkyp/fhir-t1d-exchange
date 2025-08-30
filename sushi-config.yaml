@@ -1,0 +1,67 @@
+id: t1d-exchange
+canonical: http://t1dexchange.org/fhir
+name: T1DExchangeIG
+title: T1D Exchange Implementation Guide
+description: FHIR Implementation Guide for T1D Exchange Data Specification
+status: draft
+version: 0.3.0
+fhirVersion: 4.0.1
+copyrightYear: 2024+
+releaseLabel: STU1
+license: CC0-1.0
+jurisdiction: urn:iso:std:iso:3166#US "United States of America"
+publisher:
+  name: T1D Exchange
+  url: https://t1dexchange.org/
+
+dependencies:
+  hl7.fhir.uv.sdc: 3.0.0
+
+parameters:
+  show-inherited-invariants: false
+  usage-stats-opt-out: false
+  excludexml: false
+  excludejson: false
+  excludettl: true
+  excludemap: true
+  pin-canonicals: pin-all
+
+pages:
+  index.md:
+    title: Home
+  guidance.md:
+    title: Implementation Guidance
+  profiles.md:
+    title: Profiles
+  terminology.md:
+    title: Terminology
+  mapping.md:
+    title: Variable Mapping
+  cgm-comparison.md:
+    title: CGM IG Comparison
+  bundles.md:
+    title: Bundle Patterns
+  examples.md:
+    title: Examples
+  downloads.md:
+    title: Downloads
+
+menu:
+  Home: index.html
+  Guidance:
+    Implementation Guidance: guidance.html
+    Profiles: profiles.html
+    Terminology: terminology.html
+    Variable Mapping: mapping.html
+    Bundle Patterns: bundles.html
+    CGM IG Comparison: cgm-comparison.html
+    Examples: examples.html
+  Artifacts:
+    Profiles: artifacts.html#1
+    Extensions: artifacts.html#2
+    Value Sets: artifacts.html#3
+    Code Systems: artifacts.html#4
+    Examples: artifacts.html#5
+  Support:
+    FHIR Spec: new-tab http://hl7.org/fhir/R4/
+    Downloads: downloads.html

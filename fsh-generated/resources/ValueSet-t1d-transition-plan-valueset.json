@@ -1,0 +1,31 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "T1DTransitionPlanValueSet",
+  "id": "t1d-transition-plan-valueset",
+  "title": "T1D Transition Plan Value Set",
+  "description": "Documented transition plan options",
+  "url": "http://t1dexchange.org/fhir/ValueSet/t1d-transition-plan-valueset",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "182836005",
+            "display": "Medication review"
+          },
+          {
+            "code": "408403008",
+            "display": "Patient referral to specialist"
+          },
+          {
+            "code": "385651009",
+            "display": "In progress"
+          }
+        ]
+      }
+    ]
+  }
+}

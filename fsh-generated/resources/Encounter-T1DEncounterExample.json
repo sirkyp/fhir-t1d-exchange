@@ -1,0 +1,82 @@
+{
+  "resourceType": "Encounter",
+  "id": "T1DEncounterExample",
+  "meta": {
+    "profile": [
+      "http://t1dexchange.org/fhir/StructureDefinition/t1d-encounter"
+    ]
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "T1D-ENCOUNTER-ID",
+            "system": "http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type"
+          }
+        ]
+      },
+      "system": "http://t1dexchange.org/fhir/encounter-id",
+      "value": "ENC-12345"
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-encounter-location",
+      "valueString": "Exam Room 3"
+    },
+    {
+      "valueQuantity": {
+        "unit": "min",
+        "system": "http://unitsofmeasure.org",
+        "value": 30
+      },
+      "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-encounter-duration"
+    }
+  ],
+  "status": "finished",
+  "class": {
+    "code": "AMB",
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "code": "390906007",
+          "system": "http://snomed.info/sct",
+          "display": "Follow-up encounter"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/T1DPatientExample"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "Practitioner/T1DProviderExample"
+      }
+    }
+  ],
+  "period": {
+    "start": "2024-01-15T09:00:00Z",
+    "end": "2024-01-15T09:30:00Z"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "code": "46635009",
+          "system": "http://snomed.info/sct",
+          "display": "Type 1 diabetes mellitus"
+        }
+      ]
+    }
+  ],
+  "serviceProvider": {
+    "reference": "Organization/T1DOrganizationExample"
+  }
+}
