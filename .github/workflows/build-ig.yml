@@ -24,6 +24,15 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
         
+    - name: Setup Ruby and Jekyll
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0'
+        bundler-cache: true
+        
+    - name: Install Jekyll
+      run: gem install jekyll
+        
     - name: Install SUSHI
       run: npm install -g fsh-sushi
       
@@ -44,3 +53,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./output
+        enable_jekyll: false
