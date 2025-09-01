@@ -3,7 +3,7 @@
   "id": "t1d-encounter",
   "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-encounter",
   "name": "T1DEncounter",
-  "title": "T1D Exchange Encounter",
+  "title": "T1D Encounter",
   "status": "draft",
   "description": "Encounter profile for T1D Exchange patient interactions with healthcare providers",
   "fhirVersion": "4.0.1",

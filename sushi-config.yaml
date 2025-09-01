@@ -27,33 +27,45 @@ parameters:
 pages:
   index.md:
     title: Home
-  guidance.md:
-    title: Implementation Guidance
+  overview.md:
+    title: Overview of Implementation
+  implementation.md:
+    title: Technical Implementation
+  quality-metrics.md:
+    title: Quality Metrics
+  workflows.md:
+    title: Implementation Workflows
+  security.md:
+    title: Security & Best Practices
   profiles.md:
     title: Profiles
   terminology.md:
     title: Terminology
   mapping.md:
     title: Variable Mapping
-  cgm-comparison.md:
-    title: CGM IG Comparison
   bundles.md:
     title: Bundle Patterns
   examples.md:
     title: Examples
+  cgm-comparison.md:
+    title: CGM IG Comparison
   downloads.md:
     title: Downloads
 
 menu:
   Home: index.html
   Guidance:
-    Implementation Guidance: guidance.html
+    Overview of Implementation: overview.html
+    Technical Implementation: implementation.html
+    Quality Metrics: quality-metrics.html
+    Implementation Workflows: workflows.html
+    Security & Best Practices: security.html
     Profiles: profiles.html
     Terminology: terminology.html
     Variable Mapping: mapping.html
     Bundle Patterns: bundles.html
-    CGM IG Comparison: cgm-comparison.html
     Examples: examples.html
+    CGM IG Comparison: cgm-comparison.html
   Artifacts:
     Profiles: artifacts.html#1
     Extensions: artifacts.html#2

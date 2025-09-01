@@ -1,7 +1,7 @@
 // T1D Exchange Code Systems
 CodeSystem: T1DIdentifierType
 Id: t1d-identifier-type
-Title: "T1D Exchange Identifier Types"
+Title: "T1D Identifier Types"
 Description: "Identifier types used in T1D Exchange"
 * ^url = "http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type"
 * ^experimental = false
@@ -13,7 +13,7 @@ Description: "Identifier types used in T1D Exchange"
 
 CodeSystem: T1DCodes
 Id: t1d-codes
-Title: "T1D Exchange Codes"
+Title: "T1D Codes"
 Description: "T1D-specific codes for observations and measurements"
 * ^url = "http://t1dexchange.org/fhir/CodeSystem/t1d-codes"
 * ^experimental = false

@@ -3,7 +3,7 @@
   "id": "t1d-provider",
   "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-provider",
   "name": "T1DProvider",
-  "title": "T1D Exchange Provider",
+  "title": "T1D Provider",
   "status": "draft",
   "description": "Provider profile for T1D Exchange including healthcare professionals and facilities",
   "fhirVersion": "4.0.1",

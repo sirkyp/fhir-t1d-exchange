@@ -55,6 +55,22 @@
       },
       {
         "reference": {
+          "reference": "CodeSystem/t1d-codes"
+        },
+        "name": "T1D Codes",
+        "description": "T1D-specific codes for observations and measurements",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/t1d-condition"
+        },
+        "name": "T1D Condition",
+        "description": "Condition profile for T1D Exchange including diabetes and related conditions",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/t1d-condition-category-valueset"
         },
         "name": "T1D Condition Category Value Set",
@@ -119,6 +135,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/t1d-encounter"
+        },
+        "name": "T1D Encounter",
+        "description": "Encounter profile for T1D Exchange patient interactions with healthcare providers",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/t1d-encounter-class-valueset"
         },
         "name": "T1D Encounter Class Value Set",
@@ -163,70 +187,6 @@
         },
         "name": "T1D Encounter Type Value Set",
         "description": "Types of encounters for T1D care",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "CodeSystem/t1d-codes"
-        },
-        "name": "T1D Exchange Codes",
-        "description": "T1D-specific codes for observations and measurements",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/t1d-condition"
-        },
-        "name": "T1D Exchange Condition",
-        "description": "Condition profile for T1D Exchange including diabetes and related conditions",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/t1d-encounter"
-        },
-        "name": "T1D Exchange Encounter",
-        "description": "Encounter profile for T1D Exchange patient interactions with healthcare providers",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "CodeSystem/t1d-identifier-type"
-        },
-        "name": "T1D Exchange Identifier Types",
-        "description": "Identifier types used in T1D Exchange",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/t1d-observation"
-        },
-        "name": "T1D Exchange Observation",
-        "description": "Base observation profile for T1D Exchange data collection",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/t1d-organization"
-        },
-        "name": "T1D Exchange Organization",
-        "description": "Organization profile for T1D Exchange healthcare facilities",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/t1d-patient"
-        },
-        "name": "T1D Exchange Patient",
-        "description": "Patient profile for T1D Exchange data collection including demographics and T1D-specific information",
-        "exampleBoolean": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/t1d-provider"
-        },
-        "name": "T1D Exchange Provider",
-        "description": "Provider profile for T1D Exchange including healthcare professionals and facilities",
         "exampleBoolean": false
       },
       {
@@ -343,6 +303,14 @@
       },
       {
         "reference": {
+          "reference": "CodeSystem/t1d-identifier-type"
+        },
+        "name": "T1D Identifier Types",
+        "description": "Identifier types used in T1D Exchange",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/t1d-insulin-delivery-method"
         },
         "name": "T1D Insulin Delivery Method Extension",
@@ -431,6 +399,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/t1d-observation"
+        },
+        "name": "T1D Observation",
+        "description": "Base observation profile for T1D Exchange data collection",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/t1d-observation-category-valueset"
         },
         "name": "T1D Observation Category Value Set",
@@ -455,6 +431,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/t1d-organization"
+        },
+        "name": "T1D Organization",
+        "description": "Organization profile for T1D Exchange healthcare facilities",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "Organization/T1DOrganizationExample"
         },
         "name": "T1D Organization Example",
@@ -467,6 +451,14 @@
         },
         "name": "T1D Organization Type Value Set",
         "description": "Types of healthcare organizations in T1D Exchange",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/t1d-patient"
+        },
+        "name": "T1D Patient",
+        "description": "Patient profile for T1D Exchange data collection including demographics and T1D-specific information",
         "exampleBoolean": false
       },
       {
@@ -492,6 +484,14 @@
         "name": "T1D Patient Example",
         "description": "Example of a T1D Exchange patient",
         "exampleCanonical": "http://t1dexchange.org/fhir/StructureDefinition/t1d-patient"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/t1d-provider"
+        },
+        "name": "T1D Provider",
+        "description": "Provider profile for T1D Exchange including healthcare professionals and facilities",
+        "exampleBoolean": false
       },
       {
         "reference": {
@@ -585,8 +585,28 @@
           "generation": "markdown"
         },
         {
-          "nameUrl": "guidance.html",
-          "title": "Implementation Guidance",
+          "nameUrl": "overview.html",
+          "title": "Overview of Implementation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "implementation.html",
+          "title": "Technical Implementation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "quality-metrics.html",
+          "title": "Quality Metrics",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "workflows.html",
+          "title": "Implementation Workflows",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "security.html",
+          "title": "Security & Best Practices",
           "generation": "markdown"
         },
         {
@@ -605,11 +625,6 @@
           "generation": "markdown"
         },
         {
-          "nameUrl": "cgm-comparison.html",
-          "title": "CGM IG Comparison",
-          "generation": "markdown"
-        },
-        {
           "nameUrl": "bundles.html",
           "title": "Bundle Patterns",
           "generation": "markdown"
@@ -617,6 +632,11 @@
         {
           "nameUrl": "examples.html",
           "title": "Examples",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "cgm-comparison.html",
+          "title": "CGM IG Comparison",
           "generation": "markdown"
         },
         {

@@ -3,7 +3,7 @@
   "id": "t1d-observation",
   "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-observation",
   "name": "T1DObservation",
-  "title": "T1D Exchange Observation",
+  "title": "T1D Observation",
   "status": "draft",
   "description": "Base observation profile for T1D Exchange data collection",
   "fhirVersion": "4.0.1",

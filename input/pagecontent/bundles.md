@@ -6,7 +6,7 @@ The T1D Exchange Implementation Guide adopts bundle-based patterns for efficient
 
 ### Bundle Profiles
 
-#### T1D Data Submission Bundle
+#### [T1D Data Submission Bundle](StructureDefinition-t1d-data-submission-bundle.html)
 
 The `T1DDataSubmissionBundle` is designed for comprehensive T1D data submission as a single transaction. This bundle type supports:
 
@@ -56,7 +56,7 @@ The `T1DDataSubmissionBundle` is designed for comprehensive T1D data submission 
 }
 ```
 
-#### T1D Patient Data Bundle
+#### [T1D Patient Data Bundle](StructureDefinition-t1d-patient-data-bundle.html)
 
 The `T1DPatientDataBundle` provides comprehensive data for a single patient, supporting:
 
@@ -103,7 +103,7 @@ The `T1DPatientDataBundle` provides comprehensive data for a single patient, sup
 }
 ```
 
-#### T1D Quality Report Bundle
+#### [T1D Quality Report Bundle](StructureDefinition-t1d-quality-report-bundle.html)
 
 The `T1DQualityReportBundle` supports population health reporting and benchmarking:
 
@@ -120,7 +120,7 @@ The `T1DQualityReportBundle` supports population health reporting and benchmarki
 
 ### Operations
 
-#### Submit T1D Data Operation
+#### [Submit T1D Data Operation](OperationDefinition-submit-t1d-data.html)
 
 The `$submit-t1d-data` operation processes T1D data submission bundles:
 
@@ -173,7 +173,7 @@ Example response:
 }
 ```
 
-#### Extract Patient Data Operation
+#### [Extract Patient Data Operation](OperationDefinition-extract-patient-data.html)
 
 The `$extract-patient-data` operation retrieves comprehensive patient data:
 
@@ -263,18 +263,4 @@ Quality improvement initiatives can use bundles for:
 
 ### Comparison with CGM IG
 
-The T1D Exchange bundle patterns are inspired by the HL7 CGM Implementation Guide but adapted for T1D-specific use cases:
-
-#### Similarities
-- Transaction-based submission bundles
-- Sliced entry types for different resource categories
-- Operations for data submission and extraction
-- Focus on batch data processing
-
-#### Differences
-- **Scope**: T1D Exchange covers comprehensive diabetes care vs. CGM-specific data
-- **Use Cases**: Quality improvement focus vs. device data submission
-- **Resource Types**: Broader range of clinical resources vs. observation-centric
-- **Operations**: Patient data extraction vs. device data submission
-
-This approach provides a robust foundation for T1D data exchange while maintaining compatibility with existing FHIR ecosystems and leveraging proven patterns from related implementation guides.
+For a detailed comparison of T1D Exchange bundle patterns with the HL7 CGM Implementation Guide, including similarities, differences, and alignment opportunities, see the [CGM IG Comparison](cgm-comparison.html) page.

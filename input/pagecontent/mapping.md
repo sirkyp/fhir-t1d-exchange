@@ -105,56 +105,6 @@ The T1D Exchange data specifications define variables across multiple domains th
 | RELATIONSHIP | Family member relationship | T1DFamilyHistory | relationship | v3-RoleCode |
 | ONSET_AGE | Age of onset in family member | T1DFamilyHistory | condition.onsetAge | - |
 
-### Implementation Notes
-
-#### Identifier Systems
-
-All T1D Exchange identifiers use consistent system URIs:
-- Patient IDs: `http://t1dexchange.org/fhir/patient-id`
-- Provider IDs: `http://t1dexchange.org/fhir/provider-id`
-- Organization IDs: `http://t1dexchange.org/fhir/organization-id`
-- Encounter IDs: `http://t1dexchange.org/fhir/encounter-id`
-
-#### Units of Measure
-
-All quantity measurements use UCUM codes:
-- Glucose: `mg/dL` or `mmol/L`
-- HbA1c: `%` or `mmol/mol`
-- Time: `min`, `h`, `d`
-- Percentages: `%`
-
-#### Coding Systems
-
-The IG uses standard terminologies where available:
-- **LOINC**: Laboratory and clinical observations
-- **SNOMED CT**: Clinical concepts and conditions
-- **RxNorm**: Medications
-- **UCUM**: Units of measure
-- **HL7 v3**: Administrative codes
-
-#### Custom Terminologies
-
-T1D-specific concepts use custom CodeSystems:
-- `http://t1dexchange.org/fhir/CodeSystem/t1d-codes`
-- `http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type`
-
-### Data Quality Considerations
-
-#### Required vs Optional Elements
-
-Elements marked as **Must Support (MS)** in profiles indicate:
-- **Senders** must populate if data is available
-- **Receivers** must be able to process and store
-- **Critical** for T1D Exchange data quality
-
-#### Data Validation
-
-All mapped elements should be validated against:
-- Profile constraints
-- Value set bindings
-- Cardinality requirements
-- Data type specifications
-
 ### Usage Examples
 
 For complete examples of how these mappings are implemented, see the [Examples](examples.html) page, which provides sample instances for each profile demonstrating proper variable mapping.

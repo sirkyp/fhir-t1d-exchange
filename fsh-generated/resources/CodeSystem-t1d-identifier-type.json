@@ -4,7 +4,7 @@
   "content": "complete",
   "name": "T1DIdentifierType",
   "id": "t1d-identifier-type",
-  "title": "T1D Exchange Identifier Types",
+  "title": "T1D Identifier Types",
   "description": "Identifier types used in T1D Exchange",
   "url": "http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type",
   "concept": [

@@ -1,7 +1,7 @@
 Profile: T1DCondition
 Parent: Condition
 Id: t1d-condition
-Title: "T1D Exchange Condition"
+Title: "T1D Condition"
 Description: "Condition profile for T1D Exchange including diabetes and related conditions"
 
 * category 1..* MS

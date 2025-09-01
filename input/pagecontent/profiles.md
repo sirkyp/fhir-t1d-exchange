@@ -2,12 +2,12 @@ This page provides an overview of the FHIR profiles defined in the T1D Exchange 
 
 ### Patient Profiles
 
-#### T1DPatient
+#### [T1DPatient](StructureDefinition-t1d-patient.html)
 The T1DPatient profile extends the base FHIR Patient resource to include T1D-specific demographic information and identifiers required for the T1D Exchange.
 
 **Key Features:**
 - Required T1D Exchange patient identifier
-- Support for multiple race categories
+
 - Education level extension for patient or guardian
 - Enhanced gender options including non-binary
 
@@ -17,13 +17,11 @@ The T1DPatient profile extends the base FHIR Patient resource to include T1D-spe
 - name
 - gender
 - birthDate
-- race extension
-- ethnicity extension
 - education level extension
 
 ### Provider Profiles
 
-#### T1DProvider
+#### [T1DProvider](StructureDefinition-t1d-provider.html)
 The T1DProvider profile extends the FHIR Practitioner resource for healthcare professionals involved in T1D care.
 
 **Key Features:**
@@ -31,7 +29,13 @@ The T1DProvider profile extends the FHIR Practitioner resource for healthcare pr
 - NPI support for US providers
 - Specialty qualifications relevant to diabetes care
 
-#### T1DOrganization
+**Must Support Elements:**
+- identifier (T1D-PROVIDER-ID and NPI)
+- active status
+- name
+- qualification (with T1D specialty codes)
+
+#### [T1DOrganization](StructureDefinition-t1d-organization.html)
 The T1DOrganization profile extends the FHIR Organization resource for healthcare facilities and organizations.
 
 **Key Features:**
@@ -39,9 +43,15 @@ The T1DOrganization profile extends the FHIR Organization resource for healthcar
 - Organization type classification
 - Contact and address information
 
+**Must Support Elements:**
+- identifier (T1D-ORG-ID)
+- active status
+- type (with T1D organization types)
+- name
+
 ### Encounter Profiles
 
-#### T1DEncounter
+#### [T1DEncounter](StructureDefinition-t1d-encounter.html)
 The T1DEncounter profile extends the FHIR Encounter resource to capture T1D-specific encounter information.
 
 **Key Features:**
@@ -50,9 +60,20 @@ The T1DEncounter profile extends the FHIR Encounter resource to capture T1D-spec
 - Extensions for location and duration
 - Links to T1D patients and providers
 
+**Must Support Elements:**
+- identifier (T1D-ENCOUNTER-ID)
+- class (with T1D encounter classes)
+- type (with T1D encounter types)
+- subject (reference to T1DPatient)
+- participant (reference to T1DProvider)
+- period and start time
+- reasonCode (with T1D reason codes)
+- serviceProvider (reference to T1DOrganization)
+- encounter duration extension
+
 ### Observation Profiles
 
-#### T1DObservation (Base)
+#### [T1DObservation](StructureDefinition-t1d-observation.html) (Base)
 The base observation profile for all T1D Exchange observations.
 
 **Key Features:**
@@ -60,7 +81,7 @@ The base observation profile for all T1D Exchange observations.
 - Required subject and effective date
 - Support for T1D-specific codes
 
-#### T1DGlucoseObservation
+#### [T1DGlucoseObservation](StructureDefinition-t1d-glucose-observation.html)
 Specialized profile for glucose measurements and monitoring data.
 
 **Key Features:**
@@ -68,7 +89,7 @@ Specialized profile for glucose measurements and monitoring data.
 - Components for BGM mean, CGM metrics, and time in range
 - Support for both mg/dL and mmol/L units
 
-#### T1DHbA1cObservation
+#### [T1DHbA1cObservation](StructureDefinition-t1d-hba1c-observation.html)
 Specialized profile for Hemoglobin A1c laboratory results.
 
 **Key Features:**
@@ -76,7 +97,7 @@ Specialized profile for Hemoglobin A1c laboratory results.
 - Support for percentage and mmol/mol units
 - Laboratory category classification
 
-#### T1DSDOHObservation
+#### [T1DSDOHObservation](StructureDefinition-t1d-sdoh-observation.html)
 Specialized profile for Social Determinants of Health observations.
 
 **Key Features:**
@@ -86,7 +107,7 @@ Specialized profile for Social Determinants of Health observations.
 
 ### Condition Profiles
 
-#### T1DCondition
+#### [T1DCondition](StructureDefinition-t1d-condition.html)
 The T1DCondition profile extends the FHIR Condition resource for T1D and related conditions.
 
 **Key Features:**
@@ -95,7 +116,16 @@ The T1DCondition profile extends the FHIR Condition resource for T1D and related
 - Transition plan documentation
 - Support for complications and comorbidities
 
-#### T1DFamilyHistory
+**Must Support Elements:**
+- category (with T1D condition categories)
+- code (with T1D condition codes)
+- subject (reference to T1DPatient)
+- encounter (reference to T1DEncounter)
+- onset date/time
+- diagnosis date extension
+- transition plan extension
+
+#### [T1DFamilyHistory](StructureDefinition-t1d-family-history.html)
 The T1DFamilyHistory profile extends the FHIR FamilyMemberHistory resource for diabetes family history.
 
 **Key Features:**
@@ -105,7 +135,7 @@ The T1DFamilyHistory profile extends the FHIR FamilyMemberHistory resource for d
 
 ### Medication Profiles
 
-#### T1DMedicationRequest
+#### [T1DMedicationRequest](StructureDefinition-t1d-medication-request.html)
 The T1DMedicationRequest profile extends the FHIR MedicationRequest resource for T1D medications.
 
 **Key Features:**
@@ -114,7 +144,7 @@ The T1DMedicationRequest profile extends the FHIR MedicationRequest resource for
 - Delivery method extension (pump, pen, syringe)
 - Dosage and timing information
 
-#### T1DMedicationStatement
+#### [T1DMedicationStatement](StructureDefinition-t1d-medication-statement.html)
 The T1DMedicationStatement profile extends the FHIR MedicationStatement resource for documenting current medications.
 
 **Key Features:**
@@ -145,8 +175,7 @@ The implementation guide defines several extensions to capture T1D-specific info
 
 | Extension | Purpose | Used In |
 |-----------|---------|---------|
-| T1DRace | Multiple race categories | T1DPatient |
-| T1DEthnicity | Ethnicity information | T1DPatient |
+
 | T1DEducationLevel | Education level | T1DPatient |
 | T1DDiagnosisDate | T1D diagnosis date | T1DCondition |
 | T1DTransitionPlan | Pediatric to adult transition | T1DCondition |

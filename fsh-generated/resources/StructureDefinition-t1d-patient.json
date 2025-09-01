@@ -3,7 +3,7 @@
   "id": "t1d-patient",
   "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-patient",
   "name": "T1DPatient",
-  "title": "T1D Exchange Patient",
+  "title": "T1D Patient",
   "status": "draft",
   "description": "Patient profile for T1D Exchange data collection including demographics and T1D-specific information",
   "fhirVersion": "4.0.1",

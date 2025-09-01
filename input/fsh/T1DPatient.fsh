@@ -1,7 +1,7 @@
 Profile: T1DPatient
 Parent: Patient
 Id: t1d-patient
-Title: "T1D Exchange Patient"
+Title: "T1D Patient"
 Description: "Patient profile for T1D Exchange data collection including demographics and T1D-specific information"
 
 * identifier 1..* MS

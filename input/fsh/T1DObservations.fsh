@@ -1,7 +1,7 @@
 Profile: T1DObservation
 Parent: Observation
 Id: t1d-observation
-Title: "T1D Exchange Observation"
+Title: "T1D Observation"
 Description: "Base observation profile for T1D Exchange data collection"
 
 * identifier MS

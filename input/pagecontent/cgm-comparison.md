@@ -14,19 +14,23 @@ This page compares the T1D Exchange Implementation Guide with the HL7 Continuous
 
 ### Key Architectural Differences
 
-#### Data Exchange Patterns
+#### Data Exchange Patterns and Bundle Structures
 
 **T1D Exchange IG:**
-- Traditional FHIR resource exchange
-- Profile-based constraints
+- Traditional FHIR resource exchange with bundle patterns for batch processing
+- Profile-based constraints with transaction-based submission bundles
 - Quality metric calculation support
-- Multi-domain clinical data
+- Multi-domain clinical data with sliced entry types for different resource categories
+- Operations for both data submission and patient data extraction
+- Broader range of clinical resources (comprehensive diabetes care)
 
 **HL7 CGM IG:**
 - Bundle-based data submission (`$submit-cgm-bundle` operation)
 - Standing order mechanism for automated submissions
-- Device-centric data flow
-- CGM-specific focus
+- Device-centric data flow with observation-centric focus
+- CGM-specific focus on device data submission
+- Transaction bundles with multiple related observations
+- Automated processing workflows
 
 #### Profile Structure Comparison
 
@@ -140,17 +144,20 @@ The T1D Exchange IG could adopt HL7 CGM's standardized glucose range definitions
     t1d-codes 0..1
 ```
 
-#### Bundle Structure
+#### Bundle Structure Integration
 
-**CGM IG Pattern:**
-- Transaction bundles with multiple related observations
-- Batch submission of device data
-- Automated processing workflows
+**Shared Patterns:**
+- Transaction-based submission bundles
+- Sliced entry types for different resource categories
+- Focus on batch data processing
+- Operations for data submission and extraction
 
-**T1D Exchange Integration:**
+**T1D Exchange Adaptations:**
 - Adopt bundle patterns for CGM data within T1D encounters
 - Maintain individual resource exchange for non-CGM data
 - Support both patterns based on use case
+- Extended scope covering comprehensive diabetes care vs. CGM-specific data
+- Quality improvement focus vs. device data submission emphasis
 
 ### Conclusion
 
@@ -166,3 +173,7 @@ The T1D Exchange IG and HL7 CGM IG serve complementary purposes:
 4. Consider HL7 CGM IG as a dependency for glucose monitoring components
 
 This alignment would provide T1D Exchange implementers with both standardized CGM data exchange capabilities and comprehensive T1D care management support.
+
+### Summary
+
+The T1D Exchange bundle patterns are inspired by the HL7 CGM Implementation Guide but adapted for comprehensive T1D care use cases. This approach provides a robust foundation for T1D data exchange while maintaining compatibility with existing FHIR ecosystems and leveraging proven patterns from related implementation guides.

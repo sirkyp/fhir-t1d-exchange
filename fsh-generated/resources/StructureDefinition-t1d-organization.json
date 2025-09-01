@@ -3,7 +3,7 @@
   "id": "t1d-organization",
   "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-organization",
   "name": "T1DOrganization",
-  "title": "T1D Exchange Organization",
+  "title": "T1D Organization",
   "status": "draft",
   "description": "Organization profile for T1D Exchange healthcare facilities",
   "fhirVersion": "4.0.1",

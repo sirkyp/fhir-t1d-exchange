@@ -1,7 +1,7 @@
 Profile: T1DEncounter
 Parent: Encounter
 Id: t1d-encounter
-Title: "T1D Exchange Encounter"
+Title: "T1D Encounter"
 Description: "Encounter profile for T1D Exchange patient interactions with healthcare providers"
 
 * identifier 1..* MS

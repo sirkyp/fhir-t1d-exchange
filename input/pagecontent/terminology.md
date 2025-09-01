@@ -2,7 +2,7 @@ This page describes the terminology resources (CodeSystems and ValueSets) define
 
 ### Code Systems
 
-#### T1DIdentifierType
+#### [T1DIdentifierType](CodeSystem-t1d-identifier-type.html)
 **URL:** `http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type`
 
 Defines identifier types used throughout the T1D Exchange system.
@@ -14,7 +14,7 @@ Defines identifier types used throughout the T1D Exchange system.
 | T1D-ORG-ID | T1D Organization ID | T1D Exchange organization identifier |
 | T1D-ENCOUNTER-ID | T1D Encounter ID | T1D Exchange encounter identifier |
 
-#### T1DCodes
+#### [T1DCodes](CodeSystem-t1d-codes.html)
 **URL:** `http://t1dexchange.org/fhir/CodeSystem/t1d-codes`
 
 T1D-specific codes for observations, measurements, and other clinical concepts.
@@ -36,26 +36,26 @@ T1D-specific codes for observations, measurements, and other clinical concepts.
 
 #### Demographics
 
-##### T1DGenderValueSet
+##### [T1DGenderValueSet](ValueSet-t1d-gender-valueset.html)
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-gender-valueset`
 
 Gender values including non-binary option for T1D Exchange.
 - Includes all codes from `http://hl7.org/fhir/administrative-gender`
 - Supports: male, female, other, unknown
 
-##### T1DRaceValueSet
+##### [T1DRaceValueSet](ValueSet-t1d-race-valueset.html)
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-race-valueset`
 
 Race categories for T1D Exchange based on OMB standards.
 - Includes codes from `urn:oid:2.16.840.1.113883.6.238` (Race and Ethnicity - CDC)
 
-##### T1DEthnicityValueSet
+##### [T1DEthnicityValueSet](ValueSet-t1d-ethnicity-valueset.html)
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-ethnicity-valueset`
 
 Ethnicity categories for T1D Exchange based on OMB standards.
 - Includes codes from `urn:oid:2.16.840.1.113883.6.238` (Race and Ethnicity - CDC)
 
-##### T1DEducationLevelValueSet
+##### [T1DEducationLevelValueSet](ValueSet-t1d-education-level-valueset.html)
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-education-level-valueset`
 
 Education level categories for patients or guardians.

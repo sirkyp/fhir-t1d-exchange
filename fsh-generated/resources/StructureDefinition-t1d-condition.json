@@ -3,7 +3,7 @@
   "id": "t1d-condition",
   "url": "http://t1dexchange.org/fhir/StructureDefinition/t1d-condition",
   "name": "T1DCondition",
-  "title": "T1D Exchange Condition",
+  "title": "T1D Condition",
   "status": "draft",
   "description": "Condition profile for T1D Exchange including diabetes and related conditions",
   "fhirVersion": "4.0.1",

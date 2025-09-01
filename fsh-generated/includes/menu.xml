@@ -19,7 +19,19 @@
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="guidance.html">Implementation Guidance</a>
+        <a href="overview.html">Overview of Implementation</a>
+      </li>
+      <li>
+        <a href="implementation.html">Technical Implementation</a>
+      </li>
+      <li>
+        <a href="quality-metrics.html">Quality Metrics</a>
+      </li>
+      <li>
+        <a href="workflows.html">Implementation Workflows</a>
+      </li>
+      <li>
+        <a href="security.html">Security &amp; Best Practices</a>
       </li>
       <li>
         <a href="profiles.html">Profiles</a>
@@ -34,10 +46,10 @@
         <a href="bundles.html">Bundle Patterns</a>
       </li>
       <li>
-        <a href="cgm-comparison.html">CGM IG Comparison</a>
+        <a href="examples.html">Examples</a>
       </li>
       <li>
-        <a href="examples.html">Examples</a>
+        <a href="cgm-comparison.html">CGM IG Comparison</a>
       </li>
     </ul>
   </li>

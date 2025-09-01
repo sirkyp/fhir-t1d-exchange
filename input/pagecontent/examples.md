@@ -180,35 +180,6 @@ A complete patient record bundle containing related resources.
 **Use Case:**
 Demonstrates how to submit a complete patient encounter with all related clinical data in a single FHIR Bundle.
 
-### Data Mapping Examples
-
-#### Excel to FHIR Mapping
-
-The following table shows how data elements from the original Excel specifications map to FHIR elements:
-
-| Excel Column | FHIR Resource | FHIR Element | Example Value |
-|--------------|---------------|--------------|---------------|
-| patient_id | Patient | identifier[t1d-id].value | T1D-12345 |
-| mrn | Patient | identifier[mrn].value | MRN-67890 |
-| first_name | Patient | name.given | John |
-| last_name | Patient | name.family | Smith |
-| gender | Patient | gender | male |
-| birth_date | Patient | birthDate | 2010-05-15 |
-| race_1 | Patient | extension[race].valueCodeableConcept | 2106-3 |
-| education_level | Patient | extension[educationLevel].valueCodeableConcept | ELEM |
-| provider_id | Practitioner | identifier[t1d-provider-id].value | PROV-12345 |
-| encounter_id | Encounter | identifier[t1d-encounter-id].value | ENC-12345 |
-| encounter_date | Encounter | period.start | 2024-01-15T09:00:00Z |
-| observation_id | Observation | identifier.value | OBS-12345 |
-| code | Observation | code.coding.code | 2339-0 |
-| value | Observation | valueQuantity.value | 150 |
-| units | Observation | valueQuantity.unit | mg/dL |
-| t1d_dx_dt | Condition | extension[diagnosisDate].valueDate | 2010-08-20 |
-| bgm_mean | Observation | component[bgmMean].valueQuantity.value | 145 |
-| ins_regimen | MedicationRequest | extension[insulinRegimen].valueCodeableConcept | basal-bolus |
-
-
-
 ### Testing Scenarios
 
 #### Scenario 1: New Patient Registration

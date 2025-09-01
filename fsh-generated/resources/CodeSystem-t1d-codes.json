@@ -4,7 +4,7 @@
   "content": "complete",
   "name": "T1DCodes",
   "id": "t1d-codes",
-  "title": "T1D Exchange Codes",
+  "title": "T1D Codes",
   "description": "T1D-specific codes for observations and measurements",
   "url": "http://t1dexchange.org/fhir/CodeSystem/t1d-codes",
   "concept": [

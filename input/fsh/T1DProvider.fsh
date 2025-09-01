@@ -1,7 +1,7 @@
 Profile: T1DProvider
 Parent: Practitioner
 Id: t1d-provider
-Title: "T1D Exchange Provider"
+Title: "T1D Provider"
 Description: "Provider profile for T1D Exchange including healthcare professionals and facilities"
 
 * identifier 1..* MS
@@ -28,7 +28,7 @@ Description: "Provider profile for T1D Exchange including healthcare professiona
 Profile: T1DOrganization
 Parent: Organization
 Id: t1d-organization
-Title: "T1D Exchange Organization"
+Title: "T1D Organization"
 Description: "Organization profile for T1D Exchange healthcare facilities"
 
 * identifier 1..* MS
