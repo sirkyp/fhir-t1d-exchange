@@ -4,12 +4,8 @@ Id: t1d-condition
 Title: "T1D Exchange Condition"
 Description: "Condition profile for T1D Exchange including diabetes and related conditions"
 
-* identifier MS
-* clinicalStatus 1..1 MS
-* verificationStatus 1..1 MS
 * category 1..* MS
 * category from T1DConditionCategoryValueSet (required)
-* severity MS
 * code 1..1 MS
 * code from T1DConditionCodeValueSet (preferred)
 * subject 1..1 MS
@@ -17,11 +13,6 @@ Description: "Condition profile for T1D Exchange including diabetes and related 
 * encounter MS
 * encounter only Reference(T1DEncounter)
 * onset[x] MS
-* recordedDate MS
-* recorder MS
-* recorder only Reference(T1DProvider)
-* asserter MS
-* asserter only Reference(T1DProvider or T1DPatient)
 
 * extension contains
     T1DDiagnosisDate named diagnosisDate 0..1 MS and
@@ -50,10 +41,8 @@ Id: t1d-family-history
 Title: "T1D Family History"
 Description: "Family history profile for diabetes and related conditions"
 
-* status 1..1 MS
 * patient 1..1 MS
 * patient only Reference(T1DPatient)
-* date MS
 * relationship 1..1 MS
 * relationship from T1DFamilyRelationshipValueSet (required)
 * condition MS

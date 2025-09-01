@@ -1,26 +1,24 @@
-# T1D Exchange Implementation Guide
-
-## Introduction
+### Introduction
 
 The T1D Exchange Implementation Guide (IG) provides a standardized approach for exchanging health information related to Type 1 Diabetes (T1D) management. This guide facilitates interoperability between different healthcare systems and applications by defining FHIR profiles, extensions, and terminology specific to T1D care.
 
-## Background
+### Background
 
 The T1D Exchange Quality Improvement Collaborative (T1DX-QI) is a multi-site research initiative focused on improving outcomes for people with Type 1 diabetes through standardized data collection, analysis, and quality improvement efforts. This implementation guide supports the T1D Exchange mission by enabling:
 
-### Core Capabilities
+#### Core Capabilities
 - Standardized FHIR profiles for T1D-specific data elements
 - Extensions for capturing T1D-specific information not covered by base FHIR resources
 - Terminology and value sets for consistent coding
 - Implementation guidance for developers and healthcare organizations
 
-### Quality Improvement Support
+#### Quality Improvement Support
 - **Benchmarking**: Enable comparison of care quality across healthcare systems
 - **Population Health**: Support aggregate analysis for T1D care improvement
 - **Research Integration**: Facilitate clinical research data collection and analysis
 - **Quality Metrics**: Automated calculation of key T1D care performance indicators
 
-## Scope
+### Scope
 
 This implementation guide covers the following areas of T1D care:
 
@@ -32,7 +30,7 @@ This implementation guide covers the following areas of T1D care:
 - **Medications**: Insulin therapy, delivery methods, and other T1D-related medications
 - **Social Determinants of Health**: Transportation and housing security factors affecting T1D management
 
-## Key Features
+### Key Features
 
 - **FHIR R4 Compliance**: All profiles are based on FHIR R4 (4.0.1) specifications
 - **T1D-Specific Extensions**: Custom extensions for T1D-specific data elements
@@ -41,7 +39,7 @@ This implementation guide covers the following areas of T1D care:
 - **Research-Ready**: Structured for clinical research and population health analysis
 - **Implementation Examples**: Sample instances demonstrating proper usage
 
-## Getting Started
+### Getting Started
 
 To implement this guide:
 
@@ -50,7 +48,7 @@ To implement this guide:
 3. Review the [Terminology](terminology.html) for coding requirements
 4. Study the [Examples](examples.html) for implementation patterns
 
-## Conformance
+### Conformance
 
 Systems claiming conformance to this implementation guide must:
 
@@ -59,20 +57,20 @@ Systems claiming conformance to this implementation guide must:
 - Implement the specified extensions for T1D-specific data
 - Follow the implementation guidance provided
 
-## Support
+### Support
 
 For questions or support regarding this implementation guide, please contact the T1D Exchange team at [support@t1dexchange.org](mailto:support@t1dexchange.org).
 
-## Implementation Guide Information
+### Implementation Guide Information
 
-### Intellectual Property Statements
+#### Intellectual Property Statements
 {% include ip-statements.xhtml %}
 
-### Cross Version Analysis
+#### Cross Version Analysis
 {% include cross-version-analysis.xhtml %}
 
-### Dependency Table
+#### Dependency Table
 {% include dependency-table.xhtml %}
 
-### Global Profiles
+#### Global Profiles
 {% include globals-table.xhtml %}

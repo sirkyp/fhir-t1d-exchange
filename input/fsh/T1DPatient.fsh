@@ -22,12 +22,9 @@ Description: "Patient profile for T1D Exchange data collection including demogra
 
 * active 1..1 MS
 * name 1..* MS
-* telecom MS
 * gender 1..1 MS
 * gender from T1DGenderValueSet (required)
 * birthDate 1..1 MS
-* address MS
-* contact MS
 
 * extension contains
     T1DEducationLevel named educationLevel 0..1 MS

@@ -22,10 +22,6 @@ Description: "Provider profile for T1D Exchange including healthcare professiona
 
 * active 1..1 MS
 * name 1..* MS
-* telecom MS
-* address MS
-* gender MS
-* birthDate MS
 * qualification MS
 * qualification.code from T1DProviderSpecialtyValueSet (preferred)
 
@@ -50,5 +46,3 @@ Description: "Organization profile for T1D Exchange healthcare facilities"
 * type MS
 * type from T1DOrganizationTypeValueSet (preferred)
 * name 1..1 MS
-* telecom MS
-* address MS

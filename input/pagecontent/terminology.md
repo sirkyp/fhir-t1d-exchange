@@ -1,10 +1,8 @@
-# Terminology
-
 This page describes the terminology resources (CodeSystems and ValueSets) defined in the T1D Exchange Implementation Guide.
 
-## Code Systems
+### Code Systems
 
-### T1DIdentifierType
+#### T1DIdentifierType
 **URL:** `http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type`
 
 Defines identifier types used throughout the T1D Exchange system.
@@ -16,7 +14,7 @@ Defines identifier types used throughout the T1D Exchange system.
 | T1D-ORG-ID | T1D Organization ID | T1D Exchange organization identifier |
 | T1D-ENCOUNTER-ID | T1D Encounter ID | T1D Exchange encounter identifier |
 
-### T1DCodes
+#### T1DCodes
 **URL:** `http://t1dexchange.org/fhir/CodeSystem/t1d-codes`
 
 T1D-specific codes for observations, measurements, and other clinical concepts.
@@ -34,30 +32,30 @@ T1D-specific codes for observations, measurements, and other clinical concepts.
 | transportation-insecurity | Transportation Insecurity | Transportation access challenges |
 | housing-insecurity | Housing Insecurity | Housing stability challenges |
 
-## Value Sets
+### Value Sets
 
-### Demographics
+#### Demographics
 
-#### T1DGenderValueSet
+##### T1DGenderValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-gender-valueset`
 
 Gender values including non-binary option for T1D Exchange.
 - Includes all codes from `http://hl7.org/fhir/administrative-gender`
 - Supports: male, female, other, unknown
 
-#### T1DRaceValueSet
+##### T1DRaceValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-race-valueset`
 
 Race categories for T1D Exchange based on OMB standards.
 - Includes codes from `urn:oid:2.16.840.1.113883.6.238` (Race and Ethnicity - CDC)
 
-#### T1DEthnicityValueSet
+##### T1DEthnicityValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-ethnicity-valueset`
 
 Ethnicity categories for T1D Exchange based on OMB standards.
 - Includes codes from `urn:oid:2.16.840.1.113883.6.238` (Race and Ethnicity - CDC)
 
-#### T1DEducationLevelValueSet
+##### T1DEducationLevelValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-education-level-valueset`
 
 Education level categories for patients or guardians.
@@ -68,9 +66,9 @@ Education level categories for patients or guardians.
 - College or baccalaureate degree complete
 - Doctoral or post graduate education
 
-### Provider and Organization
+#### Provider and Organization
 
-#### T1DProviderSpecialtyValueSet
+##### T1DProviderSpecialtyValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-provider-specialty-valueset`
 
 Healthcare provider specialties relevant to T1D care.
@@ -81,7 +79,7 @@ Healthcare provider specialties relevant to T1D care.
 - Clinical Nurse Specialist
 - Dietitian, Registered
 
-#### T1DOrganizationTypeValueSet
+##### T1DOrganizationTypeValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-organization-type-valueset`
 
 Types of healthcare organizations in T1D Exchange.
@@ -89,9 +87,9 @@ Types of healthcare organizations in T1D Exchange.
 - Hospital Department
 - Organizational team
 
-### Encounters
+#### Encounters
 
-#### T1DEncounterClassValueSet
+##### T1DEncounterClassValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-encounter-class-valueset`
 
 Encounter classes for T1D Exchange.
@@ -100,7 +98,7 @@ Encounter classes for T1D Exchange.
 - emergency
 - virtual
 
-#### T1DEncounterTypeValueSet
+##### T1DEncounterTypeValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-encounter-type-valueset`
 
 Types of encounters for T1D care.
@@ -109,9 +107,9 @@ Types of encounters for T1D care.
 - Encounter for problem
 - Consultation
 
-### Observations
+#### Observations
 
-#### T1DGlucoseCodeValueSet
+##### T1DGlucoseCodeValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-glucose-code-valueset`
 
 Glucose measurement codes from LOINC.
@@ -120,21 +118,21 @@ Glucose measurement codes from LOINC.
 - 15074-8: Glucose [Moles/volume] in Blood
 - 33747-0: Glucose [Mass/volume] in Capillary blood
 
-#### T1DGlucoseUnitsValueSet
+##### T1DGlucoseUnitsValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-glucose-units-valueset`
 
 Units for glucose measurements.
 - mg/dL (preferred for T1D Exchange)
 - mmol/L
 
-#### T1DHbA1cUnitsValueSet
+##### T1DHbA1cUnitsValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-hba1c-units-valueset`
 
 Units for HbA1c measurements.
 - % (percentage)
 - mmol/mol
 
-#### T1DSDOHCodeValueSet
+##### T1DSDOHCodeValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-sdoh-code-valueset`
 
 Social determinants of health codes from LOINC.
@@ -142,9 +140,9 @@ Social determinants of health codes from LOINC.
 - 93033-9: Housing concerns
 - 97063-2: Family history of diabetes
 
-### Conditions
+#### Conditions
 
-#### T1DConditionCodeValueSet
+##### T1DConditionCodeValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-condition-code-valueset`
 
 Condition codes relevant to T1D Exchange from SNOMED CT.
@@ -154,9 +152,9 @@ Condition codes relevant to T1D Exchange from SNOMED CT.
 - 230572002: Diabetic neuropathy
 - 421895002: Diabetic ketoacidosis
 
-### Medications
+#### Medications
 
-#### T1DMedicationCodeValueSet
+##### T1DMedicationCodeValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-medication-code-valueset`
 
 Medications relevant to T1D treatment from RxNorm.
@@ -164,7 +162,7 @@ Medications relevant to T1D treatment from RxNorm.
 - Metformin
 - Glucagon
 
-#### T1DInsulinRegimenValueSet
+##### T1DInsulinRegimenValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-insulin-regimen-valueset`
 
 Types of insulin regimens for T1D patients.
@@ -173,7 +171,7 @@ Types of insulin regimens for T1D patients.
 - Mixed Insulin
 - Other
 
-#### T1DInsulinDeliveryValueSet
+##### T1DInsulinDeliveryValueSet
 **URL:** `http://t1dexchange.org/fhir/ValueSet/t1d-insulin-delivery-valueset`
 
 Methods of insulin delivery from SNOMED CT.
@@ -181,57 +179,57 @@ Methods of insulin delivery from SNOMED CT.
 - Insulin pen
 - Syringe
 
-## External Terminologies
+### External Terminologies
 
 The T1D Exchange IG leverages several external terminology systems:
 
-### LOINC
+#### LOINC
 Used for laboratory tests and clinical observations.
 - **URL:** `http://loinc.org`
 - **Key codes:** HbA1c, glucose measurements, SDOH questions
 
-### SNOMED CT
+#### SNOMED CT
 Used for clinical concepts, conditions, and procedures.
 - **URL:** `http://snomed.info/sct`
 - **Key codes:** Diabetes conditions, medications, procedures
 
-### RxNorm
+#### RxNorm
 Used for medication coding.
 - **URL:** `http://www.nlm.nih.gov/research/umls/rxnorm`
 - **Key codes:** Insulin products, diabetes medications
 
-### UCUM
+#### UCUM
 Used for units of measure.
 - **URL:** `http://unitsofmeasure.org`
 - **Key units:** mg/dL, mmol/L, %, units
 
-### HL7 Terminologies
+#### HL7 Terminologies
 Used for administrative and structural codes.
 - **Administrative Gender:** `http://hl7.org/fhir/administrative-gender`
 - **Observation Categories:** `http://terminology.hl7.org/CodeSystem/observation-category`
 - **Condition Categories:** `http://terminology.hl7.org/CodeSystem/condition-category`
 
-## Usage Guidelines
+### Usage Guidelines
 
-### Preferred Terminologies
+#### Preferred Terminologies
 - Use LOINC for all laboratory and observation codes
 - Use SNOMED CT for clinical conditions and procedures
 - Use RxNorm for medication identification
 - Use UCUM for all units of measure
 
-### Code Selection
+#### Code Selection
 - Always include both code and display values
 - Use the most specific code available
 - Include system URLs in all coding elements
 - Support multiple coding systems where applicable
 
-### Value Set Binding Strength
+#### Value Set Binding Strength
 - **Required:** Must use codes from the specified value set
 - **Extensible:** Should use codes from the value set, but may use others if needed
 - **Preferred:** Encouraged to use codes from the value set
 - **Example:** Value set provides examples, but any appropriate code may be used
 
-### Localization
+#### Localization
 - All display values are provided in English
 - Implementers may provide translations for local use
 - Code values remain constant across languages

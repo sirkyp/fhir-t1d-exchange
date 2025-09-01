@@ -1,8 +1,8 @@
-# CGM IG Comparison and Alignment
+
 
 This page compares the T1D Exchange Implementation Guide with the HL7 Continuous Glucose Monitoring (CGM) Implementation Guide to identify alignment opportunities and complementary capabilities.
 
-## Overview Comparison
+### Overview Comparison
 
 | Aspect | T1D Exchange IG | HL7 CGM IG |
 |--------|-----------------|------------|
@@ -12,9 +12,9 @@ This page compares the T1D Exchange Implementation Guide with the HL7 Continuous
 | **Jurisdiction** | T1D Exchange collaborative | Universal (worldwide) |
 | **Maturity** | Development | STU 1 Ballot |
 
-## Key Architectural Differences
+### Key Architectural Differences
 
-### Data Exchange Patterns
+#### Data Exchange Patterns
 
 **T1D Exchange IG:**
 - Traditional FHIR resource exchange
@@ -28,9 +28,9 @@ This page compares the T1D Exchange Implementation Guide with the HL7 Continuous
 - Device-centric data flow
 - CGM-specific focus
 
-### Profile Structure Comparison
+#### Profile Structure Comparison
 
-#### Glucose Observations
+##### Glucose Observations
 
 **T1D Exchange Approach:**
 ```fsh
@@ -49,25 +49,25 @@ Parent: T1DObservation
 - cgm-sensor-reading-mass-per-volume
 ```
 
-## Complementary Capabilities
+### Complementary Capabilities
 
-### T1D Exchange Strengths
+#### T1D Exchange Strengths
 - **Comprehensive Care Context**: Includes providers, encounters, medications, conditions
 - **Quality Improvement Focus**: Built-in support for T1D care quality metrics
 - **Social Determinants**: SDOH screening and family history
 - **Care Transitions**: Pediatric to adult care planning
 - **Research Integration**: Population health and benchmarking support
 
-### HL7 CGM Strengths
+#### HL7 CGM Strengths
 - **Standardized CGM Metrics**: Detailed glucose range definitions with LOINC codes
 - **Device Integration**: Robust device modeling and data submission workflows
 - **Automated Submission**: Standing order mechanism for regular data updates
 - **Precision Specifications**: Exact glucose range thresholds and calculations
 - **International Standards**: HL7-approved universal CGM data exchange
 
-## Alignment Opportunities
+### Alignment Opportunities
 
-### 1. CGM Metric Standardization
+#### 1. CGM Metric Standardization
 
 The T1D Exchange IG could adopt HL7 CGM's standardized glucose range definitions:
 
@@ -80,7 +80,7 @@ The T1D Exchange IG could adopt HL7 CGM's standardized glucose range definitions
 - Use LOINC codes where available (e.g., `97510-2` for time in target range)
 - Implement precise range thresholds as defined in CGM IG
 
-### 2. Device Modeling
+#### 2. Device Modeling
 
 **Current T1D Exchange:**
 - Basic device information in observations
@@ -91,7 +91,7 @@ The T1D Exchange IG could adopt HL7 CGM's standardized glucose range definitions
 - Include device metadata and capabilities
 - Support device-specific data submission patterns
 
-### 3. Data Submission Workflows
+#### 3. Data Submission Workflows
 
 **Current T1D Exchange:**
 - Traditional FHIR resource exchange
@@ -102,9 +102,9 @@ The T1D Exchange IG could adopt HL7 CGM's standardized glucose range definitions
 - Add standing order mechanism for automated CGM data collection
 - Support scheduled data submission workflows
 
-## Implementation Recommendations
+### Implementation Recommendations
 
-### Short-term Alignment
+#### Short-term Alignment
 
 1. **Adopt CGM Range Definitions**
    - Update T1DGlucoseObservation to use HL7 CGM's five glucose ranges
@@ -115,7 +115,7 @@ The T1D Exchange IG could adopt HL7 CGM's standardized glucose range definitions
    - Reference CGM IG's device modeling approach
    - Add device-specific extensions where needed for T1D context
 
-### Long-term Integration
+#### Long-term Integration
 
 1. **Hybrid Approach**
    - Use HL7 CGM IG for pure CGM data exchange
@@ -127,9 +127,9 @@ The T1D Exchange IG could adopt HL7 CGM's standardized glucose range definitions
    - Use CGM standing orders to populate T1D Exchange quality metrics
    - Maintain T1D-specific extensions for research and quality improvement
 
-## Technical Considerations
+### Technical Considerations
 
-### Code System Alignment
+#### Code System Alignment
 
 **Recommended Approach:**
 ```fsh
@@ -140,7 +140,7 @@ The T1D Exchange IG could adopt HL7 CGM's standardized glucose range definitions
     t1d-codes 0..1
 ```
 
-### Bundle Structure
+#### Bundle Structure
 
 **CGM IG Pattern:**
 - Transaction bundles with multiple related observations
@@ -152,7 +152,7 @@ The T1D Exchange IG could adopt HL7 CGM's standardized glucose range definitions
 - Maintain individual resource exchange for non-CGM data
 - Support both patterns based on use case
 
-## Conclusion
+### Conclusion
 
 The T1D Exchange IG and HL7 CGM IG serve complementary purposes:
 

@@ -1,10 +1,8 @@
-# Implementation Guidance
-
-## Overview
+### Overview
 
 This page provides detailed guidance for implementing the T1D Exchange FHIR Implementation Guide. It covers data mapping, technical requirements, and best practices for successful implementation.
 
-## T1D Exchange Background
+### T1D Exchange Background
 
 The T1D Exchange Quality Improvement Collaborative (T1DX-QI) is a research initiative focused on improving care for individuals with Type 1 Diabetes through standardized data collection and quality improvement efforts. This FHIR Implementation Guide supports the T1D Exchange mission by:
 
@@ -13,7 +11,7 @@ The T1D Exchange Quality Improvement Collaborative (T1DX-QI) is a research initi
 - **Enabling Population Health**: Supporting population-level analysis and benchmarking for T1D care improvement
 - **Research Integration**: Providing a framework for clinical research data collection and analysis
 
-### Key Quality Improvement Focus Areas
+#### Key Quality Improvement Focus Areas
 
 The T1D Exchange collaborative focuses on several critical areas of T1D care:
 
@@ -25,9 +23,9 @@ The T1D Exchange collaborative focuses on several critical areas of T1D care:
 
 This Implementation Guide directly supports these focus areas through structured data collection and standardized reporting mechanisms.
 
-## Data Mapping
+### Data Mapping
 
-### Core Data Specifications Mapping
+#### Core Data Specifications Mapping
 
 The T1D Exchange data specifications define several core data files that map to FHIR resources as follows:
 
@@ -40,7 +38,7 @@ The T1D Exchange data specifications define several core data files that map to 
 | Conditions | Condition, FamilyMemberHistory | T1DCondition, T1DFamilyHistory |
 | Medications | MedicationRequest, MedicationStatement | T1DMedicationRequest, T1DMedicationStatement |
 
-### Diabetes-Specific Data Mapping
+#### Diabetes-Specific Data Mapping
 
 The diabetes-specific data elements map to specialized observation profiles:
 
@@ -51,17 +49,37 @@ The diabetes-specific data elements map to specialized observation profiles:
 | Monitoring | T1DObservation | BGM/CGM device information |
 | Glucose | T1DGlucoseObservation | BGM mean, CGM metrics, time in range |
 
-## Implementation Requirements
+### Implementation Requirements
 
-### Must Support Elements
+#### Must Support Definition
 
-All elements marked as "Must Support" (MS) in the profiles must be supported by implementing systems. This means:
+Elements marked as "Must Support" (MS) in the T1D Exchange profiles represent data elements that have direct mappings to the T1D Exchange data specifications. These elements are critical for T1D Exchange quality improvement and research objectives.
 
-- **Sender**: Must be capable of sending the element if data is available
-- **Receiver**: Must be capable of receiving and processing the element
-- **Storage**: Must store the element for future retrieval
+#### Must Support Criteria
 
-### Identifier Requirements
+An element is flagged as Must Support if:
+1. **Direct T1D Exchange Mapping**: The element maps to a specific data field in the T1D Exchange specifications
+2. **Quality Metric Dependency**: The element is required for calculating T1D Exchange quality metrics
+3. **Research Critical**: The element is essential for T1D Exchange research and population health analysis
+4. **Interoperability Requirement**: The element is necessary for consistent data exchange between T1D Exchange participants
+
+#### Must Support Obligations
+
+Systems claiming conformance to T1D Exchange profiles must:
+
+- **Sender Systems**: Must be capable of sending the element if data is available in their system
+- **Receiver Systems**: Must be capable of receiving, processing, and storing the element
+- **Data Persistence**: Must store Must Support elements for future retrieval and reporting
+- **Quality Reporting**: Must include Must Support elements in T1D Exchange quality reports when applicable
+
+#### Missing Must Support Data
+
+When Must Support data is not available:
+- **Optional Elements (0..1, 0..*)**: May be omitted from the resource
+- **Required Elements (1..1, 1..*)**: Must be present; use appropriate null flavors or data absent reasons if actual values are unknown
+- **Quality Impact**: Missing Must Support data may affect quality metric calculations and should be minimized
+
+#### Identifier Requirements
 
 Each profile requires specific identifiers:
 
@@ -70,9 +88,9 @@ Each profile requires specific identifiers:
 - **T1DOrganization**: Must include T1D-ORG-ID
 - **T1DEncounter**: Must include T1D-ENCOUNTER-ID
 
-### Data Quality Guidelines
+#### Data Quality Guidelines
 
-### Research and Quality Improvement Context
+#### Research and Quality Improvement Context
 
 Data collected through this Implementation Guide supports both clinical care and research objectives. Quality data collection is essential for:
 
@@ -81,47 +99,45 @@ Data collected through this Implementation Guide supports both clinical care and
 - **Population Health**: Understanding T1D care patterns and disparities at scale
 - **Clinical Research**: Supporting evidence-based improvements in T1D care protocols
 
-### Data Collection Standards
+#### Data Collection Standards
 
-#### Date Formats
+##### Date Formats
 - Use YYYY-MM-DD format for dates
 - Include time zones for dateTime elements
 - Support partial dates (YYYY-MM or YYYY) where specified
 - **Research Note**: Consistent date formatting is critical for longitudinal analysis and care transition tracking
 
-#### Coding Requirements
+##### Coding Requirements
 - Use specified value sets for coded elements
 - Include both code and display values
 - Support multiple coding systems where applicable
 - **Quality Note**: Standardized coding enables accurate aggregation and comparison across participating sites
 
-#### Units of Measure
+##### Units of Measure
 - Use UCUM codes for all quantities
 - Convert glucose values to mg/dL (multiply mmol/L by 18)
 - Round glucose means to nearest integer
 - **Clinical Note**: Consistent units support accurate clinical decision-making and quality metric calculation
 
-## Technical Implementation
+### Technical Implementation
 
-### FHIR Version
+#### FHIR Version
 This IG is based on FHIR R4 (4.0.1). Ensure your FHIR server supports this version.
 
-### Dependencies
-Required FHIR packages:
-- hl7.fhir.uv.sdc: 3.0.0
 
-### Profile Conformance
+
+#### Profile Conformance
 Ensure resources conform to the appropriate T1D Exchange profiles by following the constraints and requirements defined in each profile.
 
-## Data Submission Guidelines
+### Data Submission Guidelines
 
-### File Organization
+#### File Organization
 Organize data submissions according to the original specification structure:
 - One file per resource type
 - Include organization ID in filename
 - Use version identifier in filename
 
-### Bundle Processing
+#### Bundle Processing
 For T1D Exchange data submissions:
 - Use T1DDataSubmissionBundle for comprehensive data submission
 - Use T1DPatientDataBundle for patient-specific data extraction
@@ -130,78 +146,78 @@ For T1D Exchange data submissions:
 - Implement conditional creates to prevent duplicates
 - Use client-supplied identifiers for efficient processing
 
-### Error Handling
+#### Error Handling
 Implement robust error handling:
 - Check resource conformance before submission
 - Handle partial failures gracefully
 - Provide meaningful error messages
 
-## Security Considerations
+### Security Considerations
 
-### Data Privacy
+#### Data Privacy
 - Implement appropriate access controls
 - Use de-identification where required
 - Follow HIPAA and other applicable regulations
 
-### Authentication
+#### Authentication
 - Use OAuth 2.0 for API authentication
 - Implement proper scope management
 - Support refresh tokens for long-running processes
 
-### Audit Logging
+#### Audit Logging
 - Log all data access and modifications
 - Include user identification and timestamps
 - Maintain audit trails for compliance
 
-## Best Practices
+### Best Practices
 
-### Performance Optimization
+#### Performance Optimization
 - Use FHIR search parameters efficiently
 - Implement proper caching strategies
 - Consider pagination for large result sets
 
-### Data Consistency
+#### Data Consistency
 - Maintain referential integrity between resources
 - Use consistent identifier schemes
 - Implement proper versioning strategies
 
-### Testing
+#### Testing
 - Test against provided examples
 - Test with edge cases and boundary conditions
 - Perform integration testing with T1D Exchange systems
 
-## Quality Improvement Metrics
+### Quality Improvement Metrics
 
-### Core T1D Quality Indicators
+#### Core T1D Quality Indicators
 
 This Implementation Guide supports collection of key quality metrics identified by the T1D Exchange collaborative:
 
-#### Glycemic Control Metrics
+##### Glycemic Control Metrics
 - **HbA1c < 7%**: Percentage of patients achieving target glycemic control
 - **HbA1c > 9%**: Percentage of patients with suboptimal glycemic control
 - **Time in Range**: CGM-derived metric for glucose control (70-180 mg/dL)
 - **Glucose Management Indicator (GMI)**: CGM-derived HbA1c equivalent
 
-#### Technology Utilization Metrics
+##### Technology Utilization Metrics
 - **CGM Usage**: Percentage of patients using continuous glucose monitoring
 - **Insulin Pump Usage**: Percentage of patients using insulin pump therapy
 - **Automated Insulin Delivery**: Percentage using hybrid closed-loop systems
 
-#### Care Process Metrics
+##### Care Process Metrics
 - **Visit Frequency**: Number of diabetes care visits per year
 - **Transition Planning**: Percentage of adolescents with documented transition plans
 - **SDOH Screening**: Percentage of patients screened for social determinants of health
 
-#### Implementation Note
+##### Implementation Note
 These metrics are automatically calculable from data collected using the profiles in this IG, supporting both individual patient care and population health analysis.
 
-## Implementation Patterns
+### Implementation Patterns
 
-### Bundle-Based Data Sharing
+#### Bundle-Based Data Sharing
 
 The T1D Exchange IG adopts a bundle-centric approach optimized for batch data sharing scenarios common in diabetes care quality improvement initiatives.
 
-#### T1D Data Submission Bundle
+##### T1D Data Submission Bundle
 
 Use the `T1DDataSubmissionBundle` profile for submitting comprehensive T1D data:
 
@@ -235,7 +251,7 @@ Content-Type: application/fhir+json
 }
 ```
 
-#### Patient Data Extraction
+##### Patient Data Extraction
 
 Extract comprehensive patient data using the patient data bundle:
 
@@ -245,64 +261,64 @@ GET [base]/Patient/[id]/$extract-patient-data?start=2023-01-01&end=2023-12-31
 
 Returns a `T1DPatientDataBundle` containing all relevant T1D data for the patient.
 
-#### Quality Reporting
+##### Quality Reporting
 
 Use `T1DQualityReportBundle` for population health reporting with aggregate measures and benchmarking data.
 
-### Data Exchange Workflows
+#### Data Exchange Workflows
 
-#### Batch Data Submission Workflow
+##### Batch Data Submission Workflow
 
 1. **Data Preparation**: Collect T1D data from EHR systems or registries
 2. **Bundle Assembly**: Create T1DDataSubmissionBundle with all resource types
 3. **Submission**: POST bundle to `$submit-t1d-data` operation
 4. **Response Processing**: Handle transaction-response bundle with status codes
 
-#### Patient Data Extraction Workflow
+##### Patient Data Extraction Workflow
 
 1. **Request**: Call `$extract-patient-data` operation with date range
 2. **Processing**: Server assembles comprehensive patient data
 3. **Response**: Receive T1DPatientDataBundle with all relevant resources
 4. **Analysis**: Use extracted data for care coordination or research
 
-#### Quality Reporting Workflow
+##### Quality Reporting Workflow
 
 1. **Data Aggregation**: Collect population-level T1D metrics
 2. **Report Generation**: Create T1DQualityReportBundle
 3. **Benchmarking**: Compare against T1D Exchange quality benchmarks
 4. **Improvement Planning**: Use insights for care improvement initiatives
 
-### Individual Resource Patterns
+#### Individual Resource Patterns
 
-#### Patient Registration
+##### Patient Registration
 1. Create T1DPatient resource with required identifiers
 2. Include demographic extensions (race, ethnicity, education)
 3. Link to T1DOrganization for care provider
 
-#### Encounter Documentation
+##### Encounter Documentation
 1. Create T1DEncounter with proper classification
 2. Link to T1DPatient and T1DProvider
 3. Include encounter-specific extensions
 
-#### Observation Recording
+##### Observation Recording
 1. Choose appropriate observation profile based on data type
 2. Include proper categorization and coding
 3. Link to encounter and performing provider
 
-#### Medication Management
+##### Medication Management
 1. Use T1DMedicationRequest for prescriptions
 2. Include insulin-specific extensions
 3. Document delivery methods and regimens
 
-## Troubleshooting
+### Troubleshooting
 
-### Common Implementation Issues
+#### Common Implementation Issues
 - Missing required identifiers
 - Incorrect value set bindings
 - Invalid reference targets
 - Missing must-support elements
 
-### Performance Issues
+#### Performance Issues
 - Large bundle sizes
 - Inefficient search queries
 - Missing indexes on key fields

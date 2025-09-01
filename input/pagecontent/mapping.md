@@ -1,14 +1,14 @@
-# Variable to FHIR Mapping
+
 
 This page provides a comprehensive mapping of T1D Exchange specification variables to their corresponding FHIR Implementation Guide representations.
 
-## Overview
+### Overview
 
 The T1D Exchange data specifications define variables across multiple domains that have been mapped to FHIR resources and profiles in this Implementation Guide. This mapping ensures consistent data exchange and interoperability.
 
-## Core Data Mappings
+### Core Data Mappings
 
-### Patient Demographics (QICoreDataSpec - Patients)
+#### Patient Demographics (QICoreDataSpec - Patients)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding |
 |----------|-------------|--------------|--------------|------------------|
@@ -20,7 +20,7 @@ The T1D Exchange data specifications define variables across multiple domains th
 | ETHNICITY | Patient ethnicity | T1DPatient | extension[us-core-ethnicity] | OMB Ethnicity Categories |
 | EDUCATION | Education level | T1DPatient | extension[educationLevel] | T1DEducationLevelValueSet |
 
-### Provider Information (QICoreDataSpec - Providers)
+#### Provider Information (QICoreDataSpec - Providers)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding |
 |----------|-------------|--------------|--------------|------------------|
@@ -32,7 +32,7 @@ The T1D Exchange data specifications define variables across multiple domains th
 | ORG_NAME | Organization name | T1DOrganization | name | - |
 | ORG_TYPE | Organization type | T1DOrganization | type | T1DOrganizationTypeValueSet |
 
-### Clinical Encounters (QICoreDataSpec - Encounters)
+#### Clinical Encounters (QICoreDataSpec - Encounters)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding |
 |----------|-------------|--------------|--------------|------------------|
@@ -42,7 +42,7 @@ The T1D Exchange data specifications define variables across multiple domains th
 | ENCOUNTER_LOCATION | Location of encounter | T1DEncounter | extension[encounterLocation] | - |
 | ENCOUNTER_DURATION | Duration of encounter | T1DEncounter | extension[encounterDuration] | - |
 
-### Disease Information (QIDiabetesDataSpec - Disease)
+#### Disease Information (QIDiabetesDataSpec - Disease)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding |
 |----------|-------------|--------------|--------------|------------------|
@@ -50,7 +50,7 @@ The T1D Exchange data specifications define variables across multiple domains th
 | T1D_DIAGNOSIS_DATE | Date of T1D diagnosis | T1DCondition | extension[diagnosisDate] | - |
 | TRANSITION_PLAN | Adult care transition plan | T1DCondition | extension[transitionPlan] | SNOMED CT |
 
-### Insulin Management (QIDiabetesDataSpec - Insulin)
+#### Insulin Management (QIDiabetesDataSpec - Insulin)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding |
 |----------|-------------|--------------|--------------|------------------|
@@ -60,7 +60,7 @@ The T1D Exchange data specifications define variables across multiple domains th
 | INSULIN_DOSE | Insulin dosage | T1DMedicationRequest | dosageInstruction.doseAndRate.doseQuantity | - |
 | INSULIN_FREQUENCY | Dosing frequency | T1DMedicationRequest | dosageInstruction.timing.repeat.frequency | - |
 
-### Glucose Monitoring (QIDiabetesDataSpec - Monitoring)
+#### Glucose Monitoring (QIDiabetesDataSpec - Monitoring)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding |
 |----------|-------------|--------------|--------------|------------------|
@@ -70,7 +70,7 @@ The T1D Exchange data specifications define variables across multiple domains th
 | CGM_MODEL | Continuous glucose monitor model | T1DObservation | valueString | - |
 | MONITORING_METHOD | Glucose monitoring method | T1DObservation | code | T1DObservationCodeValueSet |
 
-### Glucose Measurements (QIDiabetesDataSpec - Glucose)
+#### Glucose Measurements (QIDiabetesDataSpec - Glucose)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding |
 |----------|-------------|--------------|--------------|------------------|
@@ -80,7 +80,7 @@ The T1D Exchange data specifications define variables across multiple domains th
 | CGM_HIGH_ABOVE_180 | CGM readings above 180 mg/dL | T1DGlucoseObservation | component[cgmHighAbove180].valueQuantity | - |
 | TIME_IN_RANGE | Time in target glucose range | T1DGlucoseObservation | component[timeInRange].valueQuantity | - |
 
-### Laboratory Results (QICoreDataSpec - Observations)
+#### Laboratory Results (QICoreDataSpec - Observations)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding |
 |----------|-------------|--------------|--------------|------------------|
@@ -88,7 +88,7 @@ The T1D Exchange data specifications define variables across multiple domains th
 | HBA1C_UNIT | Hemoglobin A1c unit | T1DHbA1cObservation | valueQuantity.unit | T1DHbA1cUnitsValueSet |
 | HBA1C_DATE | Date of HbA1c test | T1DHbA1cObservation | effectiveDateTime | - |
 
-### Social Determinants of Health (QIDiabetesDataSpec - Diabetes_Core_Observations)
+#### Social Determinants of Health (QIDiabetesDataSpec - Diabetes_Core_Observations)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding |
 |----------|-------------|--------------|--------------|------------------|
@@ -97,7 +97,7 @@ The T1D Exchange data specifications define variables across multiple domains th
 | HOUSING_STABILITY | Housing stability status | T1DSDOHObservation | valueCodeableConcept | T1DSDOHResponseValueSet |
 | FINANCIAL_STRAIN | Financial strain assessment | T1DSDOHObservation | valueCodeableConcept | T1DSDOHResponseValueSet |
 
-### Family History
+#### Family History
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding |
 |----------|-------------|--------------|--------------|------------------|
@@ -105,9 +105,9 @@ The T1D Exchange data specifications define variables across multiple domains th
 | RELATIONSHIP | Family member relationship | T1DFamilyHistory | relationship | v3-RoleCode |
 | ONSET_AGE | Age of onset in family member | T1DFamilyHistory | condition.onsetAge | - |
 
-## Implementation Notes
+### Implementation Notes
 
-### Identifier Systems
+#### Identifier Systems
 
 All T1D Exchange identifiers use consistent system URIs:
 - Patient IDs: `http://t1dexchange.org/fhir/patient-id`
@@ -115,7 +115,7 @@ All T1D Exchange identifiers use consistent system URIs:
 - Organization IDs: `http://t1dexchange.org/fhir/organization-id`
 - Encounter IDs: `http://t1dexchange.org/fhir/encounter-id`
 
-### Units of Measure
+#### Units of Measure
 
 All quantity measurements use UCUM codes:
 - Glucose: `mg/dL` or `mmol/L`
@@ -123,7 +123,7 @@ All quantity measurements use UCUM codes:
 - Time: `min`, `h`, `d`
 - Percentages: `%`
 
-### Coding Systems
+#### Coding Systems
 
 The IG uses standard terminologies where available:
 - **LOINC**: Laboratory and clinical observations
@@ -132,22 +132,22 @@ The IG uses standard terminologies where available:
 - **UCUM**: Units of measure
 - **HL7 v3**: Administrative codes
 
-### Custom Terminologies
+#### Custom Terminologies
 
 T1D-specific concepts use custom CodeSystems:
 - `http://t1dexchange.org/fhir/CodeSystem/t1d-codes`
 - `http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type`
 
-## Data Quality Considerations
+### Data Quality Considerations
 
-### Required vs Optional Elements
+#### Required vs Optional Elements
 
 Elements marked as **Must Support (MS)** in profiles indicate:
 - **Senders** must populate if data is available
 - **Receivers** must be able to process and store
 - **Critical** for T1D Exchange data quality
 
-### Data Validation
+#### Data Validation
 
 All mapped elements should be validated against:
 - Profile constraints
@@ -155,6 +155,6 @@ All mapped elements should be validated against:
 - Cardinality requirements
 - Data type specifications
 
-## Usage Examples
+### Usage Examples
 
 For complete examples of how these mappings are implemented, see the [Examples](examples.html) page, which provides sample instances for each profile demonstrating proper variable mapping.

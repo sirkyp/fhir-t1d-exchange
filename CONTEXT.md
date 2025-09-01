@@ -17,7 +17,7 @@
 - **Examples**: Complete example instances for all profiles and bundle patterns
 - **Documentation**: Comprehensive guidance, bundle patterns, mapping documentation, and CGM IG comparison
 - **Build System**: Functional SUSHI/FSH build pipeline with error resolution
-- **Dependency Management**: Removed US Core dependency, using base FHIR R4 resources
+- **Dependency Management**: Minimal dependencies - using base FHIR R4 resources
 
 ### Key Architectural Decisions
 - **Base FHIR Approach**: Profiles inherit from base FHIR R4 resources rather than US Core to avoid slicing complexity
@@ -38,14 +38,12 @@
 - ✅ Ensure HL7 FHIR R4 compliance
 - ✅ Include examples for each profile
 - ✅ Validate IG and resolve build errors
-
-### Additional Completed Requirements
+- ✅ CGM Implementation Guide comparison and alignment analysis
 - ✅ Bundle patterns for batch data sharing (based on CGM IG approach)
 - ✅ Operations for data submission and patient extraction
-- ✅ Variable-to-FHIR mapping documentation
-- ✅ CGM Implementation Guide comparison and alignment analysis
+- ✅ T1D Variable-to-FHIR mapping documentation
 - ✅ Quality Improvement Collaborative context integration
-- ✅ Comprehensive error resolution and build optimization
+- ✅ Must Support refinement based on T1D Exchange specification mappings
 
 ### Non-Functional Requirements
 - ✅ Use Sushi/FSH for profile definition
@@ -53,10 +51,9 @@
 - ✅ Minimal dependencies approach
 
 ### Technical Requirements
-- ✅ Base FHIR R4 dependency (removed US Core)
+- ✅ Base FHIR R4 dependency
 - ✅ IG Publisher integration for local builds
 - ✅ SUSHI build pipeline with npm scripts
-- ✅ Comprehensive validation and error resolution
 
 ## Constraints
 - **Dependency Minimization**: Avoid complex dependencies like US Core to reduce slicing conflicts
@@ -65,7 +62,7 @@
 
 ## Assumptions (VALIDATED)
 - ✅ The data elements required are fully described in the t1d-exchange-specs
-- ✅ Base FHIR resources provide sufficient foundation without US Core
+- ✅ Base FHIR resources provide sufficient foundation
 - ✅ T1D Exchange collaborative context enhances implementation value
 
 ## Success Criteria (ACHIEVED)
@@ -83,10 +80,10 @@
 - **Documentation**: ✅ Comprehensive (7 documentation pages including bundle patterns)
 - **Examples**: ✅ Complete coverage including bundle examples
 - **Terminology**: ✅ Custom terminologies implemented
-- **Validation**: ✅ All validation issues resolved
+- **Must Support**: ✅ Refined based on T1D Exchange specification mappings
 
 ## Out of Scope
-- US Core Profile dependencies (removed by design)
+- US Core Profile dependencies
 - Non-T1D diabetes conditions and treatments
 - Real-time data streaming (focus on data exchange standards)
 - Implementation-specific technical details beyond FHIR standards

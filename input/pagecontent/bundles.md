@@ -1,12 +1,12 @@
-# Bundle Patterns
 
-## Overview
+
+### Overview
 
 The T1D Exchange Implementation Guide adopts bundle-based patterns for efficient batch data sharing, following successful approaches from the HL7 CGM Implementation Guide. This approach is optimized for the T1D Exchange Quality Improvement Collaborative's focus on population health analysis and benchmarking.
 
-## Bundle Profiles
+### Bundle Profiles
 
-### T1D Data Submission Bundle
+#### T1D Data Submission Bundle
 
 The `T1DDataSubmissionBundle` is designed for comprehensive T1D data submission as a single transaction. This bundle type supports:
 
@@ -14,14 +14,14 @@ The `T1DDataSubmissionBundle` is designed for comprehensive T1D data submission 
 - **Registry Integration**: Bulk upload from T1D registries and EHR systems
 - **Quality Reporting**: Standardized data submission for quality improvement initiatives
 
-#### Key Features
+##### Key Features
 
 - **Transaction Type**: Ensures atomicity - all resources succeed or fail together
 - **Conditional Creates**: Prevents duplicate resource creation using `ifNoneExist`
 - **Resource Slicing**: Organized entry types for different T1D data categories
 - **Timestamp Tracking**: Records when the bundle was assembled
 
-#### Example Usage
+##### Example Usage
 
 ```json
 {
@@ -56,7 +56,7 @@ The `T1DDataSubmissionBundle` is designed for comprehensive T1D data submission 
 }
 ```
 
-### T1D Patient Data Bundle
+#### T1D Patient Data Bundle
 
 The `T1DPatientDataBundle` provides comprehensive data for a single patient, supporting:
 
@@ -64,14 +64,14 @@ The `T1DPatientDataBundle` provides comprehensive data for a single patient, sup
 - **Research Analysis**: Longitudinal patient data for clinical research
 - **Quality Assessment**: Individual patient quality metrics and outcomes
 
-#### Key Features
+##### Key Features
 
 - **Collection Type**: Read-only bundle for data retrieval
 - **Patient-Centric**: All resources relate to a single patient
 - **Comprehensive Coverage**: Includes all T1D-relevant data types
 - **Date Range Support**: Can be filtered by time periods
 
-#### Example Usage
+##### Example Usage
 
 ```json
 {
@@ -103,7 +103,7 @@ The `T1DPatientDataBundle` provides comprehensive data for a single patient, sup
 }
 ```
 
-### T1D Quality Report Bundle
+#### T1D Quality Report Bundle
 
 The `T1DQualityReportBundle` supports population health reporting and benchmarking:
 
@@ -111,16 +111,16 @@ The `T1DQualityReportBundle` supports population health reporting and benchmarki
 - **Benchmarking Data**: Comparative analysis across healthcare systems
 - **Population Health**: De-identified population-level insights
 
-#### Key Features
+##### Key Features
 
 - **Collection Type**: Aggregate data without individual transactions
 - **Organization-Centric**: Includes reporting organization information
 - **Measure Reports**: Structured quality measure reporting
 - **De-identification**: Supports privacy-preserving population analysis
 
-## Operations
+### Operations
 
-### Submit T1D Data Operation
+#### Submit T1D Data Operation
 
 The `$submit-t1d-data` operation processes T1D data submission bundles:
 
@@ -131,7 +131,7 @@ POST [base]/Bundle/$submit-t1d-data
 **Input**: T1DDataSubmissionBundle
 **Output**: Transaction-response bundle with processing results
 
-#### Response Handling
+##### Response Handling
 
 The operation returns a transaction-response bundle with:
 - HTTP status codes for each entry
@@ -173,7 +173,7 @@ Example response:
 }
 ```
 
-### Extract Patient Data Operation
+#### Extract Patient Data Operation
 
 The `$extract-patient-data` operation retrieves comprehensive patient data:
 
@@ -187,57 +187,57 @@ GET [base]/Patient/[id]/$extract-patient-data?start=2023-01-01&end=2023-12-31
 
 **Output**: T1DPatientDataBundle with all relevant patient data
 
-## Implementation Considerations
+### Implementation Considerations
 
-### Performance Optimization
+#### Performance Optimization
 
-#### Bundle Size Management
+##### Bundle Size Management
 - Limit bundles to 1000 resources for optimal performance
 - Consider splitting large datasets across multiple bundles
 - Use pagination for large patient populations
 
-#### Conditional Processing
+##### Conditional Processing
 - Implement `ifNoneExist` parameters to prevent duplicates
 - Use client-supplied identifiers for efficient processing
 - Support conditional updates for existing resources
 
-#### Error Handling
+##### Error Handling
 - Process transaction-response bundles systematically
 - Implement retry logic for transient failures
 - Log detailed error information for troubleshooting
 
-### Data Quality Assurance
+#### Data Quality Assurance
 
-#### Validation Strategy
+##### Validation Strategy
 - Validate bundles against profiles before submission
 - Implement business rule validation beyond FHIR constraints
 - Provide meaningful error messages for validation failures
 
-#### Deduplication
+##### Deduplication
 - Use consistent identifier schemes across submissions
 - Implement server-side deduplication logic
 - Document deduplication strategies for implementers
 
-#### Referential Integrity
+##### Referential Integrity
 - Ensure proper resource references within bundles
 - Validate cross-resource relationships
 - Handle orphaned resources appropriately
 
-### Security and Privacy
+#### Security and Privacy
 
-#### Access Control
+##### Access Control
 - Implement appropriate authorization for bundle operations
 - Support organization-level data access controls
 - Audit bundle submissions and extractions
 
-#### Data Privacy
+##### Data Privacy
 - Support de-identification for quality reporting bundles
 - Implement data retention policies
 - Ensure HIPAA compliance for patient data bundles
 
-## Use Case Examples
+### Use Case Examples
 
-### EHR Integration
+#### EHR Integration
 
 Healthcare systems can integrate with T1D Exchange using bundle patterns:
 
@@ -245,7 +245,7 @@ Healthcare systems can integrate with T1D Exchange using bundle patterns:
 2. **Care Transitions**: Extract comprehensive patient data for referrals
 3. **Quality Reporting**: Generate quarterly quality reports for benchmarking
 
-### Registry Operations
+#### Registry Operations
 
 T1D registries can leverage bundle patterns for:
 
@@ -253,7 +253,7 @@ T1D registries can leverage bundle patterns for:
 2. **Research Data Extraction**: Extract cohort data for clinical studies
 3. **Quality Measurement**: Generate population health reports
 
-### Quality Improvement Programs
+#### Quality Improvement Programs
 
 Quality improvement initiatives can use bundles for:
 
@@ -261,17 +261,17 @@ Quality improvement initiatives can use bundles for:
 2. **Intervention Tracking**: Monitor improvement interventions
 3. **Outcome Measurement**: Report quality improvement results
 
-## Comparison with CGM IG
+### Comparison with CGM IG
 
 The T1D Exchange bundle patterns are inspired by the HL7 CGM Implementation Guide but adapted for T1D-specific use cases:
 
-### Similarities
+#### Similarities
 - Transaction-based submission bundles
 - Sliced entry types for different resource categories
 - Operations for data submission and extraction
 - Focus on batch data processing
 
-### Differences
+#### Differences
 - **Scope**: T1D Exchange covers comprehensive diabetes care vs. CGM-specific data
 - **Use Cases**: Quality improvement focus vs. device data submission
 - **Resource Types**: Broader range of clinical resources vs. observation-centric

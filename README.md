@@ -94,16 +94,9 @@ npm run build
 4. Use the provided terminology resources
 
 ### Key Requirements
-
-- FHIR R4 (4.0.1) compliance
-- Required T1D Exchange identifiers
-- Must Support element implementation
-- Proper terminology binding
-
-
+- See [Context](CONTEXT.md) file
 
 ## Terminology
-
 The IG defines custom terminology for T1D-specific concepts:
 
 - **T1DIdentifierType**: T1D Exchange identifier types

@@ -61,23 +61,6 @@
         "mustSupport": true
       },
       {
-        "id": "Condition.identifier",
-        "path": "Condition.identifier",
-        "mustSupport": true
-      },
-      {
-        "id": "Condition.clinicalStatus",
-        "path": "Condition.clinicalStatus",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Condition.verificationStatus",
-        "path": "Condition.verificationStatus",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
         "id": "Condition.category",
         "path": "Condition.category",
         "min": 1,
@@ -86,11 +69,6 @@
           "strength": "required",
           "valueSet": "http://t1dexchange.org/fhir/ValueSet/t1d-condition-category-valueset"
         }
-      },
-      {
-        "id": "Condition.severity",
-        "path": "Condition.severity",
-        "mustSupport": true
       },
       {
         "id": "Condition.code",
@@ -131,38 +109,6 @@
       {
         "id": "Condition.onset[x]",
         "path": "Condition.onset[x]",
-        "mustSupport": true
-      },
-      {
-        "id": "Condition.recordedDate",
-        "path": "Condition.recordedDate",
-        "mustSupport": true
-      },
-      {
-        "id": "Condition.recorder",
-        "path": "Condition.recorder",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://t1dexchange.org/fhir/StructureDefinition/t1d-provider"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Condition.asserter",
-        "path": "Condition.asserter",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://t1dexchange.org/fhir/StructureDefinition/t1d-provider",
-              "http://t1dexchange.org/fhir/StructureDefinition/t1d-patient"
-            ]
-          }
-        ],
         "mustSupport": true
       }
     ]

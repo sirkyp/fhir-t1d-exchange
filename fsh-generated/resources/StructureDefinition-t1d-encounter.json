@@ -108,11 +108,6 @@
         "mustSupport": true
       },
       {
-        "id": "Encounter.status",
-        "path": "Encounter.status",
-        "mustSupport": true
-      },
-      {
         "id": "Encounter.class",
         "path": "Encounter.class",
         "mustSupport": true,

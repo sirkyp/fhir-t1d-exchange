@@ -81,16 +81,6 @@
         "path": "Organization.name",
         "min": 1,
         "mustSupport": true
-      },
-      {
-        "id": "Organization.telecom",
-        "path": "Organization.telecom",
-        "mustSupport": true
-      },
-      {
-        "id": "Organization.address",
-        "path": "Organization.address",
-        "mustSupport": true
       }
     ]
   }

@@ -14,9 +14,6 @@ publisher:
   name: T1D Exchange
   url: https://t1dexchange.org/
 
-dependencies:
-  hl7.fhir.uv.sdc: 3.0.0
-
 parameters:
   show-inherited-invariants: false
   usage-stats-opt-out: false
@@ -25,6 +22,7 @@ parameters:
   excludettl: true
   excludemap: true
   pin-canonicals: pin-all
+  shownav: 'true'
 
 pages:
   index.md:

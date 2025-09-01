@@ -1,10 +1,8 @@
-# Profiles
-
 This page provides an overview of the FHIR profiles defined in the T1D Exchange Implementation Guide.
 
-## Patient Profiles
+### Patient Profiles
 
-### T1DPatient
+#### T1DPatient
 The T1DPatient profile extends the base FHIR Patient resource to include T1D-specific demographic information and identifiers required for the T1D Exchange.
 
 **Key Features:**
@@ -23,9 +21,9 @@ The T1DPatient profile extends the base FHIR Patient resource to include T1D-spe
 - ethnicity extension
 - education level extension
 
-## Provider Profiles
+### Provider Profiles
 
-### T1DProvider
+#### T1DProvider
 The T1DProvider profile extends the FHIR Practitioner resource for healthcare professionals involved in T1D care.
 
 **Key Features:**
@@ -33,7 +31,7 @@ The T1DProvider profile extends the FHIR Practitioner resource for healthcare pr
 - NPI support for US providers
 - Specialty qualifications relevant to diabetes care
 
-### T1DOrganization
+#### T1DOrganization
 The T1DOrganization profile extends the FHIR Organization resource for healthcare facilities and organizations.
 
 **Key Features:**
@@ -41,9 +39,9 @@ The T1DOrganization profile extends the FHIR Organization resource for healthcar
 - Organization type classification
 - Contact and address information
 
-## Encounter Profiles
+### Encounter Profiles
 
-### T1DEncounter
+#### T1DEncounter
 The T1DEncounter profile extends the FHIR Encounter resource to capture T1D-specific encounter information.
 
 **Key Features:**
@@ -52,9 +50,9 @@ The T1DEncounter profile extends the FHIR Encounter resource to capture T1D-spec
 - Extensions for location and duration
 - Links to T1D patients and providers
 
-## Observation Profiles
+### Observation Profiles
 
-### T1DObservation (Base)
+#### T1DObservation (Base)
 The base observation profile for all T1D Exchange observations.
 
 **Key Features:**
@@ -62,7 +60,7 @@ The base observation profile for all T1D Exchange observations.
 - Required subject and effective date
 - Support for T1D-specific codes
 
-### T1DGlucoseObservation
+#### T1DGlucoseObservation
 Specialized profile for glucose measurements and monitoring data.
 
 **Key Features:**
@@ -70,7 +68,7 @@ Specialized profile for glucose measurements and monitoring data.
 - Components for BGM mean, CGM metrics, and time in range
 - Support for both mg/dL and mmol/L units
 
-### T1DHbA1cObservation
+#### T1DHbA1cObservation
 Specialized profile for Hemoglobin A1c laboratory results.
 
 **Key Features:**
@@ -78,7 +76,7 @@ Specialized profile for Hemoglobin A1c laboratory results.
 - Support for percentage and mmol/mol units
 - Laboratory category classification
 
-### T1DSDOHObservation
+#### T1DSDOHObservation
 Specialized profile for Social Determinants of Health observations.
 
 **Key Features:**
@@ -86,9 +84,9 @@ Specialized profile for Social Determinants of Health observations.
 - Support for various response types
 - Social history categorization
 
-## Condition Profiles
+### Condition Profiles
 
-### T1DCondition
+#### T1DCondition
 The T1DCondition profile extends the FHIR Condition resource for T1D and related conditions.
 
 **Key Features:**
@@ -97,7 +95,7 @@ The T1DCondition profile extends the FHIR Condition resource for T1D and related
 - Transition plan documentation
 - Support for complications and comorbidities
 
-### T1DFamilyHistory
+#### T1DFamilyHistory
 The T1DFamilyHistory profile extends the FHIR FamilyMemberHistory resource for diabetes family history.
 
 **Key Features:**
@@ -105,9 +103,9 @@ The T1DFamilyHistory profile extends the FHIR FamilyMemberHistory resource for d
 - Diabetes-related condition codes
 - Onset information
 
-## Medication Profiles
+### Medication Profiles
 
-### T1DMedicationRequest
+#### T1DMedicationRequest
 The T1DMedicationRequest profile extends the FHIR MedicationRequest resource for T1D medications.
 
 **Key Features:**
@@ -116,7 +114,7 @@ The T1DMedicationRequest profile extends the FHIR MedicationRequest resource for
 - Delivery method extension (pump, pen, syringe)
 - Dosage and timing information
 
-### T1DMedicationStatement
+#### T1DMedicationStatement
 The T1DMedicationStatement profile extends the FHIR MedicationStatement resource for documenting current medications.
 
 **Key Features:**
@@ -124,7 +122,7 @@ The T1DMedicationStatement profile extends the FHIR MedicationStatement resource
 - Patient-reported medication information
 - Dosage and adherence data
 
-## Profile Relationships
+### Profile Relationships
 
 The profiles are designed to work together as a cohesive system:
 
@@ -141,7 +139,7 @@ T1DPatient
 └── T1DMedicationStatement
 ```
 
-## Extensions
+### Extensions
 
 The implementation guide defines several extensions to capture T1D-specific information:
 
@@ -157,19 +155,28 @@ The implementation guide defines several extensions to capture T1D-specific info
 | T1DEncounterLocation | Specific encounter location | T1DEncounter |
 | T1DEncounterDuration | Encounter duration | T1DEncounter |
 
-## Profile Constraints
+### Profile Constraints
 
 All profiles include:
 - Cardinality constraints
 - Value set bindings
-- Must Support flags
+- Must Support flags (based on T1D Exchange data specification mappings)
 - Invariants where applicable
 
-## Bundle Profiles
+#### Must Support Designation
+
+Elements are marked as Must Support (MS) when they:
+- Map directly to T1D Exchange data specification fields
+- Are required for T1D Exchange quality metrics calculation
+- Support critical T1D research and population health objectives
+
+This ensures that all T1D Exchange-specific data elements are consistently supported across implementing systems.
+
+### Bundle Profiles
 
 The T1D Exchange IG defines three bundle profiles for efficient batch data exchange, following patterns from the HL7 CGM Implementation Guide.
 
-### T1DDataSubmissionBundle
+#### T1DDataSubmissionBundle
 The T1DDataSubmissionBundle profile supports comprehensive T1D data submission as a single transaction.
 
 **Key Features:**
@@ -192,7 +199,7 @@ The T1DDataSubmissionBundle profile supports comprehensive T1D data submission a
 - Conditions and diagnoses (T1DCondition)
 - Medications and treatments (T1DMedicationRequest)
 
-### T1DPatientDataBundle
+#### T1DPatientDataBundle
 The T1DPatientDataBundle profile provides comprehensive data for a single patient.
 
 **Key Features:**
@@ -214,7 +221,7 @@ The T1DPatientDataBundle profile provides comprehensive data for a single patien
 - Diagnoses and conditions (T1DCondition)
 - Insulin and diabetes medications (T1DMedicationRequest)
 
-### T1DQualityReportBundle
+#### T1DQualityReportBundle
 The T1DQualityReportBundle profile supports population health reporting and benchmarking.
 
 **Key Features:**
@@ -235,35 +242,35 @@ The T1DQualityReportBundle profile supports population health reporting and benc
 - Aggregate observations (T1DObservation)
 - De-identified patient data (T1DPatient)
 
-## Bundle Operations
+### Bundle Operations
 
 The implementation guide defines operations for working with bundles:
 
-### $submit-t1d-data
+#### $submit-t1d-data
 Processes T1D data submission bundles with transaction semantics.
 
 **Input:** T1DDataSubmissionBundle
 **Output:** Transaction-response bundle with processing results
 
-### $extract-patient-data
+#### $extract-patient-data
 Retrieves comprehensive patient data as a bundle.
 
 **Input:** Patient ID and optional date range
 **Output:** T1DPatientDataBundle with all relevant patient data
 
-## Implementation Guidance
+### Implementation Guidance
 
-### Bundle Size Management
+#### Bundle Size Management
 - Limit bundles to 1000 resources for optimal performance
 - Split large datasets across multiple bundles
 - Use pagination for large patient populations
 
-### Error Handling
+#### Error Handling
 - Process transaction-response bundles systematically
 - Implement retry logic for transient failures
 - Provide meaningful error messages
 
-### Data Quality
+#### Data Quality
 - Use consistent identifier schemes
 - Implement deduplication strategies
 - Follow profile constraints and requirements

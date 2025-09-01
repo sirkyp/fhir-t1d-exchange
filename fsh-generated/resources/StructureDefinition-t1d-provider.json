@@ -106,26 +106,6 @@
         "mustSupport": true
       },
       {
-        "id": "Practitioner.telecom",
-        "path": "Practitioner.telecom",
-        "mustSupport": true
-      },
-      {
-        "id": "Practitioner.address",
-        "path": "Practitioner.address",
-        "mustSupport": true
-      },
-      {
-        "id": "Practitioner.gender",
-        "path": "Practitioner.gender",
-        "mustSupport": true
-      },
-      {
-        "id": "Practitioner.birthDate",
-        "path": "Practitioner.birthDate",
-        "mustSupport": true
-      },
-      {
         "id": "Practitioner.qualification",
         "path": "Practitioner.qualification",
         "mustSupport": true

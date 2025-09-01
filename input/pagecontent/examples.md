@@ -1,10 +1,10 @@
-# Examples
+
 
 This page provides example instances demonstrating the proper use of T1D Exchange profiles.
 
-## Patient Examples
+### Patient Examples
 
-### T1DPatientExample
+#### T1DPatientExample
 A comprehensive example of a T1D patient with all required and optional elements.
 
 **Key Features Demonstrated:**
@@ -42,9 +42,9 @@ A comprehensive example of a T1D patient with all required and optional elements
 }
 ```
 
-## Provider Examples
+### Provider Examples
 
-### T1DProviderExample
+#### T1DProviderExample
 An endocrinologist specializing in diabetes care.
 
 **Key Features Demonstrated:**
@@ -53,7 +53,7 @@ An endocrinologist specializing in diabetes care.
 - Specialty qualification
 - Complete name and demographics
 
-### T1DOrganizationExample
+#### T1DOrganizationExample
 A pediatric diabetes center.
 
 **Key Features Demonstrated:**
@@ -61,9 +61,9 @@ A pediatric diabetes center.
 - Organization type classification
 - Contact information
 
-## Encounter Examples
+### Encounter Examples
 
-### T1DEncounterExample
+#### T1DEncounterExample
 A routine follow-up visit for T1D management.
 
 **Key Features Demonstrated:**
@@ -72,9 +72,9 @@ A routine follow-up visit for T1D management.
 - Proper resource references
 - Encounter timing and duration
 
-## Observation Examples
+### Observation Examples
 
-### T1DGlucoseObservationExample
+#### T1DGlucoseObservationExample
 A glucose measurement with additional monitoring data.
 
 **Key Features Demonstrated:**
@@ -88,7 +88,7 @@ A glucose measurement with additional monitoring data.
 - BGM average: 145 mg/dL
 - Measured during routine visit
 
-### T1DHbA1cObservationExample
+#### T1DHbA1cObservationExample
 A laboratory HbA1c result.
 
 **Key Features Demonstrated:**
@@ -102,7 +102,7 @@ A laboratory HbA1c result.
 - Indicates room for improvement in glucose control
 - Measured during routine visit
 
-### T1DSDOHObservationExample
+#### T1DSDOHObservationExample
 Social determinants of health screening.
 
 **Key Features Demonstrated:**
@@ -111,9 +111,9 @@ Social determinants of health screening.
 - Boolean response values
 - Multiple SDOH domains
 
-## Condition Examples
+### Condition Examples
 
-### T1DConditionExample
+#### T1DConditionExample
 Type 1 diabetes mellitus diagnosis.
 
 **Key Features Demonstrated:**
@@ -128,7 +128,7 @@ Type 1 diabetes mellitus diagnosis.
 - Currently active condition
 - Recorded during current encounter
 
-### T1DFamilyHistoryExample
+#### T1DFamilyHistoryExample
 Family history of diabetes.
 
 **Key Features Demonstrated:**
@@ -137,9 +137,9 @@ Family history of diabetes.
 - Onset information
 - Patient reference
 
-## Medication Examples
+### Medication Examples
 
-### T1DMedicationRequestExample
+#### T1DMedicationRequestExample
 Insulin prescription with T1D-specific extensions.
 
 **Key Features Demonstrated:**
@@ -155,7 +155,7 @@ Insulin prescription with T1D-specific extensions.
 - Delivered via insulin pen
 - Subcutaneous administration
 
-### T1DMedicationStatementExample
+#### T1DMedicationStatementExample
 Current medication documentation.
 
 **Key Features Demonstrated:**
@@ -164,9 +164,9 @@ Current medication documentation.
 - Dosage and timing
 - Medication adherence data
 
-## Bundle Examples
+### Bundle Examples
 
-### T1DPatientBundleExample
+#### T1DPatientBundleExample
 A complete patient record bundle containing related resources.
 
 **Resources Included:**
@@ -180,9 +180,9 @@ A complete patient record bundle containing related resources.
 **Use Case:**
 Demonstrates how to submit a complete patient encounter with all related clinical data in a single FHIR Bundle.
 
-## Data Mapping Examples
+### Data Mapping Examples
 
-### Excel to FHIR Mapping
+#### Excel to FHIR Mapping
 
 The following table shows how data elements from the original Excel specifications map to FHIR elements:
 
@@ -209,21 +209,21 @@ The following table shows how data elements from the original Excel specificatio
 
 
 
-## Testing Scenarios
+### Testing Scenarios
 
-### Scenario 1: New Patient Registration
+#### Scenario 1: New Patient Registration
 1. Create T1DPatient with demographics
 2. Create T1DCondition for T1D diagnosis
 3. Create initial T1DEncounter
 4. Create baseline T1DHbA1cObservation
 
-### Scenario 2: Routine Follow-up Visit
+#### Scenario 2: Routine Follow-up Visit
 1. Create T1DEncounter for follow-up
 2. Create T1DGlucoseObservation with monitoring data
 3. Update T1DMedicationRequest if needed
 4. Create T1DSDOHObservation for screening
 
-### Scenario 3: Medication Management
+#### Scenario 3: Medication Management
 1. Create T1DMedicationRequest for new insulin
 2. Include insulin regimen and delivery method
 3. Document dosage and timing

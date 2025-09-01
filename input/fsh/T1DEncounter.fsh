@@ -15,7 +15,6 @@ Description: "Encounter profile for T1D Exchange patient interactions with healt
 * identifier[t1d-encounter-id].system = "http://t1dexchange.org/fhir/encounter-id"
 * identifier[t1d-encounter-id].value 1..1 MS
 
-* status 1..1 MS
 * class 1..1 MS
 * class from T1DEncounterClassValueSet (required)
 * type MS

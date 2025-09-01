@@ -173,7 +173,7 @@
     "fshType": "Profile",
     "fshFile": "T1DCondition.fsh",
     "startLine": 1,
-    "endLine": 28
+    "endLine": 19
   },
   {
     "outputFile": "StructureDefinition-t1d-data-submission-bundle.json",
@@ -188,32 +188,32 @@
     "fshName": "T1DDiagnosisDate",
     "fshType": "Extension",
     "fshFile": "T1DCondition.fsh",
-    "startLine": 30,
-    "endLine": 36
+    "startLine": 21,
+    "endLine": 27
   },
   {
     "outputFile": "StructureDefinition-t1d-education-level.json",
     "fshName": "T1DEducationLevel",
     "fshType": "Extension",
     "fshFile": "T1DPatient.fsh",
-    "startLine": 35,
-    "endLine": 42
+    "startLine": 32,
+    "endLine": 39
   },
   {
     "outputFile": "StructureDefinition-t1d-encounter-duration.json",
     "fshName": "T1DEncounterDuration",
     "fshType": "Extension",
     "fshFile": "T1DEncounter.fsh",
-    "startLine": 46,
-    "endLine": 54
+    "startLine": 45,
+    "endLine": 53
   },
   {
     "outputFile": "StructureDefinition-t1d-encounter-location.json",
     "fshName": "T1DEncounterLocation",
     "fshType": "Extension",
     "fshFile": "T1DEncounter.fsh",
-    "startLine": 38,
-    "endLine": 44
+    "startLine": 37,
+    "endLine": 43
   },
   {
     "outputFile": "StructureDefinition-t1d-encounter.json",
@@ -221,15 +221,15 @@
     "fshType": "Profile",
     "fshFile": "T1DEncounter.fsh",
     "startLine": 1,
-    "endLine": 36
+    "endLine": 35
   },
   {
     "outputFile": "StructureDefinition-t1d-family-history.json",
     "fshName": "T1DFamilyHistory",
     "fshType": "Profile",
     "fshFile": "T1DCondition.fsh",
-    "startLine": 47,
-    "endLine": 61
+    "startLine": 38,
+    "endLine": 50
   },
   {
     "outputFile": "StructureDefinition-t1d-glucose-observation.json",
@@ -292,8 +292,8 @@
     "fshName": "T1DOrganization",
     "fshType": "Profile",
     "fshFile": "T1DProvider.fsh",
-    "startLine": 32,
-    "endLine": 54
+    "startLine": 28,
+    "endLine": 48
   },
   {
     "outputFile": "StructureDefinition-t1d-patient-data-bundle.json",
@@ -309,7 +309,7 @@
     "fshType": "Profile",
     "fshFile": "T1DPatient.fsh",
     "startLine": 1,
-    "endLine": 33
+    "endLine": 30
   },
   {
     "outputFile": "StructureDefinition-t1d-provider.json",
@@ -317,7 +317,7 @@
     "fshType": "Profile",
     "fshFile": "T1DProvider.fsh",
     "startLine": 1,
-    "endLine": 30
+    "endLine": 26
   },
   {
     "outputFile": "StructureDefinition-t1d-quality-report-bundle.json",
@@ -340,8 +340,8 @@
     "fshName": "T1DTransitionPlan",
     "fshType": "Extension",
     "fshFile": "T1DCondition.fsh",
-    "startLine": 38,
-    "endLine": 45
+    "startLine": 29,
+    "endLine": 36
   },
   {
     "outputFile": "ValueSet-t1d-condition-category-valueset.json",
