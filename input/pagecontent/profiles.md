@@ -157,15 +157,13 @@ The implementation guide defines several extensions to capture T1D-specific info
 | T1DEncounterLocation | Specific encounter location | T1DEncounter |
 | T1DEncounterDuration | Encounter duration | T1DEncounter |
 
-## Validation
+## Profile Constraints
 
 All profiles include:
 - Cardinality constraints
 - Value set bindings
 - Must Support flags
 - Invariants where applicable
-
-Use the FHIR validator with the T1D Exchange IG package to ensure conformance to these profiles.
 
 ## Bundle Profiles
 
@@ -266,8 +264,8 @@ Retrieves comprehensive patient data as a bundle.
 - Provide meaningful error messages
 
 ### Data Quality
-- Validate bundles against profiles before submission
 - Use consistent identifier schemes
 - Implement deduplication strategies
+- Follow profile constraints and requirements
 
 For detailed implementation guidance and examples, see the [Bundle Patterns](bundles.html) page.

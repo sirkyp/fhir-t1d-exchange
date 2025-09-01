@@ -3,7 +3,6 @@ output/
 temp/
 node_modules/
 cgm-ig/
-t1d-exchange-specs/
 input-cache/
 venv/
 template/

@@ -7,8 +7,7 @@
     "prebuild": "npm run prereq",
     "build": "./_genonce.sh",
     "sushi": "sushi .",
-    "prevalidate": "npm run prereq",
-    "validate": "sushi . && java -jar input-cache/validator_cli.jar -ig . -recurse input/examples",
+
     "prepublish": "npm run prereq",
     "publish": "./_genonce.sh"
   },

@@ -110,11 +110,8 @@ This IG is based on FHIR R4 (4.0.1). Ensure your FHIR server supports this versi
 Required FHIR packages:
 - hl7.fhir.uv.sdc: 3.0.0
 
-### Validation
-Use the FHIR validator with this IG package to ensure conformance:
-```bash
-java -jar validator_cli.jar -ig t1d-exchange -profile http://t1dexchange.org/fhir/StructureDefinition/t1d-patient patient-example.json
-```
+### Profile Conformance
+Ensure resources conform to the appropriate T1D Exchange profiles by following the constraints and requirements defined in each profile.
 
 ## Data Submission Guidelines
 
@@ -135,7 +132,7 @@ For T1D Exchange data submissions:
 
 ### Error Handling
 Implement robust error handling:
-- Validate resources before submission
+- Check resource conformance before submission
 - Handle partial failures gracefully
 - Provide meaningful error messages
 
@@ -169,7 +166,7 @@ Implement robust error handling:
 - Implement proper versioning strategies
 
 ### Testing
-- Validate against provided examples
+- Test against provided examples
 - Test with edge cases and boundary conditions
 - Perform integration testing with T1D Exchange systems
 
@@ -299,7 +296,7 @@ Use `T1DQualityReportBundle` for population health reporting with aggregate meas
 
 ## Troubleshooting
 
-### Common Validation Errors
+### Common Implementation Issues
 - Missing required identifiers
 - Incorrect value set bindings
 - Invalid reference targets

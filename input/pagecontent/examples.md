@@ -207,39 +207,7 @@ The following table shows how data elements from the original Excel specificatio
 | bgm_mean | Observation | component[bgmMean].valueQuantity.value | 145 |
 | ins_regimen | MedicationRequest | extension[insulinRegimen].valueCodeableConcept | basal-bolus |
 
-## Validation Examples
 
-### Successful Validation
-Example of a resource that passes validation:
-
-```bash
-$ java -jar validator_cli.jar -ig t1d-exchange -profile http://t1dexchange.org/fhir/StructureDefinition/t1d-patient patient-example.json
-
-Success: 0 errors, 0 warnings, 1 information messages
-```
-
-### Common Validation Errors
-
-#### Missing Required Identifier
-```
-Error: Patient.identifier: minimum required = 1, but only found 0
-```
-
-**Solution:** Ensure T1D-ID identifier is included.
-
-#### Invalid Value Set Binding
-```
-Error: The value 'invalid-code' is not in the value set T1DGenderValueSet
-```
-
-**Solution:** Use codes from the specified value set.
-
-#### Incorrect Reference Target
-```
-Error: Unable to resolve reference to 'Patient/invalid-id'
-```
-
-**Solution:** Ensure referenced resources exist and use correct IDs.
 
 ## Testing Scenarios
 

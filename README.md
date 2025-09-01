@@ -25,14 +25,14 @@ The T1D Exchange Implementation Guide provides:
 │   │   ├── T1DMedication.fsh
 │   │   ├── T1DTerminology.fsh
 │   │   ├── T1DTerminologyAdditional.fsh
-│   │   └── T1DExamples.fsh
-│   ├── pagecontent/          # IG documentation pages
-│   │   ├── index.md
-│   │   ├── guidance.md
-│   │   ├── profiles.md
-│   │   ├── terminology.md
-│   │   └── examples.md
-│   └── examples/             # Example instances
+│   │   ├── T1DExamples.fsh
+│   │   └── T1DBundleExamples.fsh
+│   └── pagecontent/          # IG documentation pages
+│       ├── index.md
+│       ├── guidance.md
+│       ├── profiles.md
+│       ├── terminology.md
+│       └── examples.md
 ├── t1d-exchange-specs/       # Original Excel specifications
 └── CONTEXT.md               # Project requirements
 ```
@@ -82,9 +82,6 @@ npm run sushi
 
 # Build complete IG (requires IG Publisher)
 npm run build
-
-# Validate examples
-npm run validate
 ```
 
 ## Implementation
@@ -103,13 +100,7 @@ npm run validate
 - Must Support element implementation
 - Proper terminology binding
 
-### Validation
 
-Use the FHIR validator with this IG:
-
-```bash
-java -jar validator_cli.jar -ig t1d-exchange -profile http://t1dexchange.org/fhir/StructureDefinition/t1d-patient patient-example.json
-```
 
 ## Terminology
 
@@ -127,12 +118,11 @@ External terminologies used:
 
 ## Examples
 
-Complete examples are provided for all profiles:
-- Patient registration with demographics
-- Provider and organization setup
-- Clinical encounters and observations
-- Condition and medication documentation
-- SDOH screening and family history
+Complete examples are defined in FSH files and automatically generated:
+- **T1DExamples.fsh**: Patient, provider, encounter, observation, condition, and medication examples
+- **T1DBundleExamples.fsh**: Bundle examples for data submission and patient data
+- Examples are compiled by SUSHI into JSON format in `fsh-generated/resources/`
+- All examples demonstrate proper use of T1D Exchange profiles and extensions
 
 ## Contributing
 
