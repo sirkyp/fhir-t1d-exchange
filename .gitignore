@@ -6,6 +6,7 @@ cgm-ig/
 input-cache/
 venv/
 template/
+fsh-generated/
 
 package-lock.json
 
