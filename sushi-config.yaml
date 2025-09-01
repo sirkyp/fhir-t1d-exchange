@@ -29,6 +29,14 @@ pages:
     title: Home
   overview.md:
     title: Overview of Implementation
+  profiles.md:
+    title: Profiles
+  terminology.md:
+    title: Terminology
+  bundles.md:
+    title: Bundle Patterns
+  examples.md:
+    title: Examples
   implementation.md:
     title: Technical Implementation
   quality-metrics.md:
@@ -37,16 +45,8 @@ pages:
     title: Implementation Workflows
   security.md:
     title: Security & Best Practices
-  profiles.md:
-    title: Profiles
-  terminology.md:
-    title: Terminology
   mapping.md:
     title: Variable Mapping
-  bundles.md:
-    title: Bundle Patterns
-  examples.md:
-    title: Examples
   cgm-comparison.md:
     title: CGM IG Comparison
   downloads.md:
@@ -56,15 +56,15 @@ menu:
   Home: index.html
   Guidance:
     Overview of Implementation: overview.html
+    Profiles: profiles.html
+    Terminology: terminology.html
+    Examples: examples.html
     Technical Implementation: implementation.html
     Quality Metrics: quality-metrics.html
     Implementation Workflows: workflows.html
-    Security & Best Practices: security.html
-    Profiles: profiles.html
-    Terminology: terminology.html
-    Variable Mapping: mapping.html
     Bundle Patterns: bundles.html
-    Examples: examples.html
+    Variable Mapping: mapping.html
+    Security & Best Practices: security.html
     CGM IG Comparison: cgm-comparison.html
   Artifacts:
     Profiles: artifacts.html#1

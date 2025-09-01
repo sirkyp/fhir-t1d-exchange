@@ -53,9 +53,15 @@ For detailed variable-to-FHIR element mappings, see the [Variable Mapping](mappi
 
 ### Implementation Guide Sections
 
-For detailed implementation guidance, see the following pages:
+This guide is organized in a logical progression to support implementers:
 
-- **[Technical Implementation](implementation.html)**: Must Support requirements, identifiers, data standards, and FHIR technical requirements
-- **[Quality Metrics](quality-metrics.html)**: T1D Exchange quality indicators and metrics
-- **[Implementation Workflows](workflows.html)**: Bundle patterns, data exchange workflows, and resource patterns
-- **[Security and Best Practices](security.html)**: Security considerations, best practices, and troubleshooting
+- **[Profiles](profiles.html)** - FHIR profiles and data structures for T1D Exchange
+- **[Terminology](terminology.html)** - Code systems and value sets for consistent coding
+- **[Examples](examples.html)** - Sample instances demonstrating proper profile usage
+- **[Technical Implementation](implementation.html)** - Must Support requirements, identifiers, and data standards
+- **[Quality Metrics](quality-metrics.html)** - T1D Exchange quality indicators and metrics
+- **[Implementation Workflows](workflows.html)** - Practical implementation patterns and workflows
+- **[Bundle Patterns](bundles.html)** - Advanced bundle-based data exchange patterns
+- **[Variable Mapping](mapping.html)** - Reference mapping T1D Exchange variables to FHIR elements
+- **[Security & Best Practices](security.html)** - Security considerations and implementation best practices
+- **[CGM IG Comparison](cgm-comparison.html)** - Comparison with HL7 CGM Implementation Guide

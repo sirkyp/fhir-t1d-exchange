@@ -43,19 +43,16 @@ This implementation guide covers the following areas of T1D care:
 
 To implement this guide:
 
-1. Review the [Implementation Guidance](guidance.html) for detailed instructions
-2. Examine the [Profiles](profiles.html) to understand the data structures
-3. Review the [Terminology](terminology.html) for coding requirements
-4. Study the [Examples](examples.html) for implementation patterns
-
-### Conformance
-
-Systems claiming conformance to this implementation guide must:
-
-- Support the required profiles as specified
-- Use the defined terminology and value sets
-- Implement the specified extensions for T1D-specific data
-- Follow the implementation guidance provided
+1. **[Overview of Implementation](overview.html)** - Start here for background and navigation to detailed guidance
+2. **[Profiles](profiles.html)** - Understand the FHIR profiles and data structures
+3. **[Terminology](terminology.html)** - Review code systems and value sets for consistent coding
+4. **[Examples](examples.html)** - Study sample instances demonstrating proper usage
+5. **[Technical Implementation](implementation.html)** - Detailed technical requirements and Must Support elements
+6. **[Quality Metrics](quality-metrics.html)** - T1D Exchange quality indicators and metrics
+7. **[Implementation Workflows](workflows.html)** - Practical implementation patterns and workflows
+8. **[Bundle Patterns](bundles.html)** - Advanced bundle-based data exchange patterns
+9. **[Variable Mapping](mapping.html)** - Reference for mapping T1D Exchange variables to FHIR elements
+10. **[Security & Best Practices](security.html)** - Security considerations and implementation best practices
 
 ### Support
 
