@@ -99,13 +99,10 @@ Organize data submissions according to the original specification structure:
 - Use version identifier in filename
 
 #### Bundle Processing
-For T1D Exchange data submissions:
-- Use T1DDataSubmissionBundle for comprehensive data submission
-- Use T1DPatientDataBundle for patient-specific data extraction
-- Use T1DQualityReportBundle for population health reporting
-- Limit bundle size to 1000 resources for performance
-- Implement conditional creates to prevent duplicates
-- Use client-supplied identifiers for efficient processing
+For T1D Exchange data submissions, see the [Bundle Patterns](bundles.html) page for detailed guidance on:
+- Bundle profiles and their specific use cases
+- Performance optimization and size management
+- Error handling and validation strategies
 
 #### Error Handling
 Implement robust error handling:

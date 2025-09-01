@@ -235,31 +235,9 @@ GET [base]/Patient/[id]/$extract-patient-data?start=2023-01-01&end=2023-12-31
 - Implement data retention policies
 - Ensure HIPAA compliance for patient data bundles
 
-### Use Case Examples
+### Implementation Workflows
 
-#### EHR Integration
-
-Healthcare systems can integrate with T1D Exchange using bundle patterns:
-
-1. **Daily Data Sync**: Submit daily T1D patient data using T1DDataSubmissionBundle
-2. **Care Transitions**: Extract comprehensive patient data for referrals
-3. **Quality Reporting**: Generate quarterly quality reports for benchmarking
-
-#### Registry Operations
-
-T1D registries can leverage bundle patterns for:
-
-1. **Bulk Data Upload**: Submit registry data in batches
-2. **Research Data Extraction**: Extract cohort data for clinical studies
-3. **Quality Measurement**: Generate population health reports
-
-#### Quality Improvement Programs
-
-Quality improvement initiatives can use bundles for:
-
-1. **Baseline Assessment**: Submit initial population data
-2. **Intervention Tracking**: Monitor improvement interventions
-3. **Outcome Measurement**: Report quality improvement results
+For comprehensive workflow examples including EHR integration, registry operations, and quality improvement programs, see the [Implementation Workflows](workflows.html) page.
 
 ### Comparison with CGM IG
 
