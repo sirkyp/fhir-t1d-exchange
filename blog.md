@@ -6,7 +6,7 @@ This document describes an interesting 'side project' I took on recently where I
 - Deepen my understanding of how an AI agent could help me in my day-to-day work.
 - Develop a FHIR Implementation Guide in an area with a non-standards based health care data specification.
 
-I am writing this section myself, but the rest of this document and nearly all the content for the IG was created by me chatting with [Amazon Q Developer](https://aws.amazon.com/q/developer/) using Claude Sonnet 4 LLM via a VSCode plugin. This was me working on this off and on for a few weeks - I would estimate maybe 12-16 hours of my time. 
+I am writing this section myself, but the rest of this document and nearly all the content for the IG was created by me chatting with [Amazon Q Developer](https://aws.amazon.com/q/developer/) using Claude Sonnet 4 LLM via a VSCode plugin. This was me working on this off and on for a few weeks - I would estimate maybe 20-24 hours of my time. 
 
 With that caveat, off we go ...
 
