@@ -1,3 +1,5 @@
+{% include implementer-note.html content="**IMPLEMENTER NOTE**: This Implementation Guide is an early work in progress developed through human-AI collaboration. It requires expert review, testing, and validation before any production use. The profiles, terminology, and guidance should be considered draft and subject to significant revision based on clinical expert feedback and real-world testing." %}
+
 ### Overview
 
 This page provides an overview of implementing the T1D Exchange FHIR Implementation Guide and links to detailed implementation guidance.

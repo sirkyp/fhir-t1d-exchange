@@ -2,6 +2,8 @@
 
 The T1D Exchange Implementation Guide (IG) provides a standardized approach for exchanging health information related to Type 1 Diabetes (T1D) management. This guide facilitates interoperability between different healthcare systems and applications by defining FHIR profiles, extensions, and terminology specific to T1D care.
 
+{% include implementer-note.html content="**IMPLEMENTER NOTE**: This Implementation Guide is an early work in progress developed through human-AI collaboration. It requires expert review, testing, and validation before any production use. The profiles, terminology, and guidance should be considered draft and subject to significant revision based on clinical expert feedback and real-world testing." %}
+
 ### Background
 
 The T1D Exchange Quality Improvement Collaborative (T1DX-QI) is a multi-site research initiative focused on improving outcomes for people with Type 1 diabetes through standardized data collection, analysis, and quality improvement efforts. This implementation guide supports the T1D Exchange mission by enabling:

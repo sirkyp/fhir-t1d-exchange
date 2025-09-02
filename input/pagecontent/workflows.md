@@ -1,3 +1,5 @@
+{% include implementer-note.html content="**IMPLEMENTER NOTE**: This Implementation Guide is an early work in progress developed through human-AI collaboration. It requires expert review, testing, and validation before any production use. The profiles, terminology, and guidance should be considered draft and subject to significant revision based on clinical expert feedback and real-world testing." %}
+
 ### Implementation Patterns and Workflows
 
 This page describes implementation patterns and data exchange workflows for the T1D Exchange IG.

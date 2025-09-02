@@ -1,5 +1,7 @@
 # T1D Exchange FHIR Implementation Guide
 
+**IMPLEMENTER NOTE**: This Implementation Guide is an early work in progress developed through human-AI collaboration. It requires expert review, testing, and validation before any production use. The profiles, terminology, and guidance should be considered draft and subject to significant revision based on clinical expert feedback and real-world testing.
+
 This repository contains the FHIR Implementation Guide (IG) for the T1D Exchange Data Specification, facilitating standardized exchange of Type 1 Diabetes health information.
 
 ## Overview
