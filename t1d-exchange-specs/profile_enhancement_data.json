@@ -1,0 +1,2440 @@
+{
+  "QICore_Patients": [
+    {
+      "variable": "organization_id",
+      "definition": "Submitting Member Organization ID, assigned from Coordinating Center",
+      "short": "Submitting Member Organization ID, assigned from Coordinating Center",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "patient_id",
+      "definition": "Unique patient identifier across all admissions, outpatient visits, etc. that does not change over time and is consistent with other data submissions.",
+      "short": "Unique patient identifier across all admissions, outpatient visits,",
+      "comment": "Priority: High | Notes: Assign and use the same encrypted ID for each patient within and across all tables. The encrypted ID should not contain any PHI (e.g., SSN, DOB, MRN, etc.). Maintain a secure crosswalk of encrypted IDs to actual patient identifiers at each site that crosses all T1D Exchange Quality Improvement initiatives.\nExample: The same encrypted IDs should be used on patient's that cross multiple cohort/project data submissions so they may be identified as the same patient."
+    },
+    {
+      "variable": "provider_id",
+      "definition": "provider id of the diabetes specialist in charge of the patient. This is not the PCP, which is a non-specialist provider. The provider type must one of  'MD, DO, NP'",
+      "short": "provider id of the diabetes specialist in charge",
+      "comment": "Priority: Medium | Notes: Provide this information if it is available"
+    },
+    {
+      "variable": "provider_id_type",
+      "definition": "Type of provider id referenced in provider_id\n\nShould be a valid \u201cType\u201d value listed in the providers file table of acceptable types ('npi', 'pos', 'dea', 'internal').",
+      "short": "Type of provider id referenced in provider_id Should",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "birth_date",
+      "definition": "Date of birth of the respective patient",
+      "short": "Date of birth of the respective patient",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "postal_code",
+      "definition": "Five character postal code of the respective patient\u2019s primary address, sent with leading zeros as alphanumeric values",
+      "short": "Five character postal code of the respective patient\u2019s",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "date_of_death",
+      "definition": "Death date of the respective patient if patient has expired",
+      "short": "Death date of the respective patient if patient",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "cause_of_death",
+      "definition": "Primary and secondary reasons for cause of death",
+      "short": "Primary and secondary reasons for cause of death",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "gender",
+      "definition": "Gender (technically, sex) of the respective patient",
+      "short": "Gender (technically, sex) of the respective patient",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "race_1",
+      "definition": "Race based on common NIH categories using HL7 standards available here",
+      "short": "Race based on common NIH categories using HL7",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "race_2",
+      "definition": "Race based on common NIH categories using HL7 standards available here",
+      "short": "Race based on common NIH categories using HL7",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "ethnicity",
+      "definition": "Ethnicity based on common NIH categories using HL7 standards available here.",
+      "short": "Ethnicity based on common NIH categories using HL7",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "language",
+      "definition": "The ISO-639-1\n alpha 2 code in lower case for the language the patient's speaks.",
+      "short": "The ISO-639-1 alpha 2 code in lower case",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "primary_insurance_type",
+      "definition": "Primary insurance type",
+      "short": "Primary insurance type",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "secondary_insurance_type",
+      "definition": "Secondary insurance type",
+      "short": "Secondary insurance type",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "tertiary_insurance_type",
+      "definition": "Tertiary insurance type",
+      "short": "Tertiary insurance type",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "education_level",
+      "definition": "Highest level of education of patient/ Parents or Legal guardian of patient",
+      "short": "Highest level of education of patient/ Parents or",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "Allowed Values",
+      "definition": "Allowed Value's Definition",
+      "short": "Allowed Value's Definition",
+      "comment": ""
+    },
+    {
+      "variable": "male",
+      "definition": "Male",
+      "short": "Male",
+      "comment": ""
+    },
+    {
+      "variable": "female",
+      "definition": "Female",
+      "short": "Female",
+      "comment": ""
+    },
+    {
+      "variable": "non-binary",
+      "definition": "Non-binary",
+      "short": "Non-binary",
+      "comment": ""
+    },
+    {
+      "variable": "other",
+      "definition": "Other",
+      "short": "Other",
+      "comment": ""
+    },
+    {
+      "variable": "unknown",
+      "definition": "Unknown",
+      "short": "Unknown",
+      "comment": ""
+    },
+    {
+      "variable": "1002-5",
+      "definition": "American Indian or Alaska Native",
+      "short": "American Indian or Alaska Native",
+      "comment": ""
+    },
+    {
+      "variable": "2028-9",
+      "definition": "Asian",
+      "short": "Asian",
+      "comment": ""
+    },
+    {
+      "variable": "2054-5",
+      "definition": "Black or African American",
+      "short": "Black or African American",
+      "comment": ""
+    },
+    {
+      "variable": "2076-8",
+      "definition": "Native Hawaiian or Other Pacific Islander",
+      "short": "Native Hawaiian or Other Pacific Islander",
+      "comment": ""
+    },
+    {
+      "variable": "2131-1",
+      "definition": "Other Race",
+      "short": "Other Race",
+      "comment": ""
+    },
+    {
+      "variable": "2106-3",
+      "definition": "White",
+      "short": "White",
+      "comment": ""
+    },
+    {
+      "variable": "9999-9",
+      "definition": "Unknown",
+      "short": "Unknown",
+      "comment": ""
+    },
+    {
+      "variable": "2135-2",
+      "definition": "Hispanic or Latino",
+      "short": "Hispanic or Latino",
+      "comment": ""
+    },
+    {
+      "variable": "2186-5",
+      "definition": "Non Hispanic or Latino",
+      "short": "Non Hispanic or Latino",
+      "comment": ""
+    },
+    {
+      "variable": "9999-9",
+      "definition": "Unknown",
+      "short": "Unknown",
+      "comment": ""
+    },
+    {
+      "variable": "en",
+      "definition": "English",
+      "short": "English",
+      "comment": ""
+    },
+    {
+      "variable": "es",
+      "definition": "Spanish",
+      "short": "Spanish",
+      "comment": ""
+    },
+    {
+      "variable": "zh",
+      "definition": "Chinese",
+      "short": "Chinese",
+      "comment": ""
+    },
+    {
+      "variable": "vi",
+      "definition": "Vietnamese",
+      "short": "Vietnamese",
+      "comment": ""
+    },
+    {
+      "variable": "fr",
+      "definition": "French",
+      "short": "French",
+      "comment": ""
+    },
+    {
+      "variable": "de",
+      "definition": "German",
+      "short": "German",
+      "comment": ""
+    },
+    {
+      "variable": "ar",
+      "definition": "Arabic",
+      "short": "Arabic",
+      "comment": ""
+    },
+    {
+      "variable": "other",
+      "definition": "Other",
+      "short": "Other",
+      "comment": ""
+    },
+    {
+      "variable": "unknown",
+      "definition": "Unknown",
+      "short": "Unknown",
+      "comment": ""
+    },
+    {
+      "variable": "1",
+      "definition": "None, self pay",
+      "short": "None, self pay",
+      "comment": ""
+    },
+    {
+      "variable": "2",
+      "definition": "Private",
+      "short": "Private",
+      "comment": ""
+    },
+    {
+      "variable": "3",
+      "definition": "Medicaid",
+      "short": "Medicaid",
+      "comment": ""
+    },
+    {
+      "variable": "4",
+      "definition": "Military",
+      "short": "Military",
+      "comment": ""
+    },
+    {
+      "variable": "5",
+      "definition": "Medicare",
+      "short": "Medicare",
+      "comment": ""
+    },
+    {
+      "variable": "9",
+      "definition": "Other",
+      "short": "Other",
+      "comment": ""
+    },
+    {
+      "variable": "10",
+      "definition": "Unknown",
+      "short": "Unknown",
+      "comment": ""
+    },
+    {
+      "variable": "1",
+      "definition": "No High School",
+      "short": "No High School",
+      "comment": ""
+    },
+    {
+      "variable": "2",
+      "definition": "High School graduate",
+      "short": "High School graduate",
+      "comment": ""
+    },
+    {
+      "variable": "3",
+      "definition": "College graduate",
+      "short": "College graduate",
+      "comment": ""
+    },
+    {
+      "variable": "4",
+      "definition": "Post Graduate degree",
+      "short": "Post Graduate degree",
+      "comment": ""
+    },
+    {
+      "variable": "10",
+      "definition": "Unknown",
+      "short": "Unknown",
+      "comment": ""
+    }
+  ],
+  "QICore_Providers": [
+    {
+      "variable": "organization_id",
+      "definition": "Submitting Member Organization ID, assigned from Coordinating Center",
+      "short": "Submitting Member Organization ID, assigned from Coordinating Center",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "npi_id",
+      "definition": "All provider codes (e.g., facility, physician, educator) will be identified in the data using their assigned National Provider Identification number (NPI), their CMS Provider of Service ID (POS), DEA number, or other nationally recognized active provider code. If no standard code is available, then an Internal Health System ID would be acceptable to submit.\n At least one of the approved IDs must be submitted for each provider and used as the reference value in other data files that have a reference to provider data.",
+      "short": "All provider codes (e.g., facility, physician, educator) will",
+      "comment": "Priority: Medium, either 2,3,4or5"
+    },
+    {
+      "variable": "pos_id",
+      "definition": "Provider of Service ID (POS)",
+      "short": "Provider of Service ID (POS)",
+      "comment": "Priority: Medium, either 2,3,4or5"
+    },
+    {
+      "variable": "dea_id",
+      "definition": "Drug Enforcement Agency number",
+      "short": "Drug Enforcement Agency number",
+      "comment": "Priority: Medium, either 2,3,4or5"
+    },
+    {
+      "variable": "other_id",
+      "definition": "When using other_id, once it has been reported for a provider, it should not change from data submission to data submission. However, it would be acceptable if an Organization decided to change from reporting the other ID to reporting a standard provider code value from either the 1st, 2nd, or 3rd preferences listed above. During the switch process both codes should be reported to update historical\n values.",
+      "short": "When using other_id, once it has been reported",
+      "comment": "Priority: Medium, either 2,3,4or5"
+    },
+    {
+      "variable": "other_id_type",
+      "definition": "When using an \u201cother_id\u201d for provider id this column is used to specify the type of other id used.",
+      "short": "When using an \u201cother_id\u201d for provider id this",
+      "comment": "Priority: Medium, if other_id present"
+    },
+    {
+      "variable": "provider_type",
+      "definition": "Type of provider",
+      "short": "Type of provider",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "Allowed Values/Preference",
+      "definition": "Allowed Value's Definition",
+      "short": "Allowed Value's Definition",
+      "comment": ""
+    },
+    {
+      "variable": "1st",
+      "definition": "National Provider Index\n (NPI) number",
+      "short": "National Provider Index (NPI) number",
+      "comment": ""
+    },
+    {
+      "variable": "2nd",
+      "definition": "CMS Provider of Service (POS) number",
+      "short": "CMS Provider of Service (POS) number",
+      "comment": ""
+    },
+    {
+      "variable": "3rd",
+      "definition": "DEA number",
+      "short": "DEA number",
+      "comment": ""
+    },
+    {
+      "variable": "4th",
+      "definition": "Other nationally recognized or Internal Health System ID",
+      "short": "Other nationally recognized or Internal Health System ID",
+      "comment": ""
+    },
+    {
+      "variable": "internal",
+      "definition": "Identifies which provider codes were provided. \n npi_id: npi,\n pos_id: pos,\n dea_id: dea,\n other_id: internal",
+      "short": "Identifies which provider codes were provided. npi_id: npi,",
+      "comment": ""
+    },
+    {
+      "variable": "MD",
+      "definition": "Physician",
+      "short": "Physician",
+      "comment": ""
+    },
+    {
+      "variable": "DO",
+      "definition": "Doctor of Osteopathic Medicine",
+      "short": "Doctor of Osteopathic Medicine",
+      "comment": ""
+    },
+    {
+      "variable": "PA",
+      "definition": "Physician Assistant",
+      "short": "Physician Assistant",
+      "comment": ""
+    },
+    {
+      "variable": "NP",
+      "definition": "Nurse Practitioner",
+      "short": "Nurse Practitioner",
+      "comment": ""
+    },
+    {
+      "variable": "RN",
+      "definition": "Registered Nurse",
+      "short": "Registered Nurse",
+      "comment": ""
+    },
+    {
+      "variable": "RD",
+      "definition": "Registered Dietician",
+      "short": "Registered Dietician",
+      "comment": ""
+    },
+    {
+      "variable": "EP",
+      "definition": "Exercise Physiologist",
+      "short": "Exercise Physiologist",
+      "comment": ""
+    },
+    {
+      "variable": "PS",
+      "definition": "Psychologist",
+      "short": "Psychologist",
+      "comment": ""
+    },
+    {
+      "variable": "SW",
+      "definition": "Social Worker",
+      "short": "Social Worker",
+      "comment": ""
+    },
+    {
+      "variable": "CDE",
+      "definition": "Certified Diabetes Educator",
+      "short": "Certified Diabetes Educator",
+      "comment": ""
+    },
+    {
+      "variable": "PH",
+      "definition": "Pharmacist",
+      "short": "Pharmacist",
+      "comment": ""
+    },
+    {
+      "variable": "OD",
+      "definition": "Optometrist",
+      "short": "Optometrist",
+      "comment": ""
+    },
+    {
+      "variable": "PO",
+      "definition": "Podiatrist",
+      "short": "Podiatrist",
+      "comment": ""
+    },
+    {
+      "variable": "PT",
+      "definition": "Physical therapist",
+      "short": "Physical therapist",
+      "comment": ""
+    },
+    {
+      "variable": "OT",
+      "definition": "Occupational therapist",
+      "short": "Occupational therapist",
+      "comment": ""
+    },
+    {
+      "variable": "OTH",
+      "definition": "Other person",
+      "short": "Other person",
+      "comment": ""
+    }
+  ],
+  "QICore_Encounters": [
+    {
+      "variable": "organization_id",
+      "definition": "Submitting Member Organization ID, assigned from Coordinating Center",
+      "short": "Submitting Member Organization ID, assigned from Coordinating Center",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "patient_id",
+      "definition": "Unique patient identifier across all admissions, outpatient visits, etc. that does not change over me and is included in the patient's file.",
+      "short": "Unique patient identifier across all admissions, outpatient visits,",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "encounter_id",
+      "definition": "Assign a unique encounter number for each unique patient encounter. The encounter number must remain consistent across all files which contain that encounter and across all data submissions.",
+      "short": "Assign a unique encounter number for each unique",
+      "comment": "Priority: High | Notes: Epic users: For data elements that are found at the billing record level, please use the HAR value as the\nencounter number. For data elements at the EHR record level, please use the CSN value as the encounter\nnumber. A tag ID of TEN0999 will be created to hold the link between the HAR value and all associated\nCSN values."
+    },
+    {
+      "variable": "encounter_date",
+      "definition": "Date of the visit being documented",
+      "short": "Date of the visit being documented",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "encounter_time",
+      "definition": "Time of the visit being documented in 24 hour format",
+      "short": "Time of the visit being documented in 24",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "class",
+      "definition": "Classification of the encounter",
+      "short": "Classification of the encounter",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "encounter_reason_code",
+      "definition": "Reason for encounter coded using code system specified in encounter_reason_code_type  field and when presenting multiple values should map 1:1.",
+      "short": "Reason for encounter coded using code system specified",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "encounter_reason_code_type",
+      "definition": "Code system used to describe encounter reason",
+      "short": "Code system used to describe encounter reason",
+      "comment": "Priority: High if encounter_reason_code is provided"
+    },
+    {
+      "variable": "provider_id",
+      "definition": "Provider ID(s) for an individual or entity defined in the provider file relevant to this encounter. Should map 1:1 to the provider_id_type  field.",
+      "short": "Provider ID(s) for an individual or entity defined",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "provider_id_type",
+      "definition": "Type of provider id referenced in provider_id. Should map 1:1 to the provider_id.",
+      "short": "Type of provider id referenced in provider_id. Should",
+      "comment": "Priority: High if provider_id | Notes: Should be a valid \u201cType\u201d value listed in the providers file table of acceptable types ('npi', 'pos', 'dea', 'internal')."
+    },
+    {
+      "variable": "status",
+      "definition": "The status of the encounter record. Encounters should start with a status of planned and then diverge from there to their final status.",
+      "short": "The status of the encounter record. Encounters should",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "status_actor",
+      "definition": "The actor that is responsible for the current status. This is not the party responsible for changing the status; that would almost universally be the provider. Rather, this is the person responsible FOR the status. For instance if a patient calls to cancel an appointment because they are in the hospital then the status is canceled, the actor is patient, and reason is illness. If the provider reschedules because the offices are closed due to weather then the status is rescheduled, the actor is the provider, and the reason is weather.",
+      "short": "The actor that is responsible for the current",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "status_reason",
+      "definition": "The reason for the current status; the actor scopes the reason. For instance, an actor of patient and reason is illness would imply the patient was too sick while an actor of provider and reason of illness would imply the provider was sick. Likely exclusively used for canceled or rescheduled encounters.",
+      "short": "The reason for the current status; the actor",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "primary_insurance_type",
+      "definition": "Primary insurance type",
+      "short": "Primary insurance type",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "secondary_insurance_type",
+      "definition": "Secondary insurance type",
+      "short": "Secondary insurance type",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "tertiary_insurance_type",
+      "definition": "Tertiary insurance type",
+      "short": "Tertiary insurance type",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "endo_visit",
+      "definition": "Binary 0 or 1 to indicate an encounter is from the endocrine group or non-endocrine group",
+      "short": "Binary 0 or 1 to indicate an encounter",
+      "comment": "Priority: Medium"
+    },
+    {
+      "variable": "Allowed Values",
+      "definition": "Allowed Value's Definition",
+      "short": "Allowed Value's Definition",
+      "comment": ""
+    },
+    {
+      "variable": "inpatient",
+      "definition": "An encounter during which the patient is\nhospitalized and stays overnight.",
+      "short": "An encounter during which the patient is hospitalized",
+      "comment": ""
+    },
+    {
+      "variable": "outpatient",
+      "definition": "An encounter during which the patient is not \nhospitalized overnight.",
+      "short": "An encounter during which the patient is not",
+      "comment": ""
+    },
+    {
+      "variable": "ambulatory",
+      "definition": "An encounter where the patient visits the \npractitioner in his/her office, e.g. a G.P. visit.",
+      "short": "An encounter where the patient visits the practitioner",
+      "comment": ""
+    },
+    {
+      "variable": "emergency",
+      "definition": "An encounter in the Emergency Care Department.",
+      "short": "An encounter in the Emergency Care Department.",
+      "comment": ""
+    },
+    {
+      "variable": "home",
+      "definition": "An encounter where the practitioner visits the \npatient at his/her home.",
+      "short": "An encounter where the practitioner visits the patient",
+      "comment": ""
+    },
+    {
+      "variable": "field",
+      "definition": "An encounter taking place outside the regular environment for giving care.",
+      "short": "An encounter taking place outside the regular environment",
+      "comment": ""
+    },
+    {
+      "variable": "daytime",
+      "definition": "An encounter where the patient needs more \nprolonged treatment or investigations than \noutpatients, but who do not need to stay in the \nhospital overnight.",
+      "short": "An encounter where the patient needs more prolonged",
+      "comment": ""
+    },
+    {
+      "variable": "virtual",
+      "definition": "An encounter that takes place where the patient and \npractitioner do not physically meet but use electronic means for contact.",
+      "short": "An encounter that takes place where the patient",
+      "comment": ""
+    },
+    {
+      "variable": "education",
+      "definition": "An encounter during which the patient receives \neducation",
+      "short": "An encounter during which the patient receives education",
+      "comment": ""
+    },
+    {
+      "variable": "other",
+      "definition": "Any other encounter type that is not described by one of the other values.",
+      "short": "Any other encounter type that is not described",
+      "comment": ""
+    },
+    {
+      "variable": "medication",
+      "definition": "An encounter for issue of repeat/ modify prescription",
+      "short": "An encounter for issue of repeat/ modify prescription",
+      "comment": ""
+    },
+    {
+      "variable": "laboratory",
+      "definition": "An encounter for lab visits prior to patient visits the \npractitioner in his/her office, e.g. a G.P. visit.",
+      "short": "An encounter for lab visits prior to patient",
+      "comment": ""
+    },
+    {
+      "variable": "cpt",
+      "definition": "CPT Code",
+      "short": "CPT Code",
+      "comment": ""
+    },
+    {
+      "variable": "snomedct",
+      "definition": "FHIR standard uses snomed ct for describing encounter reason",
+      "short": "FHIR standard uses snomed ct for describing encounter",
+      "comment": ""
+    },
+    {
+      "variable": "icd10",
+      "definition": "ICD-10 Code",
+      "short": "ICD-10 Code",
+      "comment": ""
+    },
+    {
+      "variable": "icd9",
+      "definition": "ICD-9 Code",
+      "short": "ICD-9 Code",
+      "comment": ""
+    },
+    {
+      "variable": "planned",
+      "definition": "An encounter with the patient is planned on the encounter_date which is in the future",
+      "short": "An encounter with the patient is planned on",
+      "comment": ""
+    },
+    {
+      "variable": "finished",
+      "definition": "An encounter with the patient is complete; there should be additional encounter data",
+      "short": "An encounter with the patient is complete; there",
+      "comment": ""
+    },
+    {
+      "variable": "canceled",
+      "definition": "A previously planned encounter with the patient was canceled. http://www.hl7.org/FHIR/valuesetencounterstate.html",
+      "short": "A previously planned encounter with the patient was",
+      "comment": ""
+    },
+    {
+      "variable": "rescheduled",
+      "definition": "A previously planned encounter with the patient has\n been rescheduled (new encounter_date should be\n provided)",
+      "short": "A previously planned encounter with the patient has",
+      "comment": ""
+    },
+    {
+      "variable": "deleted",
+      "definition": "Encounter was entered in error",
+      "short": "Encounter was entered in error",
+      "comment": ""
+    },
+    {
+      "variable": "left_before_seen",
+      "definition": "Patient arrived but left without seeing MD/RN/etc.",
+      "short": "Patient arrived but left without seeing MD/RN/etc.",
+      "comment": ""
+    },
+    {
+      "variable": "left_before_finish",
+      "definition": "Patient arrived and met with a provider but left before appointment was officially completed.",
+      "short": "Patient arrived and met with a provider but",
+      "comment": ""
+    },
+    {
+      "variable": "no_show",
+      "definition": "Patient did not arrive to scheduled appointment",
+      "short": "Patient did not arrive to scheduled appointment",
+      "comment": ""
+    },
+    {
+      "variable": "patient",
+      "definition": "the patient is responsible for the current status",
+      "short": "the patient is responsible for the current status",
+      "comment": ""
+    },
+    {
+      "variable": "provider",
+      "definition": "the provider is responsible for the current status",
+      "short": "the provider is responsible for the current status",
+      "comment": ""
+    },
+    {
+      "variable": "other",
+      "definition": "catch-all for external actors",
+      "short": "catch-all for external actors",
+      "comment": ""
+    },
+    {
+      "variable": "equipment",
+      "definition": "Equipment was not available",
+      "short": "Equipment was not available",
+      "comment": ""
+    },
+    {
+      "variable": "interpreter",
+      "definition": "Interpreter was not available",
+      "short": "Interpreter was not available",
+      "comment": ""
+    },
+    {
+      "variable": "insurance",
+      "definition": "Insurance issue",
+      "short": "Insurance issue",
+      "comment": ""
+    },
+    {
+      "variable": "no_referral/preauthorization",
+      "definition": "Insurance issue",
+      "short": "Insurance issue",
+      "comment": ""
+    },
+    {
+      "variable": "schedule_conflict",
+      "definition": "patient or provider had a scheduling conflict",
+      "short": "patient or provider had a scheduling conflict",
+      "comment": ""
+    },
+    {
+      "variable": "financials",
+      "definition": "Financial issue",
+      "short": "Financial issue",
+      "comment": ""
+    },
+    {
+      "variable": "scheduling_error",
+      "definition": "An error occurred in scheduling the encounter",
+      "short": "An error occurred in scheduling the encounter",
+      "comment": ""
+    },
+    {
+      "variable": "weather",
+      "definition": "Weather interfered with the encounter",
+      "short": "Weather interfered with the encounter",
+      "comment": ""
+    },
+    {
+      "variable": "illness",
+      "definition": "Patient/Provider was hospitalized or otherwise too \nsick",
+      "short": "Patient/Provider was hospitalized or otherwise too sick",
+      "comment": ""
+    },
+    {
+      "variable": "no_longer_needed",
+      "definition": "Appointment is no longer necessary",
+      "short": "Appointment is no longer necessary",
+      "comment": ""
+    },
+    {
+      "variable": "convenience",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "other",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "1",
+      "definition": "None, self pay",
+      "short": "None, self pay",
+      "comment": ""
+    },
+    {
+      "variable": "2",
+      "definition": "Private",
+      "short": "Private",
+      "comment": ""
+    },
+    {
+      "variable": "3",
+      "definition": "Medicaid",
+      "short": "Medicaid",
+      "comment": ""
+    },
+    {
+      "variable": "4",
+      "definition": "Military",
+      "short": "Military",
+      "comment": ""
+    },
+    {
+      "variable": "5",
+      "definition": "Medicare",
+      "short": "Medicare",
+      "comment": ""
+    },
+    {
+      "variable": "9",
+      "definition": "Other",
+      "short": "Other",
+      "comment": ""
+    },
+    {
+      "variable": "10",
+      "definition": "Unknown",
+      "short": "Unknown",
+      "comment": ""
+    },
+    {
+      "variable": "0",
+      "definition": "Encounter is from non-endocrine group",
+      "short": "Encounter is from non-endocrine group",
+      "comment": ""
+    },
+    {
+      "variable": "1",
+      "definition": "Encounter is from endocrine group",
+      "short": "Encounter is from endocrine group",
+      "comment": ""
+    },
+    {
+      "variable": "99",
+      "definition": "Other",
+      "short": "Other",
+      "comment": ""
+    },
+    {
+      "variable": "100",
+      "definition": "Unknown",
+      "short": "Unknown",
+      "comment": ""
+    }
+  ],
+  "QICore_Observations": [
+    {
+      "variable": "organization_id",
+      "definition": "Submitting Member Organization ID, assigned from Coordinating Center",
+      "short": "Submitting Member Organization ID, assigned from Coordinating Center",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "patient_id",
+      "definition": "Patient identifier that the observation applies to from the patient's file.",
+      "short": "Patient identifier that the observation applies to from",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "encounter_id",
+      "definition": "Encounter identifier for when the observation was recorded from the encounters file",
+      "short": "Encounter identifier for when the observation was recorded",
+      "comment": "Priority: Low | Notes: Provide when available"
+    },
+    {
+      "variable": "observation_id",
+      "definition": "Unique observation ID for each unique patient observation. The observation ID must remain consistent across all files which contain that observation and across all data submissions.\n\nValue should be max 32 characters.",
+      "short": "Unique observation ID for each unique patient observation.",
+      "comment": "Priority: High | Notes: If no adequate value is provided by the EMR system then the below method can be used to generated the observation_id.\n\nhash( patient_id,\n         effective_date,\n         effective_time (if available),\n         code (LONIC code),\n         value)"
+    },
+    {
+      "variable": "category",
+      "definition": "Classification of type of observation",
+      "short": "Classification of type of observation",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "effective_date",
+      "definition": "Encounter date",
+      "short": "Encounter date",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "effective_time",
+      "definition": "Encounter time",
+      "short": "Encounter time",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "code",
+      "definition": "Type of observation being reported as a valid LOINC code.",
+      "short": "Type of observation being reported as a valid",
+      "comment": "Priority: High | Notes: Refer to Diabetes_Core_Observations sheet in the Diabetes spec for a complete list of labs to include"
+    },
+    {
+      "variable": "code_type",
+      "definition": "Disease specific coding system",
+      "short": "Disease specific coding system",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "status",
+      "definition": "Status of observation",
+      "short": "Status of observation",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "value",
+      "definition": "value of code",
+      "short": "value of code",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "value_units",
+      "definition": "UCUM code for units used in Value measurement (LOINC Units)",
+      "short": "UCUM code for units used in Value measurement",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "low_test_value",
+      "definition": "The lower threshold at which the test would be considered \u201cabnormal\u201d",
+      "short": "The lower threshold at which the test would",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "high_test_value",
+      "definition": "The higher threshold at which the test would be considered \u201cabnormal\u201d",
+      "short": "The higher threshold at which the test would",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "interpretation",
+      "definition": "Observation interpretation",
+      "short": "Observation interpretation",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "Allowed Values",
+      "definition": "Allowed Value's Definition",
+      "short": "Allowed Value's Definition",
+      "comment": ""
+    },
+    {
+      "variable": "social-history",
+      "definition": "The Social History Observations define the patient\u2019s \noccupational, personal (e.g. lifestyle), social, and \nenvironmental history and health risk factors, as well as administrative data such as marital status,\nreligious affiliation. Race and ethnicity can be reported as observations however they should be properly reported in the patient file",
+      "short": "The Social History Observations define the patient\u2019s occupational,",
+      "comment": ""
+    },
+    {
+      "variable": "vital-signs",
+      "definition": "Clinical observations measure the body\u2019s basic functions such as such as blood pressure, heart rate,\nrespiratory rate, height, weight, body mass index,\nhead circumference, pulse oximetry, temperature,\nand body surface area.",
+      "short": "Clinical observations measure the body\u2019s basic functions such",
+      "comment": ""
+    },
+    {
+      "variable": "imaging",
+      "definition": "Observations generated by imaging. The scope \nincludes observations, plain x ray, ultrasound, CT, MRI, angiography, echocardiography, nuclear medicine.",
+      "short": "Observations generated by imaging. The scope includes observations,",
+      "comment": ""
+    },
+    {
+      "variable": "laboratory",
+      "definition": "The results of observations generated by \nlaboratories. Laboratory results are typically generated by laboratories providing analytic services \nin areas such as chemistry, hematology, serology,\nhistology, cytology, anatomic pathology, microbiology, and/or virology. These observations \nare based on analysis of specimens obtained from the patient and submitted to the laboratory.",
+      "short": "The results of observations generated by laboratories. Laboratory",
+      "comment": ""
+    },
+    {
+      "variable": "procedure",
+      "definition": "Observations generated by other procedures. This \ncategory includes observations resulting from \ninterventional and non interventional procedures excluding lab and imaging (e.g. cardiology catheterization, endoscopy, electrodiagnostics, etc.). Procedure results are typically generated by a clinician to provide more granular information about component observations made during a procedure, such as where a gastroenterologist reports the size of a polyp observed during a colonoscopy.",
+      "short": "Observations generated by other procedures. This category includes",
+      "comment": ""
+    },
+    {
+      "variable": "survey",
+      "definition": "Assessment tool/survey instrument observations\n(e.g. Apgar Scores, Montreal Cognitive Assessment\n(MoCA))",
+      "short": "Assessment tool/survey instrument observations (e.g. Apgar Scores, Montreal",
+      "comment": ""
+    },
+    {
+      "variable": "exam",
+      "definition": "Observations generated by physical exam findings \nincluding direct observations made by a clinician and use of simple instruments and the result of simple maneuvers performed directly on the patient\u2019s body.",
+      "short": "Observations generated by physical exam findings including direct",
+      "comment": ""
+    },
+    {
+      "variable": "therapy",
+      "definition": "Observations generated by non-interventional \ntreatment protocols (e.g. occupational, physical, radiation, nutritional and medication therapy)",
+      "short": "Observations generated by non-interventional treatment protocols (e.g. occupational,",
+      "comment": ""
+    },
+    {
+      "variable": "29463-7",
+      "definition": "Body weight",
+      "short": "Body weight",
+      "comment": ""
+    },
+    {
+      "variable": "8302-2",
+      "definition": "Body height",
+      "short": "Body height",
+      "comment": ""
+    },
+    {
+      "variable": "8310-5",
+      "definition": "Body temperature",
+      "short": "Body temperature",
+      "comment": ""
+    },
+    {
+      "variable": "8867-4",
+      "definition": "Heart rate",
+      "short": "Heart rate",
+      "comment": ""
+    },
+    {
+      "variable": "39156-5",
+      "definition": "BMI",
+      "short": "BMI",
+      "comment": ""
+    },
+    {
+      "variable": "59408-5",
+      "definition": "Oxygen saturation in Arterial blood by Pulse oximetry",
+      "short": "Oxygen saturation in Arterial blood by Pulse oximetry",
+      "comment": ""
+    },
+    {
+      "variable": "9279-01-01 00:00:00",
+      "definition": "Respiratory rate",
+      "short": "Respiratory rate",
+      "comment": ""
+    },
+    {
+      "variable": "8480-06-01 00:00:00",
+      "definition": "Systolic blood pressure",
+      "short": "Systolic blood pressure",
+      "comment": ""
+    },
+    {
+      "variable": "8462-04-01 00:00:00",
+      "definition": "Diastolic blood pressure",
+      "short": "Diastolic blood pressure",
+      "comment": ""
+    },
+    {
+      "variable": "8478-0",
+      "definition": "Mean blood pressure",
+      "short": "Mean blood pressure",
+      "comment": ""
+    },
+    {
+      "variable": "54845-3",
+      "definition": "Current tobacco use (last 7 days) \u2013 (No \u2013 0, Yes 1)",
+      "short": "Current tobacco use (last 7 days) \u2013 (No",
+      "comment": ""
+    },
+    {
+      "variable": "11367-0",
+      "definition": "History of tobacco use",
+      "short": "History of tobacco use",
+      "comment": ""
+    },
+    {
+      "variable": "74011-8",
+      "definition": "Lifetime tobacco use",
+      "short": "Lifetime tobacco use",
+      "comment": ""
+    },
+    {
+      "variable": "97063-2",
+      "definition": "Family history of Diabetes -  (No \u2013 0, Yes 1)",
+      "short": "Family history of Diabetes - (No \u2013 0,",
+      "comment": ""
+    },
+    {
+      "variable": "55758-7",
+      "definition": "PHQ-2 Depression screening score",
+      "short": "PHQ-2 Depression screening score",
+      "comment": ""
+    },
+    {
+      "variable": "70272-0",
+      "definition": "PHQ-4 Depression screening score",
+      "short": "PHQ-4 Depression screening score",
+      "comment": ""
+    },
+    {
+      "variable": "94328-2",
+      "definition": "PHQ-8 Depression screening score",
+      "short": "PHQ-8 Depression screening score",
+      "comment": ""
+    },
+    {
+      "variable": "44261-6",
+      "definition": "PHQ-9 Depression screening score",
+      "short": "PHQ-9 Depression screening score",
+      "comment": ""
+    },
+    {
+      "variable": "70274-6",
+      "definition": "GAD-7 Generalized anxiety disorder score",
+      "short": "GAD-7 Generalized anxiety disorder score",
+      "comment": ""
+    },
+    {
+      "variable": "88124-3",
+      "definition": "Food insecurity risk [HVS]",
+      "short": "Food insecurity risk [HVS]",
+      "comment": ""
+    },
+    {
+      "variable": "88122-7",
+      "definition": "Hunger Vital Signs Q1- (I/We) worried whether (my/our) food would run out before (I/we) got money to buy more.",
+      "short": "Hunger Vital Signs Q1- (I/We) worried whether (my/our)",
+      "comment": ""
+    },
+    {
+      "variable": "88123-5",
+      "definition": "Hunger Vital Signs Q2- The food that (I/we) bought just didn't last, and (I/we) didn't have money to get more.",
+      "short": "Hunger Vital Signs Q2- The food that (I/we)",
+      "comment": ""
+    },
+    {
+      "variable": "93030-5",
+      "definition": "Has lack of transportation kept you from medical appointments, meetings, work, or from getting things needed for daily living",
+      "short": "Has lack of transportation kept you from medical",
+      "comment": ""
+    },
+    {
+      "variable": "93033-9",
+      "definition": "Are you worried about losing your housing?",
+      "short": "Are you worried about losing your housing?",
+      "comment": ""
+    },
+    {
+      "variable": "4548-4",
+      "definition": "Hemoglobin A1c/Hemoglobin.total in Blood",
+      "short": "Hemoglobin A1c/Hemoglobin.total in Blood",
+      "comment": ""
+    },
+    {
+      "variable": "17856-6",
+      "definition": "https://s.details.loinc.org/LOINC/17856-6.html?sections=Simple",
+      "short": "https://s.details.loinc.org/LOINC/17856-6.html?sections=Simple",
+      "comment": ""
+    },
+    {
+      "variable": "4549-2",
+      "definition": "https://s.details.loinc.org/LOINC/4549-2.html?sections=Simple",
+      "short": "https://s.details.loinc.org/LOINC/4549-2.html?sections=Simple",
+      "comment": ""
+    },
+    {
+      "variable": "ordered",
+      "definition": "code was ordered",
+      "short": "code was ordered",
+      "comment": ""
+    },
+    {
+      "variable": "canceled",
+      "definition": "code was canceled",
+      "short": "code was canceled",
+      "comment": ""
+    },
+    {
+      "variable": "hold",
+      "definition": "code was placed on hold",
+      "short": "code was placed on hold",
+      "comment": ""
+    },
+    {
+      "variable": "completed",
+      "definition": "code was completed",
+      "short": "code was completed",
+      "comment": ""
+    },
+    {
+      "variable": "<",
+      "definition": "Off scale low",
+      "short": "Off scale low",
+      "comment": ""
+    },
+    {
+      "variable": ">",
+      "definition": "Off scale high",
+      "short": "Off scale high",
+      "comment": ""
+    },
+    {
+      "variable": "A",
+      "definition": "Abnormal",
+      "short": "Abnormal",
+      "comment": ""
+    },
+    {
+      "variable": "AA",
+      "definition": "Critically abnormal",
+      "short": "Critically abnormal",
+      "comment": ""
+    },
+    {
+      "variable": "B",
+      "definition": "Better",
+      "short": "Better",
+      "comment": ""
+    },
+    {
+      "variable": "D",
+      "definition": "Significant change down",
+      "short": "Significant change down",
+      "comment": ""
+    },
+    {
+      "variable": "DET",
+      "definition": "Detected",
+      "short": "Detected",
+      "comment": ""
+    },
+    {
+      "variable": "H",
+      "definition": "High",
+      "short": "High",
+      "comment": ""
+    },
+    {
+      "variable": "HH",
+      "definition": "Critically high",
+      "short": "Critically high",
+      "comment": ""
+    },
+    {
+      "variable": "HU",
+      "definition": "Very high",
+      "short": "Very high",
+      "comment": ""
+    },
+    {
+      "variable": "I",
+      "definition": "Intermediate",
+      "short": "Intermediate",
+      "comment": ""
+    },
+    {
+      "variable": "IE",
+      "definition": "Insufficient evidence",
+      "short": "Insufficient evidence",
+      "comment": ""
+    },
+    {
+      "variable": "IND",
+      "definition": "Indeterminate",
+      "short": "Indeterminate",
+      "comment": ""
+    },
+    {
+      "variable": "L",
+      "definition": "Low",
+      "short": "Low",
+      "comment": ""
+    },
+    {
+      "variable": "LL",
+      "definition": "Critically low",
+      "short": "Critically low",
+      "comment": ""
+    },
+    {
+      "variable": "LU",
+      "definition": "Very low",
+      "short": "Very low",
+      "comment": ""
+    },
+    {
+      "variable": "MS",
+      "definition": "Moderately susceptible. Indicates for microbiology susceptibilities only.",
+      "short": "Moderately susceptible. Indicates for microbiology susceptibilities only.",
+      "comment": ""
+    },
+    {
+      "variable": "N",
+      "definition": "Normal",
+      "short": "Normal",
+      "comment": ""
+    },
+    {
+      "variable": "ND",
+      "definition": "Not Detected",
+      "short": "Not Detected",
+      "comment": ""
+    },
+    {
+      "variable": "NEG",
+      "definition": "Negative",
+      "short": "Negative",
+      "comment": ""
+    },
+    {
+      "variable": "NR",
+      "definition": "Non-reactive",
+      "short": "Non-reactive",
+      "comment": ""
+    },
+    {
+      "variable": "NS",
+      "definition": "Non-susceptible",
+      "short": "Non-susceptible",
+      "comment": ""
+    },
+    {
+      "variable": "POS",
+      "definition": "Positive",
+      "short": "Positive",
+      "comment": ""
+    },
+    {
+      "variable": "R",
+      "definition": "Resistant",
+      "short": "Resistant",
+      "comment": ""
+    },
+    {
+      "variable": "RR",
+      "definition": "Reactive",
+      "short": "Reactive",
+      "comment": ""
+    },
+    {
+      "variable": "S",
+      "definition": "Susceptible",
+      "short": "Susceptible",
+      "comment": ""
+    },
+    {
+      "variable": "SDD",
+      "definition": "Susceptible dose \ndependent",
+      "short": "Susceptible dose dependent",
+      "comment": ""
+    },
+    {
+      "variable": "SYN-R",
+      "definition": "Synergy-resistant",
+      "short": "Synergy-resistant",
+      "comment": ""
+    },
+    {
+      "variable": "SYN-S",
+      "definition": "Synergy-susceptible",
+      "short": "Synergy-susceptible",
+      "comment": ""
+    },
+    {
+      "variable": "U",
+      "definition": "Significant change up",
+      "short": "Significant change up",
+      "comment": ""
+    },
+    {
+      "variable": "VS",
+      "definition": "Very susceptible. Indicates for microbiology susceptibilities only",
+      "short": "Very susceptible. Indicates for microbiology susceptibilities only",
+      "comment": ""
+    },
+    {
+      "variable": "W",
+      "definition": "Worse",
+      "short": "Worse",
+      "comment": ""
+    },
+    {
+      "variable": "WR",
+      "definition": "Weakly reactive",
+      "short": "Weakly reactive",
+      "comment": ""
+    }
+  ],
+  "QICore_Conditions": [
+    {
+      "variable": "organization_id",
+      "definition": "Submitting Member Organization ID, assigned from Coordinating Center.",
+      "short": "Submitting Member Organization ID, assigned from Coordinating Center.",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "patient_id",
+      "definition": "Patient identifier that the condition applies to from the patient's file.",
+      "short": "Patient identifier that the condition applies to from",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "encounter_id",
+      "definition": "Encounter identifier for when the condition was asserted from the encounters file",
+      "short": "Encounter identifier for when the condition was asserted",
+      "comment": "Priority: Low | Notes: Provide when available"
+    },
+    {
+      "variable": "condition_id",
+      "definition": "Unique condition ID for each unique patient condition. The condition ID must remain consistent across all files which contain that condition and across all data submissions.",
+      "short": "Unique condition ID for each unique patient condition.",
+      "comment": "Priority: High | Notes: If no adequate value is provided by the EMR system then the below method can be used to generate the condition_id.\n\nhash(patient_id+ICD10Code+onset_date)"
+    },
+    {
+      "variable": "provider_id",
+      "definition": "Provider identifier for the provider that is asserting this condition from the providers file.",
+      "short": "Provider identifier for the provider that is asserting",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "provider_id_type",
+      "definition": "Type of provider id referenced in provider_id.",
+      "short": "Type of provider id referenced in provider_id.",
+      "comment": "Priority: High, if provider_id is specified then provider_id_type is required | Notes: Should be a valid \u201cType\u201d value listed in the providers file table of acceptable types ('npi', 'pos', 'dea', 'internal')."
+    },
+    {
+      "variable": "date_recorded",
+      "definition": "Date when condition was first entered.",
+      "short": "Date when condition was first entered.",
+      "comment": "Priority: low"
+    },
+    {
+      "variable": "order_num",
+      "definition": "Diagnosis position in event record (e.g., 1, 2, 3, etc.)",
+      "short": "Diagnosis position in event record (e.g., 1, 2,",
+      "comment": "Priority: low"
+    },
+    {
+      "variable": "onset_date",
+      "definition": "Estimated or actual date for condition onset.",
+      "short": "Estimated or actual date for condition onset.",
+      "comment": "Priority: low"
+    },
+    {
+      "variable": "abatement_date",
+      "definition": "If/when condition in resolution/remission",
+      "short": "If/when condition in resolution/remission",
+      "comment": "Priority: low"
+    },
+    {
+      "variable": "code",
+      "definition": "Identification of the condition, problem or diagnosis.",
+      "short": "Identification of the condition, problem or diagnosis.",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "code_type",
+      "definition": "Code system used for code.",
+      "short": "Code system used for code.",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "category",
+      "definition": "Type of condition",
+      "short": "Type of condition",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "clinical_status",
+      "definition": "Status of the reported condition.",
+      "short": "Status of the reported condition.",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "verification_status",
+      "definition": "Verification status of the reported condition.",
+      "short": "Verification status of the reported condition.",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "Allowed Values/ Types",
+      "definition": "Allowed Value's Definition",
+      "short": "Allowed Value's Definition",
+      "comment": ""
+    },
+    {
+      "variable": "snomedct",
+      "definition": "1st Snomed CT",
+      "short": "1st Snomed CT",
+      "comment": ""
+    },
+    {
+      "variable": "icd10",
+      "definition": "2nd ICD 10",
+      "short": "2nd ICD 10",
+      "comment": ""
+    },
+    {
+      "variable": "icd9",
+      "definition": "3rd ICD 9",
+      "short": "3rd ICD 9",
+      "comment": ""
+    },
+    {
+      "variable": "snomedct",
+      "definition": "1st Snomed CT",
+      "short": "1st Snomed CT",
+      "comment": ""
+    },
+    {
+      "variable": "icd10",
+      "definition": "2nd ICD 10",
+      "short": "2nd ICD 10",
+      "comment": ""
+    },
+    {
+      "variable": "icd9",
+      "definition": "3rd ICD 9",
+      "short": "3rd ICD 9",
+      "comment": ""
+    },
+    {
+      "variable": "complaint",
+      "definition": "The recorded condition is a complaint",
+      "short": "The recorded condition is a complaint",
+      "comment": ""
+    },
+    {
+      "variable": "symptom",
+      "definition": "The recorded condition is a symptom",
+      "short": "The recorded condition is a symptom",
+      "comment": ""
+    },
+    {
+      "variable": "finding",
+      "definition": "The recorded condition is a finding",
+      "short": "The recorded condition is a finding",
+      "comment": ""
+    },
+    {
+      "variable": "diagnosis",
+      "definition": "The recorded condition is a diagnosis",
+      "short": "The recorded condition is a diagnosis",
+      "comment": ""
+    },
+    {
+      "variable": "active",
+      "definition": "The subject is currently experiencing the symptoms \nof the condition.",
+      "short": "The subject is currently experiencing the symptoms of",
+      "comment": ""
+    },
+    {
+      "variable": "relapse",
+      "definition": "The subject is re-experiencing the symptoms of the condition after a period of remission or presumed resolution.",
+      "short": "The subject is re-experiencing the symptoms of the",
+      "comment": ""
+    },
+    {
+      "variable": "remission",
+      "definition": "The subject is no longer experiencing the symptoms\nof the condition, but there is a risk of the symptoms\nreturning.",
+      "short": "The subject is no longer experiencing the symptoms",
+      "comment": ""
+    },
+    {
+      "variable": "resolved",
+      "definition": "The subject is no longer experiencing the symptoms\nof the condition and there is no perceived risk of the\nsymptoms returning.",
+      "short": "The subject is no longer experiencing the symptoms",
+      "comment": ""
+    },
+    {
+      "variable": "deleted",
+      "definition": "An old condition that the subject is no longer experiencing. These could be conditions that were never set to resolved.",
+      "short": "An old condition that the subject is no",
+      "comment": ""
+    },
+    {
+      "variable": "provisional",
+      "definition": "This is a tentative diagnosis - still a candidate that is \nunder consideration.",
+      "short": "This is a tentative diagnosis - still a",
+      "comment": ""
+    },
+    {
+      "variable": "differential",
+      "definition": "One of a set of potential (and typically mutually\nexclusive) diagnosis asserted to further guide the\ndiagnostic process and preliminary treatment.",
+      "short": "One of a set of potential (and typically",
+      "comment": ""
+    },
+    {
+      "variable": "confirmed",
+      "definition": "There is sufficient diagnostic and/or clinical evidence \nto treat this as a confirmed condition.",
+      "short": "There is sufficient diagnostic and/or clinical evidence to",
+      "comment": ""
+    },
+    {
+      "variable": "refuted",
+      "definition": "This condition has been ruled out by diagnostic and\nclinical evidence.",
+      "short": "This condition has been ruled out by diagnostic",
+      "comment": ""
+    },
+    {
+      "variable": "entered-in-error",
+      "definition": "The statement was entered in error and is not valid.",
+      "short": "The statement was entered in error and is",
+      "comment": ""
+    },
+    {
+      "variable": "unknown",
+      "definition": "The condition status is unknown. Note that \n\u201cunknown\u201d is a value of last resort and every attempt \nshould be made to provide a meaningful value other\nthan \u201cunknown\u201d.",
+      "short": "The condition status is unknown. Note that \u201cunknown\u201d",
+      "comment": ""
+    }
+  ],
+  "QICore_Medications": [
+    {
+      "variable": "organization_id",
+      "definition": "Submitting Member Organization ID, assigned from Coordinating Center",
+      "short": "Submitting Member Organization ID, assigned from Coordinating Center",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "patient_id",
+      "definition": "Patient identifier that the medication applies to from the patient's file.",
+      "short": "Patient identifier that the medication applies to from",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "encounter_id",
+      "definition": "Encounter identifier for when the medication prescription was created from the encounters file",
+      "short": "Encounter identifier for when the medication prescription was",
+      "comment": "Priority: Low | Notes: Provide when available"
+    },
+    {
+      "variable": "medication_id",
+      "definition": "Unique medication prescription ID for each unique patient medication prescription. The medication \nprescription ID must remain consistent across all files which contain that medication prescription and \nacross all data submissions.",
+      "short": "Unique medication prescription ID for each unique patient",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "prescriber_id",
+      "definition": "Provider identifier for the provider that ordered the medication from the providers file.",
+      "short": "Provider identifier for the provider that ordered the",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "prescriber_id_type",
+      "definition": "Type of provider id referenced in prescriber_id.",
+      "short": "Type of provider id referenced in prescriber_id.",
+      "comment": "Priority: High, required if prescriber_id is specified"
+    },
+    {
+      "variable": "date_written",
+      "definition": "When prescription was authorized.",
+      "short": "When prescription was authorized.",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "status",
+      "definition": "What is the status of this medication",
+      "short": "What is the status of this medication",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "code",
+      "definition": "Identification of the medication prescribed.",
+      "short": "Identification of the medication prescribed.",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "code_type",
+      "definition": "Code system used for the medication code.",
+      "short": "Code system used for the medication code.",
+      "comment": "Priority: High | Notes: FHIR Medication Prescription"
+    },
+    {
+      "variable": "drug_name",
+      "definition": "Prescription name",
+      "short": "Prescription name",
+      "comment": "Priority: Medium"
+    },
+    {
+      "variable": "drug_name_generic",
+      "definition": "Generic prescription name",
+      "short": "Generic prescription name",
+      "comment": "Priority: Medium"
+    },
+    {
+      "variable": "drug_class",
+      "definition": "Prescription class",
+      "short": "Prescription class",
+      "comment": "Priority: Medium"
+    },
+    {
+      "variable": "drug_sub_class",
+      "definition": "Prescription sub class",
+      "short": "Prescription sub class",
+      "comment": "Priority: Medium"
+    },
+    {
+      "variable": "Allowed Values/ Types",
+      "definition": "Allowed Value's Definition",
+      "short": "Allowed Value's Definition",
+      "comment": ""
+    },
+    {
+      "variable": "Should be a valid \u201cType\u201d value listed in the providers file table of acceptable types.",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "active",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "reorder",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "on-hold",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "completed",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "entered-in-error",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "stopped",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "superseded",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "draft",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "other",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "snomedct",
+      "definition": "1st Snomed CT",
+      "short": "1st Snomed CT",
+      "comment": ""
+    },
+    {
+      "variable": "rxnorm",
+      "definition": "2nd RxNorm",
+      "short": "2nd RxNorm",
+      "comment": ""
+    },
+    {
+      "variable": "ndc",
+      "definition": "3rd National Drug Code",
+      "short": "3rd National Drug Code",
+      "comment": ""
+    },
+    {
+      "variable": "t1d",
+      "definition": "t1d codes",
+      "short": "t1d codes",
+      "comment": ""
+    },
+    {
+      "variable": "internal",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "snomedct",
+      "definition": "Snomed CT",
+      "short": "Snomed CT",
+      "comment": ""
+    },
+    {
+      "variable": "rxnorm",
+      "definition": "RxNorm",
+      "short": "RxNorm",
+      "comment": ""
+    },
+    {
+      "variable": "ndc",
+      "definition": "National Drug Code",
+      "short": "National Drug Code",
+      "comment": ""
+    },
+    {
+      "variable": "t1d",
+      "definition": "T1D Exchange Custom Code",
+      "short": "T1D Exchange Custom Code",
+      "comment": ""
+    },
+    {
+      "variable": "01-06-10-01",
+      "definition": "Medication refill assessment completed",
+      "short": "Medication refill assessment completed",
+      "comment": ""
+    },
+    {
+      "variable": "First two digits",
+      "definition": "Data specification: 00 == core, 01 == diabetes",
+      "short": "Data specification: 00 == core, 01 == diabetes",
+      "comment": ""
+    },
+    {
+      "variable": "Second two digits",
+      "definition": "Core Spec:\n01 == patient's\n02 == Providers\n03 == Encounters\n04 == Observations\n05 == Conditions\n06 == Medications\n07 == Care\n08 == Claims\n\nDiabetes Spec:\n01 == Disease\n02 == Insulin\n03 == Monitoring\n04 == Glucose",
+      "short": "Core Spec: 01 == patient's 02 == Providers",
+      "comment": ""
+    },
+    {
+      "variable": "Third two digits",
+      "definition": "Variable: 10 == Refill assessment",
+      "short": "Variable: 10 == Refill assessment",
+      "comment": ""
+    },
+    {
+      "variable": "fourth two digits",
+      "definition": "Variable attribute: 01 == completed",
+      "short": "Variable attribute: 01 == completed",
+      "comment": ""
+    }
+  ],
+  "QIDiabetes_Disease": [
+    {
+      "variable": "t1d_dx_dt",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Include on initial encounter only or when requested. Do not send for every encounter."
+    },
+    {
+      "variable": "hypo_sym",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "hypo_sym_value",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low | Notes: Typical glucose value (mg/dL) for which patient consistently experiences symptoms of hypoglycemia. If range, use high end of range. Prefer blood glucose over sensor glucose value, if available. Do not report mmol/L; to convert, multiply by 18 to convert mmol/L to mg/dL."
+    },
+    {
+      "variable": "sh_events_amb",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Level 3 (from JDRF consensus document): a severe event characterized by altered mental and/or physical status requiring assistance\n\nOR \n\n\"ICD code\nE10.641 \u2013 best\n \nAlso include:\nE10.649\nE16.0\nE16.1\nE16.2\nE15\n \nTechnically exclude:\nE11.641\nE11.649\""
+    },
+    {
+      "variable": "sh_events_amb_pro",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "sh_events_inp",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Level 3 (from JDRF consensus document): a severe event characterized by altered mental and/or physical status requiring assistance\n\nOR \n\n\"ICD code\nE10.641 \u2013 best\n \nAlso include:\nE10.649\nE16.0\nE16.1\nE16.2\nE15\n \nTechnically exclude:\nE11.641\nE11.649\""
+    },
+    {
+      "variable": "sh_events_inp_pro",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "dka_events_amb",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "dka_events_amb_pro",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "dka_events_inp",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Elevated serum or urine ketones (greater than the upper limit of the normal range) and serum bicarbonate ,15 mmol/L or blood pH ,7.3. Or whatever is routinely documented.\nICD10 code for DKA:\nE10.1 - Type 1 diabetes mellitus with ketoacidosis\nE10.10 - Type 1 diabetes mellitus with ketoacidosis without coma\nE10.11 - Type 1 diabetes mellitus with ketoacidosis with coma"
+    },
+    {
+      "variable": "dka_events_inp_pro",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Will vary by site's acceptance of PRO"
+    },
+    {
+      "variable": "other_events_inp_pro",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low | Notes: Will vary by site's acceptance of PRO"
+    },
+    {
+      "variable": "flu_dt",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "eye_exam_dt",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "foot_exam_mf_dt",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "foot_exam_dt",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "dental_exam_dt",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "dka_serum_bicarb",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Lab reported serum bicarbonate value in mmol/L associated with a DKA event"
+    },
+    {
+      "variable": "dka_blood_ph",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Lab reported serum bicarbonate value associated with a DKA event"
+    },
+    {
+      "variable": "dka_events_pro_dt",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Patient reported date of when a DKA event occurred for patient reported DKA events"
+    },
+    {
+      "variable": "documented_transition_plan",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low | Notes: Documented transition plan for pediatrics patients to be transitioned to adult centre"
+    },
+    {
+      "variable": "transportation_insecurity",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "housing_insecurity",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "Field Name",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "hypo_sym",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "documented_transition_plan",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    }
+  ],
+  "QIDiabetes_Insulin": [
+    {
+      "variable": "ins_regimen",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "basal_ins_daily_inj",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Average number of long-acting insulin injections daily; Include intermediate, long-acting and premixed insulin types. Value=0 (zero) for patients using basal rates exclusively in insulin pump. For variable injection number, take average of range and round down to nearest integer."
+    },
+    {
+      "variable": "bolus_ins_daily_inj",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Average number of short or rapid-acting insulin doses daily used to cover carbohydrates and/or correct elevated glucose values. Include only regular and rapid-acting insulin analog doses. For variable injection number, take average of range and round down to nearest integer. Average number of bolus insulin doses per day on download (for pump) and pt report (for MDI)"
+    },
+    {
+      "variable": "t_ins_daily",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Sum of all insulin (in units) administered daily. For variable daily doses, provider to use discretion to estimate average total daily insulin dose over any available period which captures typical range. Ranges not permissible. Round to nearest tenth unit (one decimal point)"
+    },
+    {
+      "variable": "basal_ins_daily",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Sum of all basal insulin (in units) administered daily. Include long-acting, intermediate-acting, and premixed insulin doses. For variable daily basal doses, provider to use discretion to estimate average daily basal insulin dose over any available period which captures typical range. Ranges not permissible. Round to nearest tenth unit (one decimal point)"
+    },
+    {
+      "variable": "bolus_ins_daily",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Sum of all bolus insulin (in units) administered daily. Include all short-acting (e.g. regular) and rapid-acting insulin doses. For variable daily bolus doses, provider to use discretion to estimate average daily basal insulin dose over any available period which captures typical range. Ranges not permissible. Round to nearest tenth unit (one decimal point)"
+    },
+    {
+      "variable": "pump_st_dt",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: YYYYMMDD\n YYMM"
+    },
+    {
+      "variable": "ins_pump_delivery",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "ins_pump_company",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "ins_pump_model",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "ins_pump_site_freq",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low | Notes: Typical interval (in days) between insulin pump site changes if on insulin pump. For variable intervals, provider to use discretion to estimate interval. For ranges, recommend taking average and rounding UP. Ranges not permissible."
+    },
+    {
+      "variable": "ins_pump_site_freq_method",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "ins_dose_adjust",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low | Notes: Initiated by patient, family or clinic, captured in their EHR system"
+    },
+    {
+      "variable": "ins_pen_company",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "ins_pen_model",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "Field Name",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "ins_regimen",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "ins_pump_delivery",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "ins_pump_company",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "ins_pump_model",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "ins_pen_company",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "ins_pen_model",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "ins_pump_site_freq_method",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    }
+  ],
+  "QIDiabetes_Monitoring": [
+    {
+      "variable": "bgm_company",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium"
+    },
+    {
+      "variable": "bgm_model",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium"
+    },
+    {
+      "variable": "bgm_test_freq",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Average number of BG checks daily. Recommend using average of no fewer than 14 days of blood glucose logs; provider discretion to use average based on fewer days if needed. Recommend using download over self-report when possible. Ranges not permissible. If range documented, take average of minimum and maximum to one decimal point."
+    },
+    {
+      "variable": "bgm_test_freq_method",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "cgm_st_dt",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "cgm_company",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "cgm_model",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High"
+    },
+    {
+      "variable": "cgm_sensor_use_count",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Average number of sensors used in a two week period. Recommend using download over self-report when possible. Ranges not permissible. If range documented, take average of minimum and maximum to nearest integer."
+    },
+    {
+      "variable": "cgm_sensor_change_freq",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low | Notes: Typical interval (in days) between CGM site changes if on insulin pump. For variable intervals, provider to use discretion to estimate interval. For ranges, recommend taking average and rounding UP. Ranges not permissible."
+    },
+    {
+      "variable": "cgm_use_perc",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low | Notes: Percent of time using CGM during two week period (% time each 2 weeks). Recommend using download over self-report when possible. Ranges not permissible. If range documented, take average of minimum and maximum to nearest integer. Range 0-100."
+    },
+    {
+      "variable": "cgm_use_report",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low"
+    },
+    {
+      "variable": "device_report_patient_reviewed",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Low | Notes: Captured in their EHR system as Yes/No"
+    },
+    {
+      "variable": "cgm_binary",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Clinic generated value to capture cgm use at the latest visit. This can come from a flowsheet in the EHR or generated by the clinic using the fields that indicate cgm device use"
+    },
+    {
+      "variable": "Field Name",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "bgm_company",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "bgm_model",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "bgm_test_freq_method",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "cgm_company",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "cgm_model",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "cgm_use_report",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "device_report_patient_reviewed",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    },
+    {
+      "variable": "cgm_binary",
+      "definition": "",
+      "short": "",
+      "comment": ""
+    }
+  ],
+  "QIDiabetes_Glucose": [
+    {
+      "variable": "bgm_mean",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Mean (average) value of blood glucose values reported in mg/dL. When possible, mean value should be based on glucose values used to determine average blood glucose monitoring frequency. Round to nearest integer. Do not report mmol/L; to convert, multiply by 18 to convert mmol/L to mg/dL."
+    },
+    {
+      "variable": "bgm_sd",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Standard deviation of blood glucose values reported in mg/dL. When possible, standard deviation should be based on glucose values used to determine average blood glucose monitoring frequency. Round to nearest integer. Do not report mmol/L; to convert, multiply by 18 to convert mmol/L to mg/dL."
+    },
+    {
+      "variable": "bgm_high_count",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Absolute number of elevated BG levels. When possible, count should be based on glucose values used to determine average blood glucose monitoring frequency. For patients with individualized thresholds, report frequency of blood glucose values above patient-specific threshold. If not defined, count all BG all values >180 mg/dL."
+    },
+    {
+      "variable": "bgm_low_count",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Absolute number of low BG levels. When possible, count should be based on glucose values used to determine average blood glucose monitoring frequency. For patients with individualized thresholds, report frequency of blood glucose values below patient-specific threshold. If not defined, count all BG all values <80 mg/dL."
+    },
+    {
+      "variable": "bgm_high_perc",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Percentage of elevated BG levels. When possible, percentage should be based on glucose values used to determine average blood glucose monitoring frequency. For patients with different thresholds, report percent of blood glucose values above patient-specific threshold. If not defined, calculate percent of BG values >180 mg/dL. Round to nearest integer. Range 0-100."
+    },
+    {
+      "variable": "bgm_low_perc",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Percentage of low BG levels. When possible, percentage should be based on glucose values used to determine average blood glucose monitoring frequency. For patients with different thresholds, report percent of blood glucose values below patient-specific threshold. If not defined, calculate percent of BG values <80 mg/dL. Round to nearest integer. Range 0-100."
+    },
+    {
+      "variable": "cgm_mean",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Mean (average) value of sensor glucose values. When possible, mean value should be based on glucose values used to determine typical sensor use (frequency or percent time). Recommend using average of no fewer than 14 days of glucose data; provider discretion to use average based on fewer days if needed. Round to nearest integer. Do not report mmol/L; to convert, multiply by 18 to convert mmol/L to mg/dL."
+    },
+    {
+      "variable": "cgm_sd",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Standard deviation (mg/dL) of sensor glucose values. When possible, standard deviation should be based on glucose values used to determine typical sensor use (frequency or percent time). Recommend using average of no fewer than 14 days of glucose data; provider discretion to use average based on fewer days if needed. Round to nearest integer. Do not report mmol/L; to convert, multiply by 18 to convert mmol/L to mg/dL."
+    },
+    {
+      "variable": "cgm_high_count",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Absolute number of elevated sensor glucose levels. When possible, count should be based on glucose values used to determine typical sensor use (frequency or percent time). For patients with different thresholds, report frequency of sensor glucose values above patient-specific threshold. If not defined, count all sensor glucose all values >180 mg/dL.\n Need to assess how calculated by Dexcom, Medtronic, Glooko, Diasend, and Tidepool. May refine variable once this is identified (e.g. choosing thresholds, combining \u201cbuckets\u201d, etc)"
+    },
+    {
+      "variable": "cgm_low_count",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Absolute number of low sensor glucose levels. When possible, count should be based on glucose values used to determine typical sensor use (frequency or percent time). For patients with different thresholds, report frequency of sensor glucose values below patient-specific threshold. If not defined, count all sensor glucose all values <80 mg/dL.\n Need to assess how calculated by Dexcom, Medtronic, Glooko, Diasend, and Tidepool. May refine variable once this is identified (e.g. choosing thresholds, combining \u201cbuckets\u201d, etc)"
+    },
+    {
+      "variable": "cgm_high_perc",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Percentage of elevated sensor glucose levels. When possible, percentage should be based on glucose values used to determine typical sensor use (frequency or percent time). Recommend using average of no fewer than 14 days of glucose data; provider discretion to use average based on fewer days if needed. For patients with different thresholds, report percent of sensor glucose values above patient-specific threshold. If not defined, calculate percent of sensor glucose values >180 mg/dL. Round to nearest integer. Range 0-100."
+    },
+    {
+      "variable": "cgm_low_perc",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: Medium | Notes: Percentage of low sensor glucose levels. When possible, percentage should be based on glucose values used to determine typical sensor use (frequency or percent time). Recommend using average of no fewer than 14 days of glucose data; provider discretion to use average based on fewer days if needed. For patients with different thresholds, report percent of sensor glucose values below patient-specific threshold. If not defined, calculate percent of sensor glucose values <80 mg/dL. Round to nearest integer. Range 0-100."
+    },
+    {
+      "variable": "time_in_range",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Percentage of glucose levels. When possible, percentage should be based on glucose values used to determine typical sensor use (frequency or percent time). Recommend using average of no fewer than 14 days of glucose data; provider discretion to use average based on fewer days if needed. For patients with different thresholds, report percent of sensor glucose values below patient-specific threshold. If not defined, calculate percent of sensor glucose values between 70 mg/dL and 180 mg/dL. Round to nearest integer. Range 0-100."
+    },
+    {
+      "variable": "cgm_low_below_70",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Percentage of low sensor glucose levels. When possible, percentage should be based on glucose values used to determine typical sensor use (frequency or percent time). Recommend using average of no fewer than 14 days of glucose data; provider discretion to use average based on fewer days if needed. For patients with different thresholds, report percent of sensor glucose values below patient-specific threshold. If not defined, calculate percent of sensor glucose values <70 mg/dL. Round to nearest integer. Range 0-100."
+    },
+    {
+      "variable": "cgm_low_below_54",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Percentage of low sensor glucose levels. When possible, percentage should be based on glucose values used to determine typical sensor use (frequency or percent time). Recommend using average of no fewer than 14 days of glucose data; provider discretion to use average based on fewer days if needed. For patients with different thresholds, report percent of sensor glucose values below patient-specific threshold. If not defined, calculate percent of sensor glucose values <54 mg/dL. Round to nearest integer. Range 0-100."
+    },
+    {
+      "variable": "cgm_high_above_250",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Percentage of elevated sensor glucose levels. When possible, percentage should be based on glucose values used to determine typical sensor use (frequency or percent time). Recommend using average of no fewer than 14 days of glucose data; provider discretion to use average based on fewer days if needed. For patients with different thresholds, report percent of sensor glucose values above patient-specific threshold. If not defined, calculate percent of sensor glucose values >250 mg/dL. Round to nearest integer. Range 0-100."
+    },
+    {
+      "variable": "cgm_high_above_180",
+      "definition": "",
+      "short": "",
+      "comment": "Priority: High | Notes: Percentage of elevated sensor glucose levels. When possible, percentage should be based on glucose values used to determine typical sensor use (frequency or percent time). Recommend using average of no fewer than 14 days of glucose data; provider discretion to use average based on fewer days if needed. For patients with different thresholds, report percent of sensor glucose values above patient-specific threshold. If not defined, calculate percent of sensor glucose values >180 mg/dL. Round to nearest integer. Range 0-100."
+    }
+  ]
+}

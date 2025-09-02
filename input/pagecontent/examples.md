@@ -7,12 +7,16 @@ This page provides example instances demonstrating the proper use of T1D Exchang
 ### Patient Examples
 
 #### T1DPatientExample
-A comprehensive example of a T1D patient with all required and optional elements.
+A comprehensive example of a T1D patient with all required and optional elements, including new specification-based extensions.
 
 **Key Features Demonstrated:**
-- T1D Exchange patient identifier
+- T1D Exchange patient identifier with encryption requirements
 - Medical record number
-- Demographic extensions (race, ethnicity, education level)
+- Race and ethnicity extensions using NIH/HL7 standards
+- Education level extension (High School graduate)
+- Language preference (English)
+- Primary insurance type (Extended Healthcare)
+- Postal code with proper formatting
 - Pediatric patient (born 2010)
 
 ```json
@@ -47,13 +51,15 @@ A comprehensive example of a T1D patient with all required and optional elements
 ### Provider Examples
 
 #### T1DProviderExample
-An endocrinologist specializing in diabetes care.
+An endocrinologist specializing in diabetes care with multiple identifier types.
 
 **Key Features Demonstrated:**
 - T1D Exchange provider identifier
-- NPI identifier
-- Specialty qualification
+- NPI identifier (1st preference per specification)
+- Multiple identifier support (NPI, POS, DEA, other)
+- Provider type qualification with priority levels
 - Complete name and demographics
+- Specification-based identifier hierarchy
 
 #### T1DOrganizationExample
 A pediatric diabetes center.
@@ -66,24 +72,31 @@ A pediatric diabetes center.
 ### Encounter Examples
 
 #### T1DEncounterExample
-A routine follow-up visit for T1D management.
+A routine follow-up visit for T1D management with enhanced tracking.
 
 **Key Features Demonstrated:**
-- Ambulatory encounter class
+- Unique encounter ID with consistency requirements
+- Ambulatory encounter class (Priority: High)
 - Follow-up encounter type
-- Proper resource references
+- Proper resource references with T1D Exchange priorities
 - Encounter timing and duration
+- Epic-specific implementation guidance (HAR/CSN values)
+- Status tracking with specification priorities
 
 ### Observation Examples
 
 #### T1DGlucoseObservationExample
-A glucose measurement with additional monitoring data.
+A glucose measurement with additional monitoring data and specification-based calculations.
 
 **Key Features Demonstrated:**
-- LOINC coding for glucose measurement
-- Proper units (mg/dL)
-- Component data for BGM mean
-- Reference to encounter and performer
+- Unique observation ID with hash generation method
+- LOINC coding for glucose measurement (Priority: High)
+- Proper units (mg/dL) with conversion guidance
+- Component data for BGM mean with rounding rules
+- CGM metrics with percentage calculations
+- Time in range calculations (70-180 mg/dL target)
+- Reference ranges with abnormal thresholds
+- Reference to encounter and performer with priorities
 
 **Clinical Context:**
 - Patient glucose level: 150 mg/dL
@@ -116,14 +129,17 @@ Social determinants of health screening.
 ### Condition Examples
 
 #### T1DConditionExample
-Type 1 diabetes mellitus diagnosis.
+Type 1 diabetes mellitus diagnosis with enhanced tracking.
 
 **Key Features Demonstrated:**
-- SNOMED CT coding for T1D
-- Active clinical status
+- Unique condition ID with hash generation (patient_id+ICD10Code+onset_date)
+- SNOMED CT coding for T1D (Priority: High)
+- Active clinical status with specification guidance
 - Confirmed verification status
 - Diagnosis date extension
-- Problem list categorization
+- Problem list categorization (Priority: Low)
+- Onset date tracking (Priority: Low)
+- Recorded date documentation (Priority: Low)
 
 **Clinical Context:**
 - Diagnosed at age 5 (August 2010)
@@ -142,14 +158,18 @@ Family history of diabetes.
 ### Medication Examples
 
 #### T1DMedicationRequestExample
-Insulin prescription with T1D-specific extensions.
+Insulin prescription with T1D-specific extensions and specification priorities.
 
 **Key Features Demonstrated:**
-- RxNorm insulin coding
+- Unique medication prescription ID with consistency requirements
+- RxNorm insulin coding (Priority: High)
 - Subcutaneous route
 - Dosage instructions
-- Insulin regimen extension (basal-bolus)
-- Delivery method extension (insulin pen)
+- Insulin regimen extension (basal-bolus, Priority: High)
+- Delivery method extension (insulin pen, Priority: High)
+- Provider linkage (Priority: Low)
+- Encounter reference (Priority: Low)
+- Authorization date tracking (Priority: Low)
 
 **Clinical Context:**
 - Insulin prescription for basal-bolus regimen
@@ -184,22 +204,47 @@ Demonstrates how to submit a complete patient encounter with all related clinica
 
 ### Testing Scenarios
 
-#### Scenario 1: New Patient Registration
-1. Create T1DPatient with demographics
-2. Create T1DCondition for T1D diagnosis
-3. Create initial T1DEncounter
-4. Create baseline T1DHbA1cObservation
+#### Scenario 1: New Patient Registration with Full Demographics
+1. Create T1DPatient with demographics including race, ethnicity, language, insurance
+2. Generate unique T1D Exchange patient ID (encrypted, no PHI)
+3. Create T1DCondition for T1D diagnosis with unique condition ID
+4. Create initial T1DEncounter with proper identifier consistency
+5. Create baseline T1DHbA1cObservation with unique observation ID
 
-#### Scenario 2: Routine Follow-up Visit
-1. Create T1DEncounter for follow-up
-2. Create T1DGlucoseObservation with monitoring data
-3. Update T1DMedicationRequest if needed
-4. Create T1DSDOHObservation for screening
+#### Scenario 2: Routine Follow-up Visit with Enhanced Tracking
+1. Create T1DEncounter for follow-up with status tracking
+2. Create T1DGlucoseObservation with BGM mean and CGM metrics
+3. Calculate time in range and percentage above 180 mg/dL
+4. Update T1DMedicationRequest with insulin regimen and delivery method
+5. Create T1DSDOHObservation for screening with proper categorization
 
-#### Scenario 3: Medication Management
-1. Create T1DMedicationRequest for new insulin
-2. Include insulin regimen and delivery method
-3. Document dosage and timing
-4. Link to prescribing encounter
+#### Scenario 3: Provider and Organization Management
+1. Create T1DProvider with multiple identifier types (NPI preferred)
+2. Create T1DOrganization with coordinating center assignment
+3. Link providers to organization with proper references
+4. Maintain identifier consistency across submissions
 
-These examples provide a foundation for implementing the T1D Exchange profiles in real-world scenarios. Use them as templates and modify according to your specific use cases and data requirements.
+#### Scenario 4: Comprehensive Data Submission
+1. Use specification priority levels to determine required vs. optional elements
+2. Implement unique ID generation methods for observations and conditions
+3. Maintain cross-table identifier consistency
+4. Follow Epic-specific guidance for encounter identifiers (HAR/CSN)
+
+### Implementation Notes
+
+**Specification Integration:**
+All examples now include elements enhanced with T1D Exchange specification data:
+- **Priority Levels**: High, Medium, Low priorities guide implementation focus
+- **Unique ID Generation**: Hash-based methods for consistent identification
+- **Cross-table Consistency**: Identifier management across multiple submissions
+- **Epic Integration**: Specific guidance for HAR/CSN encounter values
+- **Calculation Methods**: Detailed formulas for glucose metrics and ranges
+
+**Data Quality Requirements:**
+- Use encrypted patient IDs without PHI
+- Maintain identifier consistency across all tables
+- Follow rounding rules for glucose measurements
+- Implement proper unit conversions (mmol/L to mg/dL)
+- Apply reference ranges for abnormal value detection
+
+These examples provide a foundation for implementing the T1D Exchange profiles in real-world scenarios with full specification compliance. Use them as templates and modify according to your specific use cases and data requirements.

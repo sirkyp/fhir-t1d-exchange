@@ -82,6 +82,12 @@
 - **Terminology**: ✅ Custom terminologies implemented
 - **Must Support**: ✅ Refined based on T1D Exchange specification mappings
 
+## Enhanced Profile Documentation Requirements
+- **Element Definitions**: Map full content from specification "Definition" column to StructureDefinition element.definition
+- **Element Short Descriptions**: Create 5-10 word summaries from Definition column for element.short
+- **Element Comments**: Combine "Data Mapping Priority"/"Data" column + "Notes" column + other contextual columns into element.comment
+- **Specification Traceability**: Maintain clear mapping from T1D Exchange specification variables to FHIR elements
+
 ## Out of Scope
 - US Core Profile dependencies
 - Non-T1D diabetes conditions and treatments

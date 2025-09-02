@@ -14,8 +14,13 @@ Description: "Example of a T1D Exchange patient"
 * name.given = "John"
 * gender = #male
 * birthDate = "2010-05-15"
+* address.postalCode = "12345"
 
-* extension[educationLevel].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-EducationLevel|3.0.0#ELEM "Elementary School"
+* extension[race].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-Race#2106-3 "White"
+* extension[ethnicity].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-Ethnicity#2186-5 "Not Hispanic or Latino"
+* extension[educationLevel].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-EducationLevel|3.0.0#HS "High School or secondary school degree complete"
+* extension[language].valueCodeableConcept = urn:ietf:bcp:47#en "English"
+* extension[primaryInsurance].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ActCode#EHCPOL "extended healthcare"
 
 Instance: T1DProviderExample
 InstanceOf: T1DProvider

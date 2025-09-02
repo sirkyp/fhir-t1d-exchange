@@ -8,6 +8,8 @@ This page provides a comprehensive mapping of T1D Exchange specification variabl
 
 The T1D Exchange data specifications define variables across multiple domains that have been mapped to FHIR resources and profiles in this Implementation Guide. This mapping ensures consistent data exchange and interoperability.
 
+**Specification Integration**: The FHIR profiles in this Implementation Guide include detailed element definitions, short descriptions, and implementation comments derived directly from the T1D Exchange specification. Priority levels, implementation notes, and contextual guidance from the original specification have been integrated into the FHIR StructureDefinition elements to provide implementers with comprehensive guidance.
+
 ### Core Data Mappings
 
 #### Patient Demographics (QICoreDataSpec - Patients)
