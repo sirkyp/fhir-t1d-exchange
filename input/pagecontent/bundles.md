@@ -1,5 +1,7 @@
 
 
+> **IMPLEMENTER NOTE**: This Implementation Guide is an early work in progress developed through human-AI collaboration. It requires expert review, testing, and validation before any production use. The profiles, terminology, and guidance should be considered draft and subject to significant revision based on clinical expert feedback and real-world testing.
+
 ### Overview
 
 The T1D Exchange Implementation Guide adopts bundle-based patterns for efficient batch data sharing, following successful approaches from the HL7 CGM Implementation Guide. This approach is optimized for the T1D Exchange Quality Improvement Collaborative's focus on population health analysis and benchmarking.

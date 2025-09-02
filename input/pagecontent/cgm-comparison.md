@@ -1,5 +1,7 @@
 
 
+> **IMPLEMENTER NOTE**: This Implementation Guide is an early work in progress developed through human-AI collaboration. It requires expert review, testing, and validation before any production use. The profiles, terminology, and guidance should be considered draft and subject to significant revision based on clinical expert feedback and real-world testing.
+
 This page compares the T1D Exchange Implementation Guide with the HL7 Continuous Glucose Monitoring (CGM) Implementation Guide to identify alignment opportunities and complementary capabilities.
 
 ### Overview Comparison
