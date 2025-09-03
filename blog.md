@@ -14,7 +14,7 @@ With that caveat, off we go ...
 
 A few weeks ago, I had what seemed like a straightforward task: create a FHIR Implementation Guide for the T1D Exchange Data Specification. I had Excel files full of data specifications and a goal to transform them into a working FHIR IG that could support quality improvement and research for Type 1 Diabetes care.
 
-What I didn't expect was how this would turn into one of the most interesting collaborations I've had with AI - and how quickly we could go from concept to a comprehensive, working Implementation Guide.
+What I didn't expect was how this would turn into one of the most interesting collaborations I've had with AI - and how quickly we could go from concept to a solid foundation for a T1D Exchange Implementation Guide.
 
 ## The Initial Challenge
 
@@ -34,56 +34,27 @@ But then we started hitting issues. Complex slicing conflicts, dependency manage
 
 This turned out to be one of our best decisions. Suddenly, the profiles were cleaner, the builds were more reliable, and we could focus on the T1D-specific requirements without fighting US Core constraints. Sometimes the pragmatic choice is the right choice.
 
-## The Magic of Iterative Development
+## The Power of Rapid Iteration
 
-What struck me most was how we could iterate so quickly. I'd give feedback about documentation being too long or hard to follow, and within minutes, Q would propose breaking it into focused sections and show me exactly how to reorganize it.
+What struck me most was the speed of iteration. We could go through multiple design cycles in a single conversation - from identifying problems to implementing solutions to testing results.
 
-Or I'd mention the need to align with existing CGM data standards, and Q would research the HL7 CGM Implementation Guide, analyze it, and come back with specific recommendations for bundle patterns that would work with existing standards.
+This rapid iteration showed up everywhere:
+- **Documentation**: Feedback about pages being too long led to immediate reorganization proposals
+- **Standards Research**: Mentioning alignment needs triggered research and specific recommendations
+- **Error Resolution**: Instead of fixing individual build errors, Q would systematically address whole categories of issues
+- **Architecture Decisions**: Major changes like dropping US Core dependencies could be implemented and tested quickly
 
-The speed of iteration was incredible - we could go through multiple design cycles in a single conversation.
+But rapid iteration had challenges too. Content duplication crept in as we added features, requiring periodic reviews to maintain coherence. This taught me that with AI collaboration, you need to occasionally step back and look at the big picture.
 
-One area where this really shone was dealing with QA errors and warnings. FHIR IG builds produce some fascinating and sometimes cryptic error messages - everything from terminology validation failures to profile constraint violations. Initially, I'd copy and paste specific error messages for Q to help resolve. But as we got into a rhythm, I started asking Q to review the QA file and propose comprehensive fixes. Q would systematically work through the entire QA report, identify patterns in the errors, and propose solutions for whole categories of issues at once. This was incredibly efficient - instead of playing whack-a-mole with individual errors, we could address whole categories of issues at once.
+## Learning from Existing Standards
 
-But there was a challenge with this rapid iteration approach: content duplication and misalignment. As I requested new features or content, Q would implement them efficiently, but neither of us always caught when similar content already existed elsewhere in the IG. I found myself periodically asking Q to review all pages for duplicate content, and Q did an excellent job of identifying overlaps and proposing both content consolidation and better organizational structures. This taught me that with AI collaboration, you need to occasionally step back and look at the big picture to maintain coherence.
+One of the turning points came when I suggested we research existing diabetes-related FHIR work. Q analyzed the HL7 CGM Implementation Guide and proposed adapting their proven bundle-based patterns for our T1D Exchange needs.
 
-## Learning from Others (The CGM IG Breakthrough)
+This led to a key architectural decision - adopting a bundle-centric approach for data exchange rather than just individual profiles. We weren't just creating profiles anymore - we were building a complete data exchange framework based on proven patterns.
 
-One of the turning points came when I asked Q to review the HL7 CGM Implementation Guide - I knew it existed and thought we could learn from their approach to diabetes-related data exchange. Q came back with a detailed analysis of their bundle-based approach and comparison with our needs.
 
-Q suggested adapting their bundle patterns for comprehensive T1D data exchange after completing the analysis.
 
-This led to one of our biggest architectural decisions - creating three different bundle types:
-- T1DDataSubmissionBundle for comprehensive data submission
-- T1DPatientDataBundle for patient-centric data extraction
-- T1DQualityReportBundle for population health reporting
 
-Suddenly, we weren't just creating profiles - we were building a complete data exchange framework.
-
-## The Must Support Evolution
-
-Initially, Q was applying Must Support flags pretty broadly. I provided feedback that this seemed excessive and we should focus on what's truly essential for T1D Exchange.
-
-Q refined the approach to focus Must Support on:
-1. Elements that mapped directly to our T1D Exchange specifications
-2. Elements that used our custom T1D terminologies
-3. Elements that referenced other T1D profiles
-
-This made the IG much more implementer-friendly. Instead of everything being "must support," implementers could clearly see what was truly required for T1D Exchange compliance.
-
-## Profile Enhancement: From Basic to Specification-Rich
-
-One of our most significant iterations came when I realized we could do more than just map data elements - we could integrate the rich contextual information from the T1D Exchange specifications directly into the FHIR profiles.
-
-I suggested enhancing the profiles with the detailed definitions, priority levels, and implementation notes from the Excel specifications.
-
-Q systematically extracted over 380 variables from the specification files and mapped them to FHIR profile elements, adding:
-- Full definitions from the specification's "Definition" column to element.definition
-- Concise 5-10 word summaries to element.short
-- Priority levels and implementation notes to element.comment
-
-Suddenly, our profiles weren't just structural constraints - they were comprehensive implementation guides that included all the contextual knowledge from the original T1D Exchange specifications. Implementers could now see not just what elements to include, but why they mattered, how to calculate them, and what priority level the T1D Exchange assigned to each element.
-
-This transformation took our IG from a basic FHIR mapping to a specification-rich implementation resource that preserved all the domain expertise from the original Excel files.
 
 ## Beyond Standards: Writing Code When Needed
 
@@ -103,27 +74,19 @@ The workflow handles the complete build process - running SUSHI to generate FHIR
 
 This automation was crucial for making the IG accessible to reviewers and stakeholders without manual deployment steps. It's another example of how Q could handle the DevOps aspects of the project alongside the standards development work.
 
-## Documentation Challenges
 
-As our IG grew, the documentation became unwieldy. I pointed out that the guidance page was becoming difficult to follow and navigate.
 
-Q proposed breaking it into focused pages:
-- Overview of Implementation
-- Technical Implementation
-- Quality Metrics
-- Implementation Workflows
-- Bundle Patterns
-- Security & Best Practices
+## Key Iterations and Decisions
 
-Each page would focus on a specific aspect, with cross-references between them. The result was much more navigable and user-friendly.
+Several major iterations shaped our approach:
 
-## Technical Problem-Solving
+**Simplifying Dependencies**: When US Core caused complex slicing conflicts, we switched to base FHIR R4. This pragmatic decision eliminated build issues and kept us focused on T1D-specific requirements.
 
-We hit various technical snags along the way - build errors, terminology validation issues, profile conflicts. What impressed me was Q's systematic approach to troubleshooting.
+**Refining Must Support**: Initially applied broadly, we refined Must Support to focus on elements that mapped directly to T1D Exchange specifications, making the IG more implementer-friendly.
 
-When we had dependency conflicts with US Core, I made the decision to remove it entirely. When we later hit issues with SDC dependencies, Q suggested removing those as well. When terminology validation failed, Q proposed simplifying our custom code systems. Each solution was pragmatic and focused on getting things working.
+**Organizing Documentation**: As content grew unwieldy, we broke large guidance pages into focused sections with clear cross-references.
 
-One particularly challenging issue came during the profile enhancement phase - we had extension slicing conflicts and display name mismatches when integrating the specification data. Q systematically worked through the QA errors, fixing extension conflicts by creating separate extension definitions and correcting terminology display names to match official HL7 standards. The result was a clean build with 0 errors and 0 warnings.
+**Enhancing with Specification Data**: We systematically integrated 380+ variables from Excel specifications into FHIR profile elements, adding definitions, priorities, and implementation notes directly from the source.
 
 My guidance was usually simple: fix what's broken, but don't over-engineer it. Q consistently found the right balance between standards compliance and practical implementation.
 
@@ -160,13 +123,13 @@ What started as "help me map Excel to FHIR" became a comprehensive Implementatio
 - Complete examples for every profile with specification integration
 - 7 focused documentation pages with comprehensive guidance
 
-But more importantly, we created something that actually solves real problems for T1D care coordination, quality improvement, and research.
+But more importantly, we created a foundation that could potentially address real problems for T1D care coordination, quality improvement, and research - pending expert review and real-world testing.
 
 ## Lessons Learned
 
 **Start simple and iterate:** We began with basic profiles and added complexity based on need. This kept us from over-engineering early on.
 
-**Research existing solutions:** The CGM IG research was a game-changer. Why reinvent when you can adapt proven patterns?
+**Research existing solutions:** Learning from existing FHIR work was crucial. Why reinvent when you can adapt proven patterns?
 
 **Keep the human in the loop:** Strategic decisions and quality judgment were crucial. AI is incredibly capable, but human oversight on priorities and trade-offs was essential.
 
@@ -180,12 +143,12 @@ The key insight? Maintain human strategic oversight while leveraging AI's abilit
 
 ## Looking Forward
 
-The T1D Exchange FHIR IG is now ready for expert review and feedback - the next crucial step before any real-world implementation. You can review the complete Implementation Guide and source code at:
+The T1D Exchange FHIR IG represents a solid foundation, but it's important to emphasize this is still early work-in-progress. The next crucial steps are expert review, clinical validation, and real-world testing before any production implementation. You can review our current work at:
 
 - **Published IG**: https://sirkyp.github.io/fhir-t1d-exchange/
 - **GitHub Repository**: https://github.com/sirkyp/fhir-t1d-exchange
 
-But more importantly, I think we've demonstrated a new way of approaching healthcare interoperability standards development.
+More importantly, I think we've demonstrated a promising approach to healthcare interoperability standards development.
 
 This isn't about AI replacing human expertise - it's about amplifying it. FHIR experts can focus on architecture, strategy, and quality judgment while AI handles domain interpretation and systematic implementation.
 
@@ -193,8 +156,8 @@ I'm excited to see where this kind of collaboration takes us next. Healthcare in
 
 ## Final Thoughts
 
-Building this FHIR IG with AI assistance was one of the most productive technical collaborations I've experienced. We went from Excel specifications to a comprehensive FHIR framework in a matter of days, not months.
+Building this FHIR IG foundation with AI assistance was one of the most productive technical collaborations I've experienced. We went from Excel specifications to a solid starting point for a FHIR framework in a matter of days, not months.
 
 But the real win wasn't just speed - it was the quality of the collaboration. Having an AI partner that could research, implement, and iterate quickly while I focused on strategic direction and quality judgment felt like a glimpse into the future of technical work.
 
-If you're working on healthcare standards or FHIR implementations, I'd encourage you to explore this kind of human-AI collaboration. I know Q and I are not the first AI and human combo to work on standards, but my experience shows me this is yet another place where AI can provide a great lift in productivity. The results might surprise you.
+If you're working on healthcare standards or FHIR implementations, I'd encourage you to explore this kind of human-AI collaboration. While this approach shows great promise for accelerating the initial development phase, the real test will be expert review and real-world implementation. The results of this collaboration approach might surprise you.
