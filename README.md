@@ -96,7 +96,7 @@ npm run build
 4. Use the provided terminology resources
 
 ### Key Requirements
-- See [Context](CONTEXT.md) file
+- See [Context](.amazonq/rules/CONTEXT.md) file
 
 ## Terminology
 The IG defines custom terminology for T1D-specific concepts:
@@ -123,8 +123,8 @@ Complete examples are defined in FSH files and automatically generated:
 
 1. Fork the repository
 2. Create a feature branch
-3. Make changes to FSH files
-4. Test with SUSHI
+3. Make changes (FSH or page content files)
+4. Test with SUSHI and IG Publisher
 5. Submit a pull request
 
 ## Support
