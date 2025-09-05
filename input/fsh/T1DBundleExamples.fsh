@@ -142,6 +142,26 @@ Description: "Example of a complete T1D data submission bundle"
     * method = #POST
     * url = "Practitioner"
 
+* entry[+]
+  * fullUrl = "urn:uuid:12345678-1234-5678-9abc-123456789ac3"
+  * resource
+    * resourceType = "Observation"
+    * id = "T1DAutoantibodyGADExampleBundle"
+    * meta.profile = "http://t1dexchange.org/fhir/StructureDefinition/t1d-observation"
+    * status = #final
+    * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
+    * code = http://loinc.org#13926-1
+    * subject = Reference(urn:uuid:12345678-1234-5678-9abc-123456789abc)
+    * encounter = Reference(urn:uuid:12345678-1234-5678-9abc-123456789abd)
+    * effectiveDateTime = "2024-01-15T09:15:00Z"
+    * valueQuantity.value = 15.2
+    * valueQuantity.unit = "U/mL"
+    * valueQuantity.system = "http://unitsofmeasure.org"
+    * interpretation = http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#H
+  * request
+    * method = #POST
+    * url = "Observation"
+
 Instance: t1d-patient-data-example
 InstanceOf: T1DPatientDataBundle
 Usage: #example
@@ -178,6 +198,18 @@ Description: "Example of comprehensive T1D data for a single patient"
 * entry[+]
   * fullUrl = "http://example.org/MedicationRequest/T1DMedicationRequestExample"
   * resource = T1DMedicationRequestExample
+
+* entry[+]
+  * fullUrl = "http://example.org/Observation/T1DAutoantibodyGADExample"
+  * resource = T1DAutoantibodyGADExample
+
+* entry[+]
+  * fullUrl = "http://example.org/Observation/T1DLipidCholesterolExample"
+  * resource = T1DLipidCholesterolExample
+
+* entry[+]
+  * fullUrl = "http://example.org/Observation/T1DThyroidTSHExample"
+  * resource = T1DThyroidTSHExample
 
 Instance: t1d-quality-report-example
 InstanceOf: T1DQualityReportBundle

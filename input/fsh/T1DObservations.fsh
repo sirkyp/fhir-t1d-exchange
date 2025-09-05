@@ -23,7 +23,7 @@ Description: "Base observation profile for T1D Exchange data collection"
 * code 1..1 MS
 * code ^definition = "Type of observation being reported as a valid LOINC code."
 * code ^short = "Type of observation as LOINC code"
-* code ^comment = "Priority: High | Notes: Refer to Diabetes_Core_Observations sheet in the Diabetes spec for a complete list of labs to include"
+* code ^comment = "Priority: High | Notes: See Core Laboratory Observations page for complete list of 23 core labs to include when available"
 * code from T1DObservationCodeValueSet (extensible)
 
 * subject 1..1 MS
@@ -128,3 +128,29 @@ Description: "Social determinants of health observations for T1D patients"
 * code from T1DSDOHCodeValueSet (extensible)
 * value[x] only CodeableConcept or boolean or string
 * valueCodeableConcept from T1DSDOHResponseValueSet (extensible)
+
+Profile: T1DHypoglycemiaObservation
+Parent: T1DObservation
+Id: t1d-hypoglycemia-observation
+Title: "T1D Hypoglycemia Event Observation"
+Description: "Severe hypoglycemia events requiring medical attention"
+
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs
+* code from T1DSevereHypoglycemiaValueSet (required)
+* value[x] only integer
+* valueInteger ^definition = "Number of severe hypoglycemia events since last visit"
+* valueInteger ^short = "Count of severe hypoglycemia events"
+* valueInteger ^comment = "Priority: High | Notes: Level 3 (from JDRF consensus document): a severe event characterized by altered mental and/or physical status requiring assistance"
+
+Profile: T1DDKAObservation
+Parent: T1DObservation
+Id: t1d-dka-observation
+Title: "T1D DKA Event Observation"
+Description: "Diabetic ketoacidosis episodes requiring medical attention"
+
+* category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs
+* code from T1DDKAEventsValueSet (required)
+* value[x] only integer
+* valueInteger ^definition = "Number of DKA episodes since last visit"
+* valueInteger ^short = "Count of DKA episodes"
+* valueInteger ^comment = "Priority: High | Notes: Elevated serum or urine ketones and serum bicarbonate <15 mmol/L or blood pH <7.3"

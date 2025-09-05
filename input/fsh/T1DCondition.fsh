@@ -52,7 +52,8 @@ Description: "Condition profile for T1D Exchange including diabetes and related 
 
 * extension contains
     T1DDiagnosisDate named diagnosisDate 0..1 MS and
-    T1DTransitionPlan named transitionPlan 0..1 MS
+    T1DTransitionPlan named transitionPlan 0..1 MS and
+    T1DCauseOfDeath named causeOfDeath 0..1
 
 Extension: T1DDiagnosisDate
 Id: t1d-diagnosis-date

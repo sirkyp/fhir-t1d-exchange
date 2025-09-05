@@ -33,6 +33,8 @@ pages:
     title: Profiles
   terminology.md:
     title: Terminology
+  core-observations.md:
+    title: Core Laboratory Observations
   bundles.md:
     title: Bundle Patterns
   examples.md:
@@ -49,6 +51,8 @@ pages:
     title: Variable Mapping
   cgm-comparison.md:
     title: CGM IG Comparison
+  future-work.md:
+    title: Future Work
   downloads.md:
     title: Downloads
 
@@ -58,6 +62,7 @@ menu:
     Overview of Implementation: overview.html
     Profiles: profiles.html
     Terminology: terminology.html
+    Core Laboratory Observations: core-observations.html
     Examples: examples.html
     Technical Implementation: implementation.html
     Quality Metrics: quality-metrics.html
@@ -66,6 +71,7 @@ menu:
     Variable Mapping: mapping.html
     Security & Best Practices: security.html
     CGM IG Comparison: cgm-comparison.html
+    Future Work: future-work.html
   Artifacts:
     Profiles: artifacts.html#1
     Extensions: artifacts.html#2
