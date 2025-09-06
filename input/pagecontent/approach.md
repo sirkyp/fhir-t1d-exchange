@@ -20,6 +20,10 @@ The T1D Exchange data specifications consist of two primary Excel files containi
 - **Insulin Sheet**: Insulin therapy and device management (18 variables)
 - **Monitoring Sheet**: BGM/CGM device usage and analytics (23 variables)
 
+**Implementation Status:**
+- **Core T1D Disease Management**: Complete (52 of 153 variables - 34% coverage)
+- **Device Integration & Insulin Management**: In progress (targeting 77 of 153 variables - 50% coverage)
+
 **Variable Metadata Structure:**
 Each variable includes:
 - `variable`: Variable name (e.g., `t1d_dx_dt`, `bgm_mean`)
@@ -140,18 +144,35 @@ Distinct clinical concepts use separate observation profiles:
 - **T1DHypoglycemiaAwarenessObservation**: Patient awareness assessment
 - **T1DCareScreeningObservation**: Preventive care tracking
 - **T1DSDOHScreeningObservation**: Social determinants screening
+- **T1DInsulinDosingObservation**: Daily insulin dosing with decimal precision
+- **T1DInsulinPumpManagementObservation**: Pump site changes and dose adjustments
+- **T1DBGMUsageObservation**: Blood glucose meter usage frequency
+- **T1DCGMUsageObservation**: CGM usage with sensor tracking
+- **T1DDeviceReportReviewObservation**: Patient device report review tracking
 
 **4. Terminology Hierarchy**
 
 ```
 T1D Custom Terminology
-├── T1DCodes CodeSystem (25+ codes)
+├── T1DCodes CodeSystem (45+ codes)
 │   ├── Clinical concepts (bgm-mean, time-in-range)
-│   ├── Device concepts (bgm-company, cgm-company)
-│   └── Care concepts (flu-dt, transportation-insecurity)
+│   ├── Device concepts (bgm-company, cgm-company, insulin-pump)
+│   ├── Care concepts (flu-dt, transportation-insecurity)
+│   └── Insulin/device management (insulin-dosing, cgm-usage)
 ├── T1DHypoglycemiaAwareness CodeSystem (4 codes)
 ├── T1DSDOHResponses CodeSystem (7 codes)
-└── 31 ValueSets grouping related concepts
+├── Device Terminology:
+│   ├── T1DInsulinPumpCompany CodeSystem (10 manufacturers)
+│   ├── T1DInsulinPumpModel CodeSystem (30+ pump models)
+│   ├── T1DCGMCompany CodeSystem (6 manufacturers)
+│   ├── T1DCGMModel CodeSystem (10+ CGM models)
+│   ├── T1DBGMCompany CodeSystem (14 manufacturers)
+│   ├── T1DBGMModel CodeSystem (40+ BGM models)
+│   ├── T1DInsulinPenCompany CodeSystem (9 manufacturers)
+│   ├── T1DInsulinPenModel CodeSystem (15+ pen models)
+│   ├── T1DPumpDeliverySystem CodeSystem (7 delivery types)
+│   └── T1DDeviceUsageMethod CodeSystem (4 reporting methods)
+└── 45+ ValueSets grouping related concepts
 ```
 
 **5. Bundle Patterns for Data Exchange**

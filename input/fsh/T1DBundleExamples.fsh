@@ -158,6 +158,7 @@ Description: "Example of a complete T1D data submission bundle"
     * valueQuantity.unit = "U/mL"
     * valueQuantity.system = "http://unitsofmeasure.org"
     * interpretation = http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#H
+    * performer = Reference(urn:uuid:12345678-1234-5678-9abc-123456789ac2)
   * request
     * method = #POST
     * url = "Observation"

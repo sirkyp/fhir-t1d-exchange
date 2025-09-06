@@ -51,6 +51,27 @@ Description: "T1D-specific codes for observations and measurements"
 * #organization-id "Organization ID" "Submitting Member Organization ID"
 * #provider-id "Provider ID" "Provider identifier for diabetes specialist"
 * #encounter-id "Encounter ID" "Unique encounter identifier"
+// Device Integration and Insulin Management Codes
+* #insulin-dosing "Insulin Dosing" "Daily insulin dosing observation"
+* #basal-insulin-daily "Basal Insulin Daily" "Daily basal insulin dose in units"
+* #bolus-insulin-daily "Bolus Insulin Daily" "Daily bolus insulin dose in units"
+* #basal-insulin-injections "Basal Insulin Injections" "Number of daily basal insulin injections"
+* #bolus-insulin-injections "Bolus Insulin Injections" "Number of daily bolus insulin injections"
+* #insulin-pump-management "Insulin Pump Management" "Insulin pump site changes and adjustments"
+* #pump-site-change-method "Pump Site Change Method" "Method for reporting pump site change frequency"
+* #insulin-dose-adjustments "Insulin Dose Adjustments" "Number of insulin dose adjustments since last visit"
+* #bgm-usage "BGM Usage" "Blood glucose meter usage frequency"
+* #bgm-test-freq-method "BGM Test Frequency Method" "Method for reporting BGM test frequency"
+* #cgm-usage "CGM Usage" "Continuous glucose monitor usage"
+* #cgm-use-percentage "CGM Use Percentage" "Percentage of time CGM used per 2 weeks"
+* #cgm-use-report "CGM Use Report" "Method for reporting CGM usage"
+* #cgm-binary "CGM Binary" "Binary indicator if patient is on CGM"
+* #cgm-sensor-change-freq "CGM Sensor Change Frequency" "Frequency of CGM sensor changes in days"
+* #device-report-review "Device Report Review" "Patient reviewed device reports since last visit"
+* #insulin-pump "Insulin Pump" "Insulin pump device type"
+* #cgm "CGM" "Continuous glucose monitor device type"
+* #bgm "BGM" "Blood glucose meter device type"
+* #insulin-pen "Insulin Pen" "Insulin pen device type"
 
 // Value Sets
 ValueSet: T1DGenderValueSet
@@ -153,10 +174,7 @@ Id: t1d-insulin-regimen-valueset
 Title: "T1D Insulin Regimen Value Set"
 Description: "Types of insulin regimens for T1D patients"
 * ^experimental = false
-* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#basal-bolus "Basal-Bolus"
-* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#pump "Insulin Pump"
-* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#mixed "Mixed Insulin"
-* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#other "Other"
+* include codes from system T1DInsulinRegimenCS
 
 ValueSet: T1DTransitionPlanValueSet
 Id: t1d-transition-plan-valueset
@@ -332,8 +350,8 @@ Id: t1d-insulin-delivery-valueset
 Title: "T1D Insulin Delivery Value Set"
 Description: "Insulin delivery methods for T1D Exchange"
 * ^experimental = false
-* http://snomed.info/sct#182817000 "Drug injection"
-* http://snomed.info/sct#61181002 "Insulin pump"
+* http://snomed.info/sct#182817000 "Drug prescription"
+* http://snomed.info/sct#61968008 "Injection"
 
 ValueSet: T1DProviderSpecialtyValueSet
 Id: t1d-provider-specialty-valueset

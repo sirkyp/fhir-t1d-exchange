@@ -58,9 +58,10 @@ The diabetes-specific data elements map to specialized observation profiles:
 | Data Category | FHIR Profile | Key Elements |
 |---------------|--------------|--------------|
 | Disease | T1DCondition | T1D diagnosis date, transition plan |
-| Insulin | T1DMedicationRequest | Insulin regimen, delivery method |
-| Monitoring | T1DObservation | BGM/CGM device information |
+| Insulin | T1DMedicationRequest, T1DInsulinDosingObservation | Insulin regimen, delivery method, daily dosing |
+| Monitoring | T1DObservation, T1DBGMUsageObservation, T1DCGMUsageObservation | BGM/CGM device information, usage tracking |
 | Glucose | T1DGlucoseObservation | BGM mean, CGM metrics, time in range |
+| Devices | T1DInsulinPumpDevice, T1DCGMDevice, T1DBGMDevice, T1DInsulinPenDevice | Device manufacturers, models, usage patterns |
 
 For detailed variable-to-FHIR element mappings, see the [Variable Mapping](mapping.html) page.
 

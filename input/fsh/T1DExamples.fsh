@@ -145,8 +145,8 @@ Description: "Example of an insulin medication request"
 * dosageInstruction.route = http://snomed.info/sct#263887005 "Subcutaneous"
 * dosageInstruction.doseAndRate.doseQuantity.value = 10
 * dosageInstruction.doseAndRate.doseQuantity.unit = "units"
-* extension[insulinRegimen].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#basal-bolus
-* extension[deliveryMethod].valueCodeableConcept = http://snomed.info/sct#61968008
+* extension[insulinRegimen].valueCodeableConcept = T1DInsulinRegimenCS#2 "Injection, basal-bolus"
+* extension[deliveryMethod].valueCodeableConcept = http://snomed.info/sct#182817000 "Drug prescription"
 
 Instance: T1DObservationExample
 InstanceOf: T1DObservation
