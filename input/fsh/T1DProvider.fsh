@@ -40,6 +40,9 @@ Description: "Provider profile for T1D Exchange including healthcare professiona
 * identifier[other].type = http://terminology.hl7.org/CodeSystem/v2-0203#PRN
 * identifier[other].value 1..1 MS
 
+* extension contains
+    T1DOtherIdType named otherIdType 0..1 MS
+
 * identifier[t1d-provider-id].type = http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type#T1D-PROVIDER-ID
 * identifier[t1d-provider-id].system = "http://t1dexchange.org/fhir/provider-id"
 * identifier[t1d-provider-id].value 1..1 MS
@@ -50,7 +53,18 @@ Description: "Provider profile for T1D Exchange including healthcare professiona
 * qualification.code ^definition = "Type of provider"
 * qualification.code ^short = "Type of provider"
 * qualification.code ^comment = "Priority: Low"
-* qualification.code from T1DProviderSpecialtyValueSet (preferred)
+* qualification.code from T1DProviderTypeValueSet (preferred)
+
+Extension: T1DOtherIdType
+Id: t1d-other-id-type
+Title: "T1D Other ID Type Extension"
+Description: "Type of other provider ID when using non-standard identifiers"
+* ^context.type = #element
+* ^context.expression = "Practitioner"
+* value[x] only string
+* valueString ^definition = "When using an 'other_id' for provider id this column is used to specify the type of other id used."
+* valueString ^short = "Type of other provider ID"
+* valueString ^comment = "Priority: Medium, if other_id present"
 
 Profile: T1DOrganization
 Parent: Organization

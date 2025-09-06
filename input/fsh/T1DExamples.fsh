@@ -258,3 +258,56 @@ Description: "Example of a deceased T1D Exchange patient with cause of death"
 * extension[ethnicity].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-Ethnicity#2135-2 "Hispanic or Latino"
 * extension[primaryInsurance].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ActCode#PUBLICPOL "public healthcare"
 * extension[causeOfDeath].valueString = "Diabetic ketoacidosis, Type 1 diabetes mellitus"
+
+// Medium Priority Variable Examples
+Instance: T1DProviderWithTypeExample
+InstanceOf: T1DProvider
+Usage: #example
+Title: "T1D Provider with Type Example"
+Description: "Example of T1D provider with provider type (Medium priority variable)"
+* identifier[t1d-provider-id].value = "PROV-12345"
+* identifier[npi].value = "1234567890"
+* identifier[other].value = "INTERNAL-ID-789"
+* extension[otherIdType].valueString = "Hospital Employee ID"
+* active = true
+* name.family = "Johnson"
+* name.given = "Sarah"
+* qualification.code = http://t1dexchange.org/fhir/CodeSystem/t1d-provider-type#NP
+* qualification.code.text = "Nurse Practitioner"
+
+Instance: T1DEncounterWithEndoVisitExample
+InstanceOf: T1DEncounter
+Usage: #example
+Title: "T1D Encounter with Endocrine Visit Indicator Example"
+Description: "Example of T1D encounter with endocrine visit indicator (Medium priority variable)"
+* identifier[t1d-encounter-id].value = "ENC-67890"
+* status = #finished
+* class = http://terminology.hl7.org/CodeSystem/v3-ActCode#AMB
+* subject = Reference(T1DPatientExample)
+* period.start = "2024-01-15"
+* extension[endoVisit].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-endo-visit#1
+* extension[endoVisit].valueCodeableConcept.text = "Encounter is from endocrine group"
+* extension[encounterReasonCodeType].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-encounter-reason-code-type#snomedct
+* extension[encounterReasonCodeType].valueCodeableConcept.text = "SNOMED CT"
+
+Instance: T1DMedicationWithDetailsExample
+InstanceOf: T1DMedicationRequest
+Usage: #example
+Title: "T1D Medication with Details Example"
+Description: "Example of T1D medication with detailed information (Medium priority variables)"
+* identifier.value = "MED-54321"
+* status = #active
+* intent = #order
+* medicationCodeableConcept = http://www.nlm.nih.gov/research/umls/rxnorm#5856
+* medicationCodeableConcept.text = "Insulin"
+* subject = Reference(T1DPatientExample)
+* authoredOn = "2024-01-15"
+* requester = Reference(T1DProviderExample)
+* extension[prescriberIdType].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-provider-id-type#npi
+* extension[prescriberIdType].valueCodeableConcept.text = "NPI"
+* extension[medicationName].valueString = "Humalog KwikPen"
+* extension[medicationGenericName].valueString = "Insulin lispro"
+* extension[medicationClass].valueString = "Rapid-acting insulin"
+* extension[medicationSubClass].valueString = "Insulin analog"
+* extension[insulinRegimen].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-insulin-regimen#1
+* extension[insulinRegimen].valueCodeableConcept.text = "Insulin pump"

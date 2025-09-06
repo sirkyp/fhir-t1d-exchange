@@ -197,3 +197,110 @@ Description: "Types of provider identifiers"
 * #pos "POS" "CMS Provider of Service (POS) number"
 * #dea "DEA" "DEA number"
 * #internal "Internal" "Other nationally recognized or Internal Health System ID"
+
+ValueSet: T1DProviderTypeValueSet
+Id: t1d-provider-type-valueset
+Title: "T1D Provider Type Value Set"
+Description: "Types of healthcare providers in T1D care"
+* ^experimental = false
+* ^url = "http://t1dexchange.org/fhir/ValueSet/t1d-provider-type-valueset"
+* include codes from system http://t1dexchange.org/fhir/CodeSystem/t1d-provider-type
+
+CodeSystem: T1DProviderType
+Id: t1d-provider-type
+Title: "T1D Provider Type"
+Description: "Types of healthcare providers in T1D care"
+* ^url = "http://t1dexchange.org/fhir/CodeSystem/t1d-provider-type"
+* ^experimental = false
+* ^caseSensitive = true
+* #MD "Physician" "Physician"
+* #DO "Doctor of Osteopathic Medicine" "Doctor of Osteopathic Medicine"
+* #PA "Physician Assistant" "Physician Assistant"
+* #NP "Nurse Practitioner" "Nurse Practitioner"
+* #RN "Registered Nurse" "Registered Nurse"
+* #RD "Registered Dietician" "Registered Dietician"
+* #EP "Exercise Physiologist" "Exercise Physiologist"
+* #PS "Psychologist" "Psychologist"
+* #SW "Social Worker" "Social Worker"
+* #CDE "Certified Diabetes Educator" "Certified Diabetes Educator"
+* #PH "Pharmacist" "Pharmacist"
+* #OD "Optometrist" "Optometrist"
+* #PO "Podiatrist" "Podiatrist"
+* #PT "Physical therapist" "Physical therapist"
+* #OT "Occupational therapist" "Occupational therapist"
+* #OTH "Other person" "Other person"
+
+ValueSet: T1DObservationInterpretationValueSet
+Id: t1d-observation-interpretation-valueset
+Title: "T1D Observation Interpretation Value Set"
+Description: "Observation interpretation codes for T1D Exchange"
+* ^experimental = false
+* ^url = "http://t1dexchange.org/fhir/ValueSet/t1d-observation-interpretation-valueset"
+* http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#L "Low"
+* http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#H "High"
+* http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#N "Normal"
+* http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#A "Abnormal"
+* http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#AA "Critically abnormal"
+* http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#HH "Critically high"
+* http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#LL "Critically low"
+* http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#< "Off scale low"
+* http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#> "Off scale high"
+* http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#POS "Positive"
+* http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#NEG "Negative"
+
+ValueSet: T1DMedicationStatusValueSet
+Id: t1d-medication-status-valueset
+Title: "T1D Medication Status Value Set"
+Description: "Medication status codes for T1D Exchange"
+* ^experimental = false
+* ^url = "http://t1dexchange.org/fhir/ValueSet/t1d-medication-status-valueset"
+* http://hl7.org/fhir/CodeSystem/medicationrequest-status#active "Active"
+* http://hl7.org/fhir/CodeSystem/medicationrequest-status#on-hold "On Hold"
+* http://hl7.org/fhir/CodeSystem/medicationrequest-status#cancelled "Cancelled"
+* http://hl7.org/fhir/CodeSystem/medicationrequest-status#completed "Completed"
+* http://hl7.org/fhir/CodeSystem/medicationrequest-status#entered-in-error "Entered in Error"
+* http://hl7.org/fhir/CodeSystem/medicationrequest-status#stopped "Stopped"
+* http://hl7.org/fhir/CodeSystem/medicationrequest-status#draft "Draft"
+
+ValueSet: T1DConditionStatusValueSet
+Id: t1d-condition-status-valueset
+Title: "T1D Condition Status Value Set"
+Description: "Condition clinical and verification status codes for T1D Exchange"
+* ^experimental = false
+* ^url = "http://t1dexchange.org/fhir/ValueSet/t1d-condition-status-valueset"
+* http://terminology.hl7.org/CodeSystem/condition-clinical#active "Active"
+* http://terminology.hl7.org/CodeSystem/condition-clinical#relapse "Relapse"
+* http://terminology.hl7.org/CodeSystem/condition-clinical#remission "Remission"
+* http://terminology.hl7.org/CodeSystem/condition-clinical#resolved "Resolved"
+* http://terminology.hl7.org/CodeSystem/condition-ver-status#provisional "Provisional"
+* http://terminology.hl7.org/CodeSystem/condition-ver-status#differential "Differential"
+* http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed "Confirmed"
+* http://terminology.hl7.org/CodeSystem/condition-ver-status#refuted "Refuted"
+* http://terminology.hl7.org/CodeSystem/condition-ver-status#entered-in-error "Entered in Error"
+
+ValueSet: T1DObservationStatusValueSet
+Id: t1d-observation-status-valueset
+Title: "T1D Observation Status Value Set"
+Description: "Observation status codes for T1D Exchange"
+* ^experimental = false
+* ^url = "http://t1dexchange.org/fhir/ValueSet/t1d-observation-status-valueset"
+* http://hl7.org/fhir/observation-status#registered "Registered"
+* http://hl7.org/fhir/observation-status#preliminary "Preliminary"
+* http://hl7.org/fhir/observation-status#final "Final"
+* http://hl7.org/fhir/observation-status#amended "Amended"
+* http://hl7.org/fhir/observation-status#corrected "Corrected"
+* http://hl7.org/fhir/observation-status#cancelled "Cancelled"
+* http://hl7.org/fhir/observation-status#entered-in-error "Entered in Error"
+* http://hl7.org/fhir/observation-status#unknown "Unknown"
+
+CodeSystem: T1DConditionCategory
+Id: t1d-condition-category
+Title: "T1D Condition Category"
+Description: "Condition category codes for T1D Exchange"
+* ^url = "http://t1dexchange.org/fhir/CodeSystem/t1d-condition-category"
+* ^experimental = false
+* ^caseSensitive = true
+* #complaint "Complaint" "The recorded condition is a complaint"
+* #symptom "Symptom" "The recorded condition is a symptom"
+* #finding "Finding" "The recorded condition is a finding"
+* #diagnosis "Diagnosis" "The recorded condition is a diagnosis"
