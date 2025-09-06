@@ -142,6 +142,26 @@ Description: "Severe hypoglycemia events requiring medical attention"
 * valueInteger ^short = "Count of severe hypoglycemia events"
 * valueInteger ^comment = "Priority: High | Notes: Level 3 (from JDRF consensus document): a severe event characterized by altered mental and/or physical status requiring assistance"
 
+* component MS
+* component ^slicing.discriminator.type = #value
+* component ^slicing.discriminator.path = "code"
+* component ^slicing.rules = #open
+* component contains
+    patientReportedAmbulatory 0..1 MS and
+    patientReportedInpatient 0..1 MS
+
+* component[patientReportedAmbulatory] ^definition = "Patient reported number of severe hypoglycemia episodes requiring ED or urgent care since last visit (not requiring overnight stay or hospitalization)"
+* component[patientReportedAmbulatory] ^short = "Patient reported ambulatory severe hypoglycemia"
+* component[patientReportedAmbulatory] ^comment = "Priority: High | Notes: Will vary by site's acceptance of PRO (Patient Reported Outcomes)"
+* component[patientReportedAmbulatory].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#sh-events-amb-pro
+* component[patientReportedAmbulatory].value[x] only integer
+
+* component[patientReportedInpatient] ^definition = "Patient reported number of severe hypoglycemia episodes requiring hospitalization since last visit (excludes ED and urgent care visits)"
+* component[patientReportedInpatient] ^short = "Patient reported inpatient severe hypoglycemia"
+* component[patientReportedInpatient] ^comment = "Priority: High | Notes: Will vary by site's acceptance of PRO (Patient Reported Outcomes)"
+* component[patientReportedInpatient].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#sh-events-inp-pro
+* component[patientReportedInpatient].value[x] only integer
+
 Profile: T1DDKAObservation
 Parent: T1DObservation
 Id: t1d-dka-observation
@@ -163,7 +183,8 @@ Description: "Diabetic ketoacidosis episodes requiring medical attention. Uses c
     serumBicarbonate 0..1 MS and
     bloodPH 0..1 MS and
     patientReportedInpatient 0..1 MS and
-    patientReportedEventDate 0..1 MS
+    patientReportedEventDate 0..1 MS and
+    ambulatoryEvents 0..1 MS
 
 * component[serumBicarbonate] ^definition = "Serum bicarbonate level during DKA (mmol/L) to 1 decimal place"
 * component[serumBicarbonate] ^short = "Serum bicarbonate during DKA"
@@ -190,6 +211,12 @@ Description: "Diabetic ketoacidosis episodes requiring medical attention. Uses c
 * component[patientReportedEventDate] ^comment = "Priority: High | Notes: Patient reported date of when a DKA event occurred for patient reported DKA events. Format: YYYYMMDD, YYYYMM, or YYYY"
 * component[patientReportedEventDate].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dka-events-pro-dt
 * component[patientReportedEventDate].value[x] only dateTime or Period or string
+
+* component[ambulatoryEvents] ^definition = "Number of DKA episodes requiring ED or urgent care since last visit (not requiring overnight stay or hospitalization)"
+* component[ambulatoryEvents] ^short = "DKA ambulatory episodes"
+* component[ambulatoryEvents] ^comment = "Priority: High | Notes: Elevated serum or urine ketones and serum bicarbonate <15 mmol/L or blood pH <7.3"
+* component[ambulatoryEvents].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dka-events-amb
+* component[ambulatoryEvents].value[x] only integer
 
 Profile: T1DHypoglycemiaAwarenessObservation
 Parent: T1DObservation
@@ -218,3 +245,30 @@ Description: "Patient's ability to self-identify hypoglycemia symptoms"
 * component[symptomThreshold].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#hypo-sym-value
 * component[symptomThreshold].value[x] only Quantity
 * component[symptomThreshold].valueQuantity.unit = "mg/dL"
+
+Profile: T1DCareScreeningObservation
+Parent: T1DObservation
+Id: t1d-care-screening-observation
+Title: "T1D Care Screening Observation"
+Description: "Preventive care screening dates for T1D patients"
+
+* category = http://terminology.hl7.org/CodeSystem/observation-category#exam
+* code from T1DCareScreeningCodeValueSet (required)
+* value[x] only dateTime or Period or string
+* valueDateTime ^definition = "Date of last screening or examination"
+* valueDateTime ^short = "Date of last screening"
+* valueDateTime ^comment = "Priority: Low | Notes: Supports YYYYMMDD, YYYYMM, YYYY formats"
+
+Profile: T1DSDOHScreeningObservation
+Parent: T1DObservation
+Id: t1d-sdoh-screening-observation
+Title: "T1D SDOH Screening Observation"
+Description: "Social determinants of health screening for transportation and housing insecurity"
+
+* category = http://terminology.hl7.org/CodeSystem/observation-category#social-history
+* code from T1DSDOHInsecurityCodeValueSet (required)
+* value[x] only CodeableConcept
+* valueCodeableConcept from T1DSDOHResponseValueSet (required)
+* valueCodeableConcept ^definition = "Response to SDOH screening question"
+* valueCodeableConcept ^short = "SDOH screening response"
+* valueCodeableConcept ^comment = "Priority: Low | Notes: Screening for transportation and housing insecurity"

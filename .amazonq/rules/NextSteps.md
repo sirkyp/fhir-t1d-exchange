@@ -7,19 +7,10 @@
 - **Coded Values**: 34.2% (140 of 409 coded values implemented)
 - **Total Specifications**: 10 sheets across 2 Excel files processed
 
-## Critical Missing Variables (137 remaining)
+## Critical Missing Variables (114 remaining)
 
-### High Priority T1D-Specific Disease Management (23 variables)
-- **T1D Diagnosis Date**: `t1d_dx_dt` - Core T1D onset tracking
-- **Hypoglycemia Awareness**: `hypo_sym`, `hypo_sym_value` - Critical safety assessment
-- **Severe Hypoglycemia Events**: 
-  - `sh_events_amb`, `sh_events_inp` (ambulatory/inpatient counts)
-  - `sh_events_amb_pro`, `sh_events_inp_pro` (patient-reported events)
-- **DKA Episodes**:
-  - `dka_events_amb` (ambulatory counts)
-- **Care Screening**: `flu_dt`, `eye_exam_dt`, `foot_exam_dt`, `dental_exam_dt`
-- **SDOH**: `transportation_insecurity`, `housing_insecurity`
-- **Care Transitions**: `documented_transition_plan`
+### High Priority T1D-Specific Disease Management ✅ COMPLETED
+- ✅ All T1D-specific disease management variables implemented
 
 ### High Priority Insulin Management (15 variables)
 - **Dosing Details**: 
@@ -98,10 +89,12 @@
 ### Phase 1: Core T1D Management ✅ COMPLETED
 1. ✅ **T1D Diagnosis Profile**: Added `t1d_dx_dt` extension to T1DCondition
 2. ✅ **Severe Event Observations**: 
-   - T1DHypoglycemiaObservation with enhanced profiles
-   - T1DDKAObservation with comprehensive components (lab values, patient-reported data)
+   - T1DHypoglycemiaObservation with patient-reported components
+   - T1DDKAObservation with comprehensive components (lab values, patient-reported data, ambulatory events)
 3. ✅ **Hypoglycemia Awareness Assessment**: T1DHypoglycemiaAwarenessObservation profile
 4. ✅ **Care Transition Planning**: T1DTransitionPlan extension added to T1DCondition
+5. ✅ **Care Screening Observations**: T1DCareScreeningObservation for flu, eye, foot, dental exams
+6. ✅ **SDOH Screening**: T1DSDOHScreeningObservation for transportation/housing insecurity
 
 ### Phase 2: Device Integration (6 months)
 1. **Device Profiles**: Create T1DDevice profiles for pumps, CGMs, BGMs
@@ -149,7 +142,7 @@
 ## Success Metrics
 
 ### Coverage Targets
-- ✅ **Phase 1**: 20% variable coverage (30 of 153 variables) - COMPLETED
+- ✅ **Phase 1**: 34% variable coverage (52 of 153 variables) - COMPLETED
 - **Phase 2**: 50% variable coverage (77 of 153 variables)  
 - **Phase 3**: 75% variable coverage (115 of 153 variables)
 - **Phase 4**: 90%+ variable coverage (140+ of 153 variables)

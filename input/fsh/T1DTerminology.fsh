@@ -38,6 +38,15 @@ Description: "T1D-specific codes for observations and measurements"
 * #dka-blood-ph "DKA Blood pH" "Arterial pH value during DKA"
 * #dka-events-inp-pro "DKA Inpatient Patient Reported" "Patient reported DKA episodes requiring hospitalization"
 * #dka-events-pro-dt "DKA Event Date Patient Reported" "Date of patient reported DKA events"
+* #sh-events-amb-pro "Severe Hypoglycemia Ambulatory Patient Reported" "Patient reported severe hypoglycemia requiring ED/urgent care"
+* #sh-events-inp-pro "Severe Hypoglycemia Inpatient Patient Reported" "Patient reported severe hypoglycemia requiring hospitalization"
+* #dka-events-amb "DKA Ambulatory" "DKA episodes requiring ED/urgent care"
+* #flu-dt "Flu Vaccine Date" "Date of last flu vaccine"
+* #eye-exam-dt "Eye Exam Date" "Date of last eye exam (dilated or retinal photographs)"
+* #foot-exam-dt "Foot Exam Date" "Date of last foot exam"
+* #dental-exam-dt "Dental Exam Date" "Date of last dental exam"
+* #transportation-insecurity "Transportation Insecurity" "Transportation access challenges screening"
+* #housing-insecurity "Housing Insecurity" "Housing stability challenges screening"
 * #basal-bolus "Basal-Bolus" "Basal-bolus insulin regimen"
 * #pump "Insulin Pump" "Insulin pump therapy"
 * #mixed "Mixed Insulin" "Mixed insulin regimen"
@@ -160,6 +169,26 @@ Description: "Documented transition plan options"
 * http://snomed.info/sct#182836005 "Medication review"
 * http://snomed.info/sct#408403008 "Patient referral to specialist"
 * http://snomed.info/sct#385651009 "In progress"
+
+ValueSet: T1DCareScreeningCodeValueSet
+Id: t1d-care-screening-code-valueset
+Title: "T1D Care Screening Code Value Set"
+Description: "Codes for preventive care screening dates"
+* ^experimental = false
+* ^url = "http://t1dexchange.org/fhir/ValueSet/t1d-care-screening-code-valueset"
+* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#flu-dt "Flu Vaccine Date"
+* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#eye-exam-dt "Eye Exam Date"
+* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#foot-exam-dt "Foot Exam Date"
+* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dental-exam-dt "Dental Exam Date"
+
+ValueSet: T1DSDOHInsecurityCodeValueSet
+Id: t1d-sdoh-insecurity-code-valueset
+Title: "T1D SDOH Insecurity Code Value Set"
+Description: "Codes for transportation and housing insecurity screening"
+* ^experimental = false
+* ^url = "http://t1dexchange.org/fhir/ValueSet/t1d-sdoh-insecurity-code-valueset"
+* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#transportation-insecurity "Transportation Insecurity"
+* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#housing-insecurity "Housing Insecurity"
 
 ValueSet: T1DLanguageValueSet
 Id: t1d-language-valueset
