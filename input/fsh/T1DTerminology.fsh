@@ -29,10 +29,15 @@ Description: "T1D-specific codes for observations and measurements"
 * #transportation-insecurity "Transportation Insecurity" "Transportation access challenges"
 * #housing-insecurity "Housing Insecurity" "Housing stability challenges"
 * #hypo-sym "Hypoglycemia Symptoms" "Patient's ability to self identify hypoglycemia"
+* #hypo-sym-value "Hypoglycemia Symptom Value" "Typical glucose value for hypoglycemia symptoms"
 * #sh-events-amb "Severe Hypoglycemia Ambulatory" "Severe hypoglycemia events requiring ED/urgent care"
 * #sh-events-inp "Severe Hypoglycemia Inpatient" "Severe hypoglycemia events requiring hospitalization"
 * #dka-events-amb "DKA Ambulatory" "DKA episodes requiring ED/urgent care"
 * #dka-events-inp "DKA Inpatient" "DKA episodes requiring hospitalization"
+* #dka-serum-bicarb "DKA Serum Bicarbonate" "Serum bicarbonate level during DKA"
+* #dka-blood-ph "DKA Blood pH" "Arterial pH value during DKA"
+* #dka-events-inp-pro "DKA Inpatient Patient Reported" "Patient reported DKA episodes requiring hospitalization"
+* #dka-events-pro-dt "DKA Event Date Patient Reported" "Date of patient reported DKA events"
 * #basal-bolus "Basal-Bolus" "Basal-bolus insulin regimen"
 * #pump "Insulin Pump" "Insulin pump therapy"
 * #mixed "Mixed Insulin" "Mixed insulin regimen"
@@ -204,3 +209,120 @@ Description: "Insurance type categories for T1D Exchange"
 * http://terminology.hl7.org/CodeSystem/v3-NullFlavor#NA "Not applicable"
 * http://terminology.hl7.org/CodeSystem/v3-NullFlavor#OTH "Other"
 * http://terminology.hl7.org/CodeSystem/v3-NullFlavor#UNK "Unknown"
+
+ValueSet: T1DConditionCategoryValueSet
+Id: t1d-condition-category-valueset
+Title: "T1D Condition Category Value Set"
+Description: "Condition categories for T1D Exchange"
+* ^experimental = false
+* http://terminology.hl7.org/CodeSystem/condition-category#problem-list-item "Problem List Item"
+* http://terminology.hl7.org/CodeSystem/condition-category#encounter-diagnosis "Encounter Diagnosis"
+
+ValueSet: T1DConditionCodeValueSet
+Id: t1d-condition-code-valueset
+Title: "T1D Condition Code Value Set"
+Description: "Condition codes for T1D and related conditions"
+* ^experimental = false
+* http://snomed.info/sct#46635009 "Type 1 diabetes mellitus"
+* http://snomed.info/sct#44054006 "Type 2 diabetes mellitus"
+* http://snomed.info/sct#8801005 "Secondary diabetes mellitus"
+* http://snomed.info/sct#237599002 "Insulin dependent diabetes mellitus"
+
+ValueSet: T1DFamilyRelationshipValueSet
+Id: t1d-family-relationship-valueset
+Title: "T1D Family Relationship Value Set"
+Description: "Family relationship codes for T1D Exchange"
+* ^experimental = false
+* http://terminology.hl7.org/CodeSystem/v3-RoleCode#FTH "Father"
+* http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH "Mother"
+* http://terminology.hl7.org/CodeSystem/v3-RoleCode#SIB "Sibling"
+* http://terminology.hl7.org/CodeSystem/v3-RoleCode#GRPRN "Grandparent"
+
+ValueSet: T1DFamilyHistoryConditionValueSet
+Id: t1d-family-history-condition-valueset
+Title: "T1D Family History Condition Value Set"
+Description: "Conditions for family history relevant to T1D"
+* ^experimental = false
+* http://snomed.info/sct#46635009 "Type 1 diabetes mellitus"
+* http://snomed.info/sct#44054006 "Type 2 diabetes mellitus"
+* http://snomed.info/sct#73211009 "Diabetes mellitus"
+
+ValueSet: T1DEncounterClassValueSet
+Id: t1d-encounter-class-valueset
+Title: "T1D Encounter Class Value Set"
+Description: "Encounter class codes for T1D Exchange"
+* ^experimental = false
+* http://terminology.hl7.org/CodeSystem/v3-ActCode#AMB "ambulatory"
+* http://terminology.hl7.org/CodeSystem/v3-ActCode#IMP "inpatient encounter"
+* http://terminology.hl7.org/CodeSystem/v3-ActCode#EMER "emergency"
+* http://terminology.hl7.org/CodeSystem/v3-ActCode#HH "home health"
+
+ValueSet: T1DEncounterTypeValueSet
+Id: t1d-encounter-type-valueset
+Title: "T1D Encounter Type Value Set"
+Description: "Encounter type codes for T1D Exchange"
+* ^experimental = false
+* http://snomed.info/sct#185349003 "Encounter for check up"
+* http://snomed.info/sct#390906007 "Follow-up encounter"
+* http://snomed.info/sct#11429006 "Consultation"
+
+ValueSet: T1DEncounterReasonValueSet
+Id: t1d-encounter-reason-valueset
+Title: "T1D Encounter Reason Value Set"
+Description: "Encounter reason codes for T1D Exchange"
+* ^experimental = false
+* http://snomed.info/sct#46635009 "Type 1 diabetes mellitus"
+* http://snomed.info/sct#182836005 "Review of medication"
+* http://snomed.info/sct#408403008 "Patient referral to specialist"
+
+ValueSet: T1DMedicationCategoryValueSet
+Id: t1d-medication-category-valueset
+Title: "T1D Medication Category Value Set"
+Description: "Medication categories for T1D Exchange"
+* ^experimental = false
+* http://terminology.hl7.org/CodeSystem/medicationrequest-category#inpatient "Inpatient"
+* http://terminology.hl7.org/CodeSystem/medicationrequest-category#outpatient "Outpatient"
+* http://terminology.hl7.org/CodeSystem/medicationrequest-category#community "Community"
+
+ValueSet: T1DMedicationCodeValueSet
+Id: t1d-medication-code-valueset
+Title: "T1D Medication Code Value Set"
+Description: "Medication codes for T1D Exchange"
+* ^experimental = false
+* http://www.nlm.nih.gov/research/umls/rxnorm#5856 "Insulin"
+* http://www.nlm.nih.gov/research/umls/rxnorm#274783 "Insulin glargine"
+* http://www.nlm.nih.gov/research/umls/rxnorm#51428 "Insulin lispro"
+
+ValueSet: T1DMedicationRouteValueSet
+Id: t1d-medication-route-valueset
+Title: "T1D Medication Route Value Set"
+Description: "Medication routes for T1D Exchange"
+* ^experimental = false
+* http://snomed.info/sct#263887005 "Subcutaneous route"
+* http://snomed.info/sct#47625008 "Intravenous route"
+
+ValueSet: T1DInsulinDeliveryValueSet
+Id: t1d-insulin-delivery-valueset
+Title: "T1D Insulin Delivery Value Set"
+Description: "Insulin delivery methods for T1D Exchange"
+* ^experimental = false
+* http://snomed.info/sct#182817000 "Drug injection"
+* http://snomed.info/sct#61181002 "Insulin pump"
+
+ValueSet: T1DProviderSpecialtyValueSet
+Id: t1d-provider-specialty-valueset
+Title: "T1D Provider Specialty Value Set"
+Description: "Provider specialty codes for T1D Exchange"
+* ^experimental = false
+* http://nucc.org/provider-taxonomy#207RE0101X "Endocrinology, Diabetes & Metabolism Physician"
+* http://nucc.org/provider-taxonomy#363L00000X "Nurse Practitioner"
+* http://nucc.org/provider-taxonomy#207R00000X "Internal Medicine Physician"
+
+ValueSet: T1DOrganizationTypeValueSet
+Id: t1d-organization-type-valueset
+Title: "T1D Organization Type Value Set"
+Description: "Organization type codes for T1D Exchange"
+* ^experimental = false
+* http://terminology.hl7.org/CodeSystem/organization-type#prov "Healthcare Provider"
+* http://terminology.hl7.org/CodeSystem/organization-type#dept "Hospital Department"
+* http://terminology.hl7.org/CodeSystem/organization-type#team "Organizational team"

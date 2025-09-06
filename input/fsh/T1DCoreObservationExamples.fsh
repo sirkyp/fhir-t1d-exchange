@@ -16,6 +16,7 @@ Description: "Example of Anti-GAD autoantibody test result"
 * valueQuantity = 15.2 'U/mL' "U/mL"
 * interpretation = http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#H "High"
 * referenceRange.high = 5.0 'U/mL' "U/mL"
+* performer = Reference(T1DProviderExample)
 
 Instance: T1DLipidCholesterolExample
 InstanceOf: T1DObservation
@@ -34,6 +35,7 @@ Description: "Example of total cholesterol lab result"
 * interpretation = http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#N "Normal"
 * referenceRange.low = 100 'mg/dL' "mg/dL"
 * referenceRange.high = 200 'mg/dL' "mg/dL"
+* performer = Reference(T1DProviderExample)
 
 Instance: T1DThyroidTSHExample
 InstanceOf: T1DObservation
@@ -52,6 +54,7 @@ Description: "Example of thyroid stimulating hormone test result"
 * interpretation = http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#N "Normal"
 * referenceRange.low = 0.4 'mU/L' "mU/L"
 * referenceRange.high = 4.0 'mU/L' "mU/L"
+* performer = Reference(T1DProviderExample)
 
 Instance: T1DCeliacTTGExample
 InstanceOf: T1DObservation
@@ -69,3 +72,4 @@ Description: "Example of tissue transglutaminase IgA antibody test"
 * valueQuantity = 3.2 'U/mL' "U/mL"
 * interpretation = http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation#N "Normal"
 * referenceRange.high = 20.0 'U/mL' "U/mL"
+* performer = Reference(T1DProviderExample)

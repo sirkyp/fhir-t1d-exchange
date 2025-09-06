@@ -146,7 +146,7 @@ Profile: T1DDKAObservation
 Parent: T1DObservation
 Id: t1d-dka-observation
 Title: "T1D DKA Event Observation"
-Description: "Diabetic ketoacidosis episodes requiring medical attention"
+Description: "Diabetic ketoacidosis episodes requiring medical attention. Uses component model for DKA-related lab values and patient-reported data because: (1) Clinical Context - lab values are specifically 'during DKA' not general lab results, (2) T1D Exchange Purpose - these are quality metrics for DKA severity not standalone lab tracking, (3) Specification Alignment - T1D Exchange treats these as DKA event attributes, (4) Implementation Simplicity - single observation captures complete DKA episode data."
 
 * category = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs
 * code from T1DDKAEventsValueSet (required)
@@ -154,3 +154,67 @@ Description: "Diabetic ketoacidosis episodes requiring medical attention"
 * valueInteger ^definition = "Number of DKA episodes since last visit"
 * valueInteger ^short = "Count of DKA episodes"
 * valueInteger ^comment = "Priority: High | Notes: Elevated serum or urine ketones and serum bicarbonate <15 mmol/L or blood pH <7.3"
+
+* component MS
+* component ^slicing.discriminator.type = #value
+* component ^slicing.discriminator.path = "code"
+* component ^slicing.rules = #open
+* component contains
+    serumBicarbonate 0..1 MS and
+    bloodPH 0..1 MS and
+    patientReportedInpatient 0..1 MS and
+    patientReportedEventDate 0..1 MS
+
+* component[serumBicarbonate] ^definition = "Serum bicarbonate level during DKA (mmol/L) to 1 decimal place"
+* component[serumBicarbonate] ^short = "Serum bicarbonate during DKA"
+* component[serumBicarbonate] ^comment = "Priority: High | Notes: Lab reported serum bicarbonate value in mmol/L associated with a DKA event"
+* component[serumBicarbonate].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dka-serum-bicarb
+* component[serumBicarbonate].value[x] only Quantity
+* component[serumBicarbonate].valueQuantity.unit = "mmol/L"
+
+* component[bloodPH] ^definition = "Arterial pH value during DKA to 1 decimal place"
+* component[bloodPH] ^short = "Blood pH during DKA"
+* component[bloodPH] ^comment = "Priority: High | Notes: Lab reported blood pH value associated with a DKA event"
+* component[bloodPH].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dka-blood-ph
+* component[bloodPH].value[x] only Quantity
+* component[bloodPH].valueQuantity.unit = "[pH]"
+
+* component[patientReportedInpatient] ^definition = "Patient reported number of DKA episodes requiring hospitalization since last visit (excludes ED and urgent care visits)"
+* component[patientReportedInpatient] ^short = "Patient reported inpatient DKA episodes"
+* component[patientReportedInpatient] ^comment = "Priority: High | Notes: Will vary by site's acceptance of PRO (Patient Reported Outcomes)"
+* component[patientReportedInpatient].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dka-events-inp-pro
+* component[patientReportedInpatient].value[x] only integer
+
+* component[patientReportedEventDate] ^definition = "Date of admission for patient reported DKA events (dka_events_inp_pro and dka_events_amb_pro)"
+* component[patientReportedEventDate] ^short = "Date of patient reported DKA event"
+* component[patientReportedEventDate] ^comment = "Priority: High | Notes: Patient reported date of when a DKA event occurred for patient reported DKA events. Format: YYYYMMDD, YYYYMM, or YYYY"
+* component[patientReportedEventDate].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dka-events-pro-dt
+* component[patientReportedEventDate].value[x] only dateTime or Period or string
+
+Profile: T1DHypoglycemiaAwarenessObservation
+Parent: T1DObservation
+Id: t1d-hypoglycemia-awareness-observation
+Title: "T1D Hypoglycemia Awareness Observation"
+Description: "Patient's ability to self-identify hypoglycemia symptoms"
+
+* category = http://terminology.hl7.org/CodeSystem/observation-category#survey
+* code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#hypo-sym
+* value[x] only CodeableConcept
+* valueCodeableConcept from T1DHypoglycemiaAwarenessValueSet (required)
+* valueCodeableConcept ^definition = "Patient's ability to self identify hypoglycemia: presence of symptoms"
+* valueCodeableConcept ^short = "Hypoglycemia awareness status"
+* valueCodeableConcept ^comment = "Priority: Low"
+
+* component MS
+* component ^slicing.discriminator.type = #value
+* component ^slicing.discriminator.path = "code"
+* component ^slicing.rules = #open
+* component contains
+    symptomThreshold 0..1 MS
+
+* component[symptomThreshold] ^definition = "Typical glucose value (mg/dL) for which patient consistently experiences symptoms of hypoglycemia. If range, use high end of range. Prefer blood glucose over sensor glucose value, if available."
+* component[symptomThreshold] ^short = "Glucose threshold for symptoms"
+* component[symptomThreshold] ^comment = "Priority: Low | Notes: Do not report mmol/L; to convert, multiply by 18 to convert mmol/L to mg/dL."
+* component[symptomThreshold].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#hypo-sym-value
+* component[symptomThreshold].value[x] only Quantity
+* component[symptomThreshold].valueQuantity.unit = "mg/dL"

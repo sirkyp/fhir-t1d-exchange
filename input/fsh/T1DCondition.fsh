@@ -52,8 +52,7 @@ Description: "Condition profile for T1D Exchange including diabetes and related 
 
 * extension contains
     T1DDiagnosisDate named diagnosisDate 0..1 MS and
-    T1DTransitionPlan named transitionPlan 0..1 MS and
-    T1DCauseOfDeath named causeOfDeath 0..1
+    T1DTransitionPlan named transitionPlan 0..1 MS
 
 Extension: T1DDiagnosisDate
 Id: t1d-diagnosis-date
@@ -62,6 +61,9 @@ Description: "Date of Type 1 diabetes diagnosis"
 * ^context.type = #element
 * ^context.expression = "Condition"
 * value[x] only date
+* valueDate ^definition = "Date of type 1 diabetes diagnosis"
+* valueDate ^short = "T1D diagnosis date"
+* valueDate ^comment = "Priority: High | Notes: Include on initial encounter only or when requested. Do not send for every encounter. Supports YYYYMMDD, YYYYMM, YYYY formats."
 
 Extension: T1DTransitionPlan
 Id: t1d-transition-plan
@@ -71,6 +73,9 @@ Description: "Documented transition plan from pediatric to adult care"
 * ^context.expression = "Condition"
 * value[x] only CodeableConcept
 * valueCodeableConcept from T1DTransitionPlanValueSet (required)
+* valueCodeableConcept ^definition = "Documented transition plan for pediatrics patients to be transitioned to adult centre"
+* valueCodeableConcept ^short = "Transition plan status"
+* valueCodeableConcept ^comment = "Priority: Low | Notes: Documented transition plan for pediatrics patients to be transitioned to adult centre"
 
 Profile: T1DFamilyHistory
 Parent: FamilyMemberHistory
