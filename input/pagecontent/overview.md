@@ -25,6 +25,17 @@ The T1D Exchange collaborative focuses on several critical areas of T1D care:
 
 This Implementation Guide directly supports these focus areas through structured data collection and standardized reporting mechanisms.
 
+### FHIR Artifact Creation Approach
+
+This Implementation Guide was created using a systematic approach to translate T1D Exchange Excel specifications into FHIR artifacts. The methodology includes:
+
+- **Specification Analysis**: Processing 153 variables across 10 specification sheets from 2 Excel files
+- **Profile Design Patterns**: Component model for contextual data, extension strategy for resource enhancement
+- **Terminology Creation**: Integration of external standards (LOINC, SNOMED CT, RxNorm) with custom T1D terminology
+- **Quality Assurance**: Specification traceability, build validation, and comprehensive example coverage
+
+For detailed information about our approach, see the **[FHIR Artifact Creation Approach](approach.html)** page.
+
 ### Data Mapping
 
 #### Core Data Specifications Mapping
@@ -57,6 +68,7 @@ For detailed variable-to-FHIR element mappings, see the [Variable Mapping](mappi
 
 This guide is organized in a logical progression to support implementers:
 
+- **[FHIR Artifact Creation Approach](approach.html)** - Methodology for translating T1D Exchange specifications to FHIR
 - **[Profiles](profiles.html)** - FHIR profiles and data structures for T1D Exchange
 - **[Terminology](terminology.html)** - Code systems and value sets for consistent coding
 - **[Examples](examples.html)** - Sample instances demonstrating proper profile usage

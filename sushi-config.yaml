@@ -29,6 +29,8 @@ pages:
     title: Home
   overview.md:
     title: Overview of Implementation
+  approach.md:
+    title: FHIR Artifact Creation Approach
   profiles.md:
     title: Profiles
   terminology.md:
@@ -60,6 +62,7 @@ menu:
   Home: index.html
   Guidance:
     Overview of Implementation: overview.html
+    FHIR Artifact Creation Approach: approach.html
     Profiles: profiles.html
     Terminology: terminology.html
     Core Laboratory Observations: core-observations.html
