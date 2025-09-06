@@ -45,6 +45,11 @@ Description: "Encounter profile for T1D Exchange patient interactions with healt
 * period.start ^short = "Date of the visit"
 * period.start ^comment = "Priority: High"
 
+* period.end MS
+* period.end ^definition = "Time of the visit being documented in 24 hour format"
+* period.end ^short = "Time of the visit"
+* period.end ^comment = "Priority: Low"
+
 * reasonCode MS
 * reasonCode ^definition = "Reason for encounter coded using code system specified in encounter_reason_code_type field and when presenting multiple values should map 1:1."
 * reasonCode ^short = "Reason for encounter coded"
@@ -60,7 +65,12 @@ Description: "Encounter profile for T1D Exchange patient interactions with healt
 
 * extension contains
     T1DEncounterLocation named encounterLocation 0..1 MS and
-    T1DEncounterDuration named encounterDuration 0..1 MS
+    T1DEncounterDuration named encounterDuration 0..1 MS and
+    T1DEncounterTime named encounterTime 0..1 MS and
+    T1DStatusActor named statusActor 0..1 MS and
+    T1DStatusReason named statusReason 0..1 MS and
+    T1DEncounterReasonCodeType named encounterReasonCodeType 0..* MS and
+    T1DEndoVisit named endoVisit 0..1 MS
 
 Extension: T1DEncounterLocation
 Id: t1d-encounter-location
@@ -79,3 +89,62 @@ Description: "Duration of the encounter in minutes"
 * value[x] only Quantity
 * valueQuantity.unit = "min"
 * valueQuantity.system = "http://unitsofmeasure.org"
+
+Extension: T1DEncounterTime
+Id: t1d-encounter-time
+Title: "T1D Encounter Time Extension"
+Description: "Time of the visit being documented in 24 hour format"
+* ^context.type = #element
+* ^context.expression = "Encounter"
+* value[x] only time
+* valueTime ^definition = "Time of the visit being documented in 24 hour format"
+* valueTime ^short = "Time of visit in HHMM format"
+* valueTime ^comment = "Priority: Low"
+
+Extension: T1DStatusActor
+Id: t1d-status-actor
+Title: "T1D Status Actor Extension"
+Description: "The actor that is responsible for the current status"
+* ^context.type = #element
+* ^context.expression = "Encounter"
+* value[x] only CodeableConcept
+* valueCodeableConcept from T1DStatusActorValueSet (required)
+* valueCodeableConcept ^definition = "The actor that is responsible for the current status. This is not the party responsible for changing the status; that would almost universally be the provider. Rather, this is the person responsible FOR the status."
+* valueCodeableConcept ^short = "Actor responsible for current status"
+* valueCodeableConcept ^comment = "Priority: Low"
+
+Extension: T1DStatusReason
+Id: t1d-status-reason
+Title: "T1D Status Reason Extension"
+Description: "The reason for the current status"
+* ^context.type = #element
+* ^context.expression = "Encounter"
+* value[x] only CodeableConcept
+* valueCodeableConcept from T1DStatusReasonValueSet (required)
+* valueCodeableConcept ^definition = "The reason for the current status; the actor scopes the reason. For instance, an actor of patient and reason is illness would imply the patient was too sick while an actor of provider and reason of illness would imply the provider was sick."
+* valueCodeableConcept ^short = "Reason for current status"
+* valueCodeableConcept ^comment = "Priority: Low"
+
+Extension: T1DEncounterReasonCodeType
+Id: t1d-encounter-reason-code-type
+Title: "T1D Encounter Reason Code Type Extension"
+Description: "Code system used to describe encounter reason"
+* ^context.type = #element
+* ^context.expression = "Encounter"
+* value[x] only CodeableConcept
+* valueCodeableConcept from T1DEncounterReasonCodeTypeValueSet (required)
+* valueCodeableConcept ^definition = "Code system used to describe encounter reason"
+* valueCodeableConcept ^short = "Code system for encounter reason"
+* valueCodeableConcept ^comment = "Priority: High if encounter_reason_code is provided"
+
+Extension: T1DEndoVisit
+Id: t1d-endo-visit
+Title: "T1D Endocrine Visit Extension"
+Description: "Binary indicator for endocrine group visit"
+* ^context.type = #element
+* ^context.expression = "Encounter"
+* value[x] only CodeableConcept
+* valueCodeableConcept from T1DEndoVisitValueSet (required)
+* valueCodeableConcept ^definition = "Binary 0 or 1 to indicate an encounter is from the endocrine group or non-endocrine group"
+* valueCodeableConcept ^short = "Endocrine group visit indicator"
+* valueCodeableConcept ^comment = "Priority: Medium"

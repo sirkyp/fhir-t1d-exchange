@@ -64,6 +64,18 @@ Description: "Base observation profile for T1D Exchange data collection"
 * referenceRange.high ^short = "Higher threshold for abnormal test"
 * referenceRange.high ^comment = "Priority: Low"
 
+* extension contains
+    T1DObservationCodeType named observationCodeType 0..1 MS and
+    T1DObservationEffectiveTime named effectiveTime 0..1 MS
+
+* extension[observationCodeType] ^definition = "Disease specific coding system"
+* extension[observationCodeType] ^short = "Observation code system"
+* extension[observationCodeType] ^comment = "Priority: High"
+
+* extension[effectiveTime] ^definition = "Encounter time"
+* extension[effectiveTime] ^short = "Encounter time"
+* extension[effectiveTime] ^comment = "Priority: Low"
+
 Profile: T1DGlucoseObservation
 Parent: T1DObservation
 Id: t1d-glucose-observation
@@ -272,3 +284,26 @@ Description: "Social determinants of health screening for transportation and hou
 * valueCodeableConcept ^definition = "Response to SDOH screening question"
 * valueCodeableConcept ^short = "SDOH screening response"
 * valueCodeableConcept ^comment = "Priority: Low | Notes: Screening for transportation and housing insecurity"
+
+Extension: T1DObservationCodeType
+Id: t1d-observation-code-type
+Title: "T1D Observation Code Type Extension"
+Description: "Disease specific coding system for observations"
+* ^context.type = #element
+* ^context.expression = "Observation"
+* value[x] only CodeableConcept
+* valueCodeableConcept from T1DObservationCodeTypeValueSet (required)
+* valueCodeableConcept ^definition = "Disease specific coding system"
+* valueCodeableConcept ^short = "Observation code system"
+* valueCodeableConcept ^comment = "Priority: High"
+
+Extension: T1DObservationEffectiveTime
+Id: t1d-observation-effective-time
+Title: "T1D Observation Effective Time Extension"
+Description: "Encounter time for observation"
+* ^context.type = #element
+* ^context.expression = "Observation"
+* value[x] only time
+* valueTime ^definition = "Encounter time"
+* valueTime ^short = "Encounter time in HHMM format"
+* valueTime ^comment = "Priority: Low"

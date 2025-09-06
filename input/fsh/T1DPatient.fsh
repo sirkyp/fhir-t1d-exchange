@@ -43,7 +43,10 @@ Description: "Patient profile for T1D Exchange data collection including demogra
     T1DEthnicity named ethnicity 0..1 MS and
     T1DEducationLevel named educationLevel 0..1 MS and
     T1DLanguage named language 0..1 MS and
-    T1DPrimaryInsurance named primaryInsurance 0..1 MS
+    T1DPrimaryInsurance named primaryInsurance 0..1 MS and
+    T1DSecondaryInsurance named secondaryInsurance 0..1 MS and
+    T1DTertiaryInsurance named tertiaryInsurance 0..1 MS and
+    T1DCauseOfDeath named causeOfDeath 0..1 MS
 
 * extension[race] ^definition = "Race based on common NIH categories using HL7 standards"
 * extension[race] ^short = "Race based on NIH categories"
@@ -65,6 +68,18 @@ Description: "Patient profile for T1D Exchange data collection including demogra
 * deceased[x] ^definition = "Death date of the respective patient if patient has expired"
 * deceased[x] ^short = "Death date if patient expired"
 * deceased[x] ^comment = "Priority: Low"
+
+* extension[secondaryInsurance] ^definition = "Secondary insurance type"
+* extension[secondaryInsurance] ^short = "Secondary insurance type"
+* extension[secondaryInsurance] ^comment = "Priority: Low"
+
+* extension[tertiaryInsurance] ^definition = "Tertiary insurance type"
+* extension[tertiaryInsurance] ^short = "Tertiary insurance type"
+* extension[tertiaryInsurance] ^comment = "Priority: Low"
+
+* extension[causeOfDeath] ^definition = "Primary and secondary reasons for cause of death"
+* extension[causeOfDeath] ^short = "Cause of death"
+* extension[causeOfDeath] ^comment = "Priority: Low"
 
 Extension: T1DEducationLevel
 Id: t1d-education-level
@@ -125,3 +140,38 @@ Description: "Primary insurance type for patient coverage"
 * valueCodeableConcept ^definition = "Primary insurance type"
 * valueCodeableConcept ^short = "Primary insurance type"
 * valueCodeableConcept ^comment = "Priority: High"
+
+Extension: T1DSecondaryInsurance
+Id: t1d-secondary-insurance
+Title: "T1D Secondary Insurance Extension"
+Description: "Secondary insurance type for patient coverage"
+* ^context.type = #element
+* ^context.expression = "Patient"
+* value[x] only CodeableConcept
+* valueCodeableConcept from T1DInsuranceTypeValueSet (required)
+* valueCodeableConcept ^definition = "Secondary insurance type"
+* valueCodeableConcept ^short = "Secondary insurance type"
+* valueCodeableConcept ^comment = "Priority: Low"
+
+Extension: T1DTertiaryInsurance
+Id: t1d-tertiary-insurance
+Title: "T1D Tertiary Insurance Extension"
+Description: "Tertiary insurance type for patient coverage"
+* ^context.type = #element
+* ^context.expression = "Patient"
+* value[x] only CodeableConcept
+* valueCodeableConcept from T1DInsuranceTypeValueSet (required)
+* valueCodeableConcept ^definition = "Tertiary insurance type"
+* valueCodeableConcept ^short = "Tertiary insurance type"
+* valueCodeableConcept ^comment = "Priority: Low"
+
+Extension: T1DCauseOfDeath
+Id: t1d-cause-of-death
+Title: "T1D Cause of Death Extension"
+Description: "Primary and secondary reasons for cause of death"
+* ^context.type = #element
+* ^context.expression = "Patient"
+* value[x] only string
+* valueString ^definition = "Primary and secondary reasons for cause of death"
+* valueString ^short = "Cause of death"
+* valueString ^comment = "Priority: Low"

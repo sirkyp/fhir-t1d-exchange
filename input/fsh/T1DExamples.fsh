@@ -4,7 +4,7 @@ Instance: T1DPatientExample
 InstanceOf: T1DPatient
 Usage: #example
 Title: "T1D Patient Example"
-Description: "Example of a T1D Exchange patient"
+Description: "Example of a T1D Exchange patient with multiple race categories and insurance types"
 * identifier[t1d-id].system = "http://t1dexchange.org/fhir/patient-id"
 * identifier[t1d-id].value = "T1D-12345"
 * identifier[mrn].system = "http://hospital.example.org/mrn"
@@ -16,11 +16,14 @@ Description: "Example of a T1D Exchange patient"
 * birthDate = "2010-05-15"
 * address.postalCode = "12345"
 
-* extension[race].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-Race#2106-3 "White"
+* extension[race][0].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-Race#2106-3 "White"
+* extension[race][1].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-Race#2028-9 "Asian"
 * extension[ethnicity].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-Ethnicity#2186-5 "Not Hispanic or Latino"
 * extension[educationLevel].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-EducationLevel|3.0.0#HS "High School or secondary school degree complete"
 * extension[language].valueCodeableConcept = urn:ietf:bcp:47#en "English"
 * extension[primaryInsurance].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ActCode#EHCPOL "extended healthcare"
+* extension[secondaryInsurance].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ActCode#PUBLICPOL "public healthcare"
+* extension[tertiaryInsurance].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ActCode#EHCPOL "extended healthcare"
 
 Instance: T1DProviderExample
 InstanceOf: T1DProvider
@@ -71,6 +74,11 @@ Description: "Example of a T1D Exchange encounter"
 * extension[encounterDuration].valueQuantity.value = 30
 * extension[encounterDuration].valueQuantity.unit = "min"
 * extension[encounterDuration].valueQuantity.system = "http://unitsofmeasure.org"
+* extension[encounterTime].valueTime = "09:00:00"
+* extension[statusActor].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-status-actor#provider "Provider"
+* extension[statusReason].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-status-reason#other "Other"
+* extension[encounterReasonCodeType].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-encounter-reason-code-type#snomedct "SNOMED CT"
+* extension[endoVisit].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-endo-visit#1 "Yes"
 
 Instance: T1DGlucoseObservationExample
 InstanceOf: T1DGlucoseObservation
@@ -91,6 +99,8 @@ Description: "Example of a glucose observation for T1D patient"
 * component[bgmMean].valueQuantity.value = 145
 * component[bgmMean].valueQuantity.unit = "mg/dL"
 * component[bgmMean].valueQuantity.system = "http://unitsofmeasure.org"
+* extension[observationCodeType].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-observation-code-type#loinc "LOINC"
+* extension[effectiveTime].valueTime = "09:15:00"
 
 Instance: T1DHbA1cObservationExample
 InstanceOf: T1DHbA1cObservation
@@ -147,6 +157,11 @@ Description: "Example of an insulin medication request"
 * dosageInstruction.doseAndRate.doseQuantity.unit = "units"
 * extension[insulinRegimen].valueCodeableConcept = T1DInsulinRegimenCS#2 "Injection, basal-bolus"
 * extension[deliveryMethod].valueCodeableConcept = http://snomed.info/sct#182817000 "Drug prescription"
+* extension[prescriberIdType].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-provider-id-type#npi "NPI"
+* extension[medicationName].valueString = "Insulin Glargine"
+* extension[medicationGenericName].valueString = "insulin glargine"
+* extension[medicationClass].valueString = "Long-acting insulin"
+* extension[medicationSubClass].valueString = "Basal insulin analog"
 
 Instance: T1DObservationExample
 InstanceOf: T1DObservation
@@ -210,3 +225,36 @@ Description: "Example of current T1D medication documentation"
 * dosage.route = http://snomed.info/sct#263887005 "Subcutaneous"
 * dosage.doseAndRate.doseQuantity.value = 8
 * dosage.doseAndRate.doseQuantity.unit = "units"
+
+Instance: T1DDeviceExample
+InstanceOf: T1DDevice
+Usage: #example
+Title: "T1D Device Base Example"
+Description: "Example of a base T1D device"
+* identifier.system = "http://example.org/device-id"
+* identifier.value = "DEV-12345"
+* deviceName.name = "Generic T1D Device"
+* deviceName.type = #user-friendly-name
+* manufacturer = "Example Manufacturer"
+* type = http://t1dexchange.org/fhir/CodeSystem/t1d-device-type-cs#bgm "Blood Glucose Meter"
+* patient = Reference(Patient/T1DPatientExample)
+
+Instance: T1DPatientDeceasedExample
+InstanceOf: T1DPatient
+Usage: #example
+Title: "T1D Deceased Patient Example"
+Description: "Example of a deceased T1D Exchange patient with cause of death"
+* identifier[t1d-id].system = "http://t1dexchange.org/fhir/patient-id"
+* identifier[t1d-id].value = "T1D-54321"
+* active = false
+* name.family = "Johnson"
+* name.given = "Mary"
+* gender = #female
+* birthDate = "1995-03-22"
+* deceasedDateTime = "2023-12-15"
+* address.postalCode = "54321"
+
+* extension[race].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-Race#2054-5 "Black or African American"
+* extension[ethnicity].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-Ethnicity#2135-2 "Hispanic or Latino"
+* extension[primaryInsurance].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ActCode#PUBLICPOL "public healthcare"
+* extension[causeOfDeath].valueString = "Diabetic ketoacidosis, Type 1 diabetes mellitus"

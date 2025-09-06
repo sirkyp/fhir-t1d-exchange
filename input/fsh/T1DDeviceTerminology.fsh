@@ -27,10 +27,7 @@ Description: "Types of T1D devices"
 * ^version = "0.3.0"
 * ^status = #draft
 * ^experimental = true
-* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#insulin-pump "Insulin Pump"
-* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#cgm "CGM"
-* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#bgm "BGM"
-* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#insulin-pen "Insulin Pen"
+* include codes from system T1DDeviceTypeCS
 
 // ============================================================================
 // INSULIN PUMP COMPANIES

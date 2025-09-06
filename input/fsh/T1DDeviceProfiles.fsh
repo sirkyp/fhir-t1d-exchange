@@ -53,7 +53,7 @@ Description: "Insulin pump device profile with delivery system and start date tr
 * ^status = #draft
 * ^experimental = true
 
-* type = T1DCodes#insulin-pump
+* type = T1DDeviceTypeCS#insulin-pump
 * manufacturer from T1DInsulinPumpCompanyVS (required)
 * deviceName.name from T1DInsulinPumpModelVS (required)
 
@@ -84,7 +84,7 @@ Description: "Continuous glucose monitor device profile with usage tracking"
 * ^status = #draft
 * ^experimental = true
 
-* type = T1DCodes#cgm
+* type = T1DDeviceTypeCS#cgm
 * manufacturer from T1DCGMCompanyVS (required)
 * deviceName.name from T1DCGMModelVS (required)
 
@@ -107,7 +107,7 @@ Description: "Blood glucose meter device profile"
 * ^status = #draft
 * ^experimental = true
 
-* type = T1DCodes#bgm
+* type = T1DDeviceTypeCS#bgm
 * manufacturer from T1DBGMCompanyVS (required)
 * deviceName.name from T1DBGMModelVS (required)
 
@@ -124,7 +124,7 @@ Description: "Insulin pen device profile"
 * ^status = #draft
 * ^experimental = true
 
-* type = T1DCodes#insulin-pen
+* type = T1DDeviceTypeCS#insulin-pen
 * manufacturer from T1DInsulinPenCompanyVS (required)
 * deviceName.name from T1DInsulinPenModelVS (required)
 
