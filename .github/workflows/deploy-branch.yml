@@ -1,0 +1,137 @@
+name: Deploy FHIR IG Branch
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [opened, synchronize, reopened, closed]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    # Always run for PR events (trigger already filters for main)
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Debug Event Info
+      env:
+        EVENT_NAME: ${{ github.event_name }}
+        EVENT_REF: ${{ github.ref }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        HEAD_REF: ${{ github.head_ref }}
+        BASE_REF: ${{ github.base_ref }}
+        ACTOR: ${{ github.actor }}
+      run: |
+        echo "Event name: $EVENT_NAME"
+        echo "Event ref: $EVENT_REF"
+        echo "PR number: $PR_NUMBER"
+        echo "Head ref: $HEAD_REF"
+        echo "Base ref: $BASE_REF"
+        echo "Actor: $ACTOR"
+        echo "Is PR? ${{ github.event.pull_request != null }}"
+        echo "Full event path: ${{ github.event_path }}"
+        cat ${{ github.event_path }}
+        
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        
+    - name: Set up Ruby
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ruby-full build-essential zlib1g-dev
+        
+    - name: Set up Bundler
+      run: |
+        # Create Gemfile
+        echo "source 'https://rubygems.org'" > Gemfile
+        echo "gem 'jekyll'" >> Gemfile
+        echo "gem 'webrick'" >> Gemfile  # Required for Ruby >= 3.0
+        
+        # Set up gems directory
+        export GEM_HOME="$HOME/.gem"
+        export GEM_PATH="$HOME/.gem"
+        export PATH="$HOME/.gem/bin:$PATH"
+        
+        # Install bundler
+        gem install bundler
+        
+        # Install gems via bundler
+        bundle install
+        
+        # Verify installations
+        echo "Ruby version: $(ruby -v)"
+        echo "Bundler version: $(bundle -v)"
+        bundle exec jekyll -v
+        
+        # Make paths available to subsequent steps
+        echo "GEM_HOME=$GEM_HOME" >> $GITHUB_ENV
+        echo "GEM_PATH=$GEM_PATH" >> $GITHUB_ENV
+        echo "$HOME/.gem/bin" >> $GITHUB_PATH
+        
+    - name: Verify Jekyll Installation
+      run: |
+        echo "Checking Jekyll installation..."
+        which jekyll
+        bundle exec jekyll -v
+        
+    - name: Install SUSHI
+      run: npm install -g fsh-sushi
+      
+    - name: Download IG Publisher
+      run: |
+        mkdir -p input-cache
+        wget -q https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -O input-cache/publisher.jar
+        
+    - name: Build IG
+      run: java -jar input-cache/publisher.jar -ig ig.ini
+
+    # Always deploy to a PR-specific directory
+    - name: Get PR number
+      id: pr-info
+      run: echo "number=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+
+    - name: Prepare PR deployment directory
+      if: github.event.action != 'closed'
+      run: |
+        # Create PR directory in gh-pages
+        mkdir -p gh-pages
+        # Move output to PR directory
+        mv output "gh-pages/pr-${{ steps.pr-info.outputs.number }}"
+
+    - name: Upload Pages artifact
+      if: github.event.action != 'closed'
+      uses: actions/upload-pages-artifact@v4
+      with:
+        path: ./gh-pages
+
+    - name: Deploy to GitHub Pages
+      if: github.event.action != 'closed'
+      id: deployment
+      uses: actions/deploy-pages@v4
+
+    # Clean up PR preview when PR is closed
+    - name: Clean up PR preview
+      if: github.event.action == 'closed'
+      run: |
+        # Here you would add commands to remove the PR-specific directory
+        echo "Cleaning up PR preview for PR #${{ github.event.pull_request.number }}"
+        # For future implementation: Add cleanup logic for gh-pages branch
+
+    # Output the published URL
+    - name: Output Published URL
+      if: github.event.action != 'closed'
+      run: |
+        echo "::notice::IG Published to https://sirkyp.github.io/fhir-t1d-exchange/pr-${{ steps.pr-info.outputs.number }}/"
