@@ -1,8 +1,8 @@
-# Core Laboratory Observations
+### Core Laboratory Observations
 
 The T1D Exchange identifies 23 core laboratory observations that are of particular interest for Type 1 diabetes care and should be included when submitting data. These observations should be reported using the [T1DObservation](StructureDefinition-t1d-observation.html) profile with the appropriate LOINC codes.
 
-## Autoantibody Testing
+#### Autoantibody Testing
 
 | Observation | LOINC Codes |
 |-------------|-------------|
@@ -12,7 +12,7 @@ The T1D Exchange identifies 23 core laboratory observations that are of particul
 | **Zinc Transporter 8** | 76651-9 |
 | **Anti-GAD** | 13926-1, 56540-8 |
 
-## Lipid Panel
+#### Lipid Panel
 
 | Observation | LOINC Codes |
 |-------------|-------------|
@@ -21,7 +21,7 @@ The T1D Exchange identifies 23 core laboratory observations that are of particul
 | **LDL Cholesterol** | 2089-1 (direct only, NOT 13457-7) |
 | **Triglycerides** | 2571-8 |
 
-## Thyroid Function
+#### Thyroid Function
 
 | Observation | LOINC Codes |
 |-------------|-------------|
@@ -31,7 +31,7 @@ The T1D Exchange identifies 23 core laboratory observations that are of particul
 | **TPO Antibody** | 8099-4 |
 | **Thyroglobulin Antibody** | 8098-6 |
 
-## Celiac Screening
+#### Celiac Screening
 
 | Observation | LOINC Codes |
 |-------------|-------------|
@@ -40,7 +40,7 @@ The T1D Exchange identifies 23 core laboratory observations that are of particul
 | **Serum IgA** | 2458-8 |
 | **Endomysial Antibodies** | 13092-2, 14708-2 |
 
-## Kidney Function
+#### Kidney Function
 
 | Observation | LOINC Codes |
 |-------------|-------------|
@@ -49,13 +49,13 @@ The T1D Exchange identifies 23 core laboratory observations that are of particul
 | **Serum Creatinine** | 2160-0 |
 | **Anion Gap** | 10466-1, 1863-0, 33037-3 |
 
-## Additional Tests
+#### Additional Tests
 
 | Observation | LOINC Codes |
 |-------------|-------------|
 | **C-peptide** | 1986-9 |
 
-## Implementation Notes
+#### Implementation Notes
 
 - All observations should use the [T1DObservation](StructureDefinition-t1d-observation.html) profile
 - Use the specific LOINC codes provided for each test

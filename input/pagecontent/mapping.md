@@ -2,11 +2,11 @@
 
 > **IMPLEMENTER NOTE**: This Implementation Guide is an early work in progress developed through human-AI collaboration. It requires expert review, testing, and validation before any production use. The profiles, terminology, and guidance should be considered draft and subject to significant revision based on clinical expert feedback and real-world testing.
 
-# T1D Exchange Variable Mapping
+### T1D Exchange Variable Mapping
 
 This page provides a comprehensive mapping of T1D Exchange specification variables to their corresponding FHIR Implementation Guide representations.
 
-### Overview
+#### Overview
 
 The T1D Exchange data specifications define 153 variables across 10 specification sheets that have been mapped to FHIR resources and profiles in this Implementation Guide. This mapping ensures consistent data exchange and interoperability.
 
@@ -14,9 +14,9 @@ The T1D Exchange data specifications define 153 variables across 10 specificatio
 
 **Specification Integration**: The FHIR profiles in this Implementation Guide include detailed element definitions, short descriptions, and implementation comments derived directly from the T1D Exchange specification. Priority levels, implementation notes, and contextual guidance from the original specification have been integrated into the FHIR StructureDefinition elements to provide implementers with comprehensive guidance.
 
-### Core Data Mappings
+#### Core Data Mappings
 
-#### Patient Demographics (QICoreDataSpec - Patients)
+##### Patient Demographics (QICoreDataSpec - Patients)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding | Priority |
 |----------|-------------|--------------|--------------|------------------|----------|
@@ -33,7 +33,7 @@ The T1D Exchange data specifications define 153 variables across 10 specificatio
 | date_of_death | Death date | T1DPatient | deceasedDateTime | - | Medium |
 | cause_of_death | Cause of death | T1DPatient | extension[causeOfDeath] | ICD-10 | Low |
 
-#### Provider Information (QICoreDataSpec - Providers)
+##### Provider Information (QICoreDataSpec - Providers)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding | Priority |
 |----------|-------------|--------------|--------------|------------------|----------|
@@ -44,7 +44,7 @@ The T1D Exchange data specifications define 153 variables across 10 specificatio
 | other_id_type | Other ID type | T1DProvider | extension[otherIdType] | T1DOtherIdTypeValueSet | Low |
 | provider_type | Provider type | T1DProvider | qualification.code | T1DProviderTypeValueSet | Medium |
 
-#### Clinical Encounters (QICoreDataSpec - Encounters)
+##### Clinical Encounters (QICoreDataSpec - Encounters)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding | Priority |
 |----------|-------------|--------------|--------------|------------------|----------|
@@ -57,7 +57,7 @@ The T1D Exchange data specifications define 153 variables across 10 specificatio
 | status_reason | Status reason | T1DEncounter | extension[statusReason] | T1DEncounterReasonValueSet | Low |
 | endo_visit | Endocrine visit indicator | T1DEncounter | extension[endoVisit] | Boolean | Medium |
 
-#### Disease Information (QIDiabetesDataSpec - Disease)
+##### Disease Information (QIDiabetesDataSpec - Disease)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding | Priority |
 |----------|-------------|--------------|--------------|------------------|----------|
@@ -78,7 +78,7 @@ The T1D Exchange data specifications define 153 variables across 10 specificatio
 | transportation_insecurity | Transportation screening | T1DSDOHScreeningObservation | valueCodeableConcept | T1DSDOHResponseValueSet | High |
 | housing_insecurity | Housing screening | T1DSDOHScreeningObservation | valueCodeableConcept | T1DSDOHResponseValueSet | High |
 
-#### Insulin Management (QIDiabetesDataSpec - Insulin)
+##### Insulin Management (QIDiabetesDataSpec - Insulin)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding | Priority |
 |----------|-------------|--------------|--------------|------------------|----------|
@@ -97,7 +97,7 @@ The T1D Exchange data specifications define 153 variables across 10 specificatio
 | ins_pen_company | Pen manufacturer | T1DInsulinPenDevice | manufacturer | T1DInsulinPenCompanyValueSet | Medium |
 | ins_pen_model | Pen model | T1DInsulinPenDevice | modelNumber | T1DInsulinPenModelValueSet | Medium |
 
-#### Glucose Monitoring (QIDiabetesDataSpec - Monitoring)
+##### Glucose Monitoring (QIDiabetesDataSpec - Monitoring)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding | Priority |
 |----------|-------------|--------------|--------------|------------------|----------|
@@ -115,7 +115,7 @@ The T1D Exchange data specifications define 153 variables across 10 specificatio
 | cgm_binary | CGM usage indicator | T1DCGMUsageObservation | valueBoolean | - | Medium |
 | device_report_patient_reviewed | Device report review | T1DDeviceReportReviewObservation | valueCodeableConcept | T1DDeviceReportReviewValueSet | Medium |
 
-#### Glucose Analytics (QIDiabetesDataSpec - Glucose)
+##### Glucose Analytics (QIDiabetesDataSpec - Glucose)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding | Priority |
 |----------|-------------|--------------|--------------|------------------|----------|
@@ -137,7 +137,7 @@ The T1D Exchange data specifications define 153 variables across 10 specificatio
 | cgm_high_above_180 | Time above 180 mg/dL | T1DTimeInRangeObservation | component[above180].valueQuantity | - | High |
 | cgm_high_above_250 | Time above 250 mg/dL | T1DTimeInRangeObservation | component[above250].valueQuantity | - | High |
 
-#### Laboratory Results (QICoreDataSpec - Observations)
+##### Laboratory Results (QICoreDataSpec - Observations)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding | Priority |
 |----------|-------------|--------------|--------------|------------------|----------|
@@ -151,7 +151,7 @@ The T1D Exchange data specifications define 153 variables across 10 specificatio
 | high_test_value | Reference range high | T1DObservation | referenceRange.high | - | Low |
 | code_type | Code system type | T1DObservation | code.coding.system | - | Low |
 
-#### Conditions (QICoreDataSpec - Conditions)
+##### Conditions (QICoreDataSpec - Conditions)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding | Priority |
 |----------|-------------|--------------|--------------|------------------|----------|
@@ -165,7 +165,7 @@ The T1D Exchange data specifications define 153 variables across 10 specificatio
 | onset_date | Onset date | T1DCondition | onsetDateTime | - | Medium |
 | abatement_date | Abatement date | T1DCondition | abatementDateTime | - | Medium |
 
-#### Medications (QICoreDataSpec - Medications)
+##### Medications (QICoreDataSpec - Medications)
 
 | Variable | Description | FHIR Profile | FHIR Element | Value Set/Coding | Priority |
 |----------|-------------|--------------|--------------|------------------|----------|
@@ -178,43 +178,43 @@ The T1D Exchange data specifications define 153 variables across 10 specificatio
 | status | Medication status | T1DMedicationRequest | status | T1DMedicationStatusValueSet | Medium |
 | prescriber_id_type | Prescriber ID type | T1DMedicationRequest | requester.identifier.type | T1DProviderIdTypeValueSet | Low |
 
-### Variables Not Included (13 of 153 - 8.5%)
+#### Variables Not Included (13 of 153 - 8.5%)
 
 The following variables were **not included** in the FHIR Implementation Guide for the reasons specified:
 
-#### Administrative Identifiers (6 variables - Redundant with FHIR)
+##### Administrative Identifiers (6 variables - Redundant with FHIR)
 - **organization_id**, **patient_id**, **encounter_id**, **observation_id**, **condition_id**, **medication_id**: These administrative identifiers are handled through FHIR's native `id` and `identifier` elements, making custom implementations redundant.
 
-#### Standard FHIR Elements (4 variables - Covered by Base FHIR)
+##### Standard FHIR Elements (4 variables - Covered by Base FHIR)
 - **birth_date**, **encounter_date**, **effective_date**, **date_written**: These are standard FHIR elements (`Patient.birthDate`, `Encounter.period.start`, `Observation.effectiveDateTime`, `MedicationRequest.authoredOn`) that don't require T1D-specific customization.
 
-#### Low Clinical Value Elements (3 variables - Limited Clinical Relevance)
+##### Low Clinical Value Elements (3 variables - Limited Clinical Relevance)
 - **encounter_time**, **effective_time**: Time precision beyond date is rarely critical for T1D quality metrics.
 - **value_units**: UCUM units are handled through FHIR's standard `valueQuantity.unit` element.
 
-### Coded Values Not Included (39 of 409 - 9.5%)
+#### Coded Values Not Included (39 of 409 - 9.5%)
 
 The following coded values were **not included** for the reasons specified:
 
-#### Standard External Terminology (22 codes - Available in External Systems)
+##### Standard External Terminology (22 codes - Available in External Systems)
 - **Gender codes** (`male`, `female`, `non-binary`, `unknown`): Available in HL7 AdministrativeGender
 - **Race/Ethnicity codes** (HL7 v3 codes): Available in HL7 v3 Race/Ethnicity ValueSets
 - **Language codes** (`en`, `es`, `zh`, etc.): Available in BCP 47 language codes
 - **Provider ID preferences** (`1st`, `2nd`, `3rd`, `4th`): Implementation-specific, not clinically relevant
 
-#### FHIR Standard Status Codes (12 codes - Covered by Base FHIR ValueSets)
+##### FHIR Standard Status Codes (12 codes - Covered by Base FHIR ValueSets)
 - **Encounter status**, **Observation status**, **Condition status**, **Medication status**: Available in standard FHIR ValueSets
 
-#### Implementation-Specific Codes (5 codes - Not Clinically Relevant)
+##### Implementation-Specific Codes (5 codes - Not Clinically Relevant)
 - **T1D encoding system**, **Epic-specific codes**, **Date-formatted device models**: Internal coding schemes not suitable for FHIR standards
 
-### Implementation Rationale
+#### Implementation Rationale
 
 The **90%+ coverage achieved** represents comprehensive clinical coverage while maintaining:
 1. **FHIR Standards Compliance**: Using existing FHIR elements and terminology prevents duplication
 2. **Clinical Relevance**: Focus on clinically meaningful T1D-specific data
 3. **Implementation Simplicity**: Avoiding vendor-specific or overly granular elements
 
-### Usage Examples
+#### Usage Examples
 
 For complete examples of how these mappings are implemented, see the [Examples](examples.html) page, which provides sample instances for each profile demonstrating proper variable mapping.

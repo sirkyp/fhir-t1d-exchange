@@ -134,6 +134,8 @@ Description: "Example of a T1D condition"
 * recorder = Reference(Practitioner/T1DProviderExample)
 * extension[diagnosisDate].valueDate = "2010-08-20"
 * extension[transitionPlan].valueCodeableConcept = http://snomed.info/sct#182836005 "Medication review"
+* extension[orderNumber].valueInteger = 1
+* extension[recordedDate].valueDate = "2024-01-15"
 
 Instance: T1DMedicationRequestExample
 InstanceOf: T1DMedicationRequest
@@ -268,6 +270,7 @@ Description: "Example of T1D provider with provider type (Medium priority variab
 * identifier[t1d-provider-id].value = "PROV-12345"
 * identifier[npi].value = "1234567890"
 * identifier[other].value = "INTERNAL-ID-789"
+* identifier[other].type = http://terminology.hl7.org/CodeSystem/v2-0203#XX
 * extension[otherIdType].valueString = "Hospital Employee ID"
 * active = true
 * name.family = "Johnson"
@@ -309,5 +312,5 @@ Description: "Example of T1D medication with detailed information (Medium priori
 * extension[medicationGenericName].valueString = "Insulin lispro"
 * extension[medicationClass].valueString = "Rapid-acting insulin"
 * extension[medicationSubClass].valueString = "Insulin analog"
-* extension[insulinRegimen].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-insulin-regimen#1
+* extension[insulinRegimen].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-insulin-regimen-cs#1
 * extension[insulinRegimen].valueCodeableConcept.text = "Insulin pump"
