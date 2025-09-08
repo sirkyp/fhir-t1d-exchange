@@ -17,10 +17,10 @@ permissions:
 
 jobs:
   build:
-    # Skip if this is a push event on a PR branch
+    # Only run on PR events or push events to non-PR branches
     if: |
-      (github.event_name == 'pull_request') || 
-      (github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]') && !github.event.pull_request)
+      (github.event_name == 'pull_request' && github.base_ref == 'main') ||
+      (github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]') && github.ref != 'refs/heads/main' && !github.event.pull_request)
     runs-on: ubuntu-latest
     
     steps:
@@ -56,29 +56,44 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
         
-    - name: Install Ruby and Jekyll Dependencies
+    - name: Set up Ruby
       run: |
         sudo apt-get update
         sudo apt-get install -y ruby-full build-essential zlib1g-dev
         
-    - name: Set up Ruby and Gems
+    - name: Set up Bundler
       run: |
-        # Install gems to user directory
-        mkdir -p $HOME/.gem
+        # Create Gemfile
+        echo "source 'https://rubygems.org'" > Gemfile
+        echo "gem 'jekyll'" >> Gemfile
+        echo "gem 'webrick'" >> Gemfile  # Required for Ruby >= 3.0
+        
+        # Set up gems directory
         export GEM_HOME="$HOME/.gem"
+        export GEM_PATH="$HOME/.gem"
         export PATH="$HOME/.gem/bin:$PATH"
         
-        # Install Jekyll and Bundler
-        gem install jekyll bundler
+        # Install bundler
+        gem install bundler
+        
+        # Install gems via bundler
+        bundle install
         
         # Verify installations
         echo "Ruby version: $(ruby -v)"
-        echo "Gem version: $(gem -v)"
-        echo "Jekyll version: $(jekyll -v)"
         echo "Bundler version: $(bundle -v)"
+        bundle exec jekyll -v
         
-        # Add to GITHUB_PATH to persist across steps
+        # Make paths available to subsequent steps
+        echo "GEM_HOME=$GEM_HOME" >> $GITHUB_ENV
+        echo "GEM_PATH=$GEM_PATH" >> $GITHUB_ENV
         echo "$HOME/.gem/bin" >> $GITHUB_PATH
+        
+    - name: Verify Jekyll Installation
+      run: |
+        echo "Checking Jekyll installation..."
+        which jekyll
+        bundle exec jekyll -v
         
     - name: Install SUSHI
       run: npm install -g fsh-sushi
