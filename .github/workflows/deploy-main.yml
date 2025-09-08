@@ -1,20 +1,8 @@
 name: Deploy FHIR IG Main
 
 on:
-  push    - uses: actions/checkout@v4
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        
-    - name: Setup Java
-      uses: actions/setup-java@v4nches:
-      - main
-    paths-ignore:
-      - '**.md'
-      - '.gitignore'
-      - '.github/workflows/**'  # Prevent workflow changes from triggering builds
+  push:
+    branches: [ main ]
 
 permissions:
   contents: read
