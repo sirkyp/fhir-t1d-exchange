@@ -23,7 +23,7 @@ The T1D Exchange collaborative focuses on several critical areas of T1D care:
 
 This Implementation Guide directly supports these focus areas through structured data collection and standardized reporting mechanisms.
 
-### FHIR Artifact Creation Approach
+### Artifact Creation Approach
 
 This Implementation Guide was created using a systematic approach to translate T1D Exchange Excel specifications into FHIR artifacts. The methodology includes:
 
@@ -32,9 +32,8 @@ This Implementation Guide was created using a systematic approach to translate T
 - **Profile Design Patterns**: Component model for contextual data, extension strategy for resource enhancement
 - **Terminology Creation**: Integration of external standards (LOINC, SNOMED CT, RxNorm) with custom T1D terminology
 - **Quality Assurance**: Specification traceability, build validation, and comprehensive example coverage
-- **Production Ready**: Zero build errors, 200 FHIR resources exported, comprehensive testing
 
-For detailed information about our approach, see the **[FHIR Artifact Creation Approach](approach.html)** page.
+For detailed information about our approach, see the **[Artifact Creation Approach](approach.html)** page.
 
 ### Data Mapping
 
@@ -69,14 +68,15 @@ For detailed variable-to-FHIR element mappings, see the [Variable Mapping](mappi
 
 This guide is organized in a logical progression to support implementers:
 
-- **[FHIR Artifact Creation Approach](approach.html)** - Methodology for translating T1D Exchange specifications to FHIR
+- **[Artifact Creation Approach](approach.html)** - Methodology for translating T1D Exchange specifications to FHIR
 - **[Profiles](profiles.html)** - FHIR profiles and data structures for T1D Exchange
 - **[Terminology](terminology.html)** - Code systems and value sets for consistent coding
+- **[Core Laboratory Observations](core-observations.html)** - Defines core laboratory observations that are of particular interest for T1D Exchange
+- **[Variable Mapping](mapping.html)** - Reference mapping T1D Exchange variables to FHIR elements
 - **[Examples](examples.html)** - Sample instances demonstrating proper profile usage
-- **[Technical Implementation](implementation.html)** - Must Support requirements, identifiers, and data standards
 - **[Quality Metrics](quality-metrics.html)** - T1D Exchange quality indicators and metrics
 - **[Implementation Workflows](workflows.html)** - Practical implementation patterns and workflows
 - **[Bundle Patterns](bundles.html)** - Advanced bundle-based data exchange patterns
-- **[Variable Mapping](mapping.html)** - Reference mapping T1D Exchange variables to FHIR elements
+- **[Technical Implementation](implementation.html)** - Must Support requirements, identifiers, and data standards
 - **[Security & Best Practices](security.html)** - Security considerations and implementation best practices
 - **[CGM IG Comparison](cgm-comparison.html)** - Comparison with HL7 CGM Implementation Guide
