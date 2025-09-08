@@ -58,7 +58,12 @@ Description: "Medication request profile for T1D Exchange including insulin and 
 
 * extension contains
     T1DInsulinRegimen named insulinRegimen 0..1 MS and
-    T1DInsulinDeliveryMethod named deliveryMethod 0..1 MS
+    T1DInsulinDeliveryMethod named deliveryMethod 0..1 MS and
+    T1DPrescriberIdType named prescriberIdType 0..1 MS and
+    T1DMedicationName named medicationName 0..1 MS and
+    T1DMedicationGenericName named medicationGenericName 0..1 MS and
+    T1DMedicationClass named medicationClass 0..1 MS and
+    T1DMedicationSubClass named medicationSubClass 0..1 MS
 
 Extension: T1DInsulinRegimen
 Id: t1d-insulin-regimen
@@ -83,6 +88,62 @@ Description: "Method of insulin delivery (pump, pen, syringe, etc.)"
 * valueCodeableConcept ^short = "Method of insulin delivery"
 * valueCodeableConcept ^comment = "Priority: High"
 * valueCodeableConcept from T1DInsulinDeliveryValueSet (required)
+
+Extension: T1DPrescriberIdType
+Id: t1d-prescriber-id-type
+Title: "T1D Prescriber ID Type Extension"
+Description: "Type of provider ID referenced in prescriber_id"
+* ^context.type = #element
+* ^context.expression = "MedicationRequest"
+* value[x] only CodeableConcept
+* valueCodeableConcept from T1DProviderIdTypeValueSet (required)
+* valueCodeableConcept ^definition = "Type of provider id referenced in prescriber_id"
+* valueCodeableConcept ^short = "Provider ID type for prescriber"
+* valueCodeableConcept ^comment = "Priority: High, required if prescriber_id is specified"
+
+Extension: T1DMedicationName
+Id: t1d-medication-name
+Title: "T1D Medication Name Extension"
+Description: "Prescription name"
+* ^context.type = #element
+* ^context.expression = "MedicationRequest"
+* value[x] only string
+* valueString ^definition = "Prescription name"
+* valueString ^short = "Prescription name"
+* valueString ^comment = "Priority: Medium"
+
+Extension: T1DMedicationGenericName
+Id: t1d-medication-generic-name
+Title: "T1D Medication Generic Name Extension"
+Description: "Generic prescription name"
+* ^context.type = #element
+* ^context.expression = "MedicationRequest"
+* value[x] only string
+* valueString ^definition = "Generic prescription name"
+* valueString ^short = "Generic prescription name"
+* valueString ^comment = "Priority: Medium"
+
+Extension: T1DMedicationClass
+Id: t1d-medication-class
+Title: "T1D Medication Class Extension"
+Description: "Prescription class"
+* ^context.type = #element
+* ^context.expression = "MedicationRequest"
+* value[x] only string
+* valueString ^definition = "Prescription class"
+* valueString ^short = "Prescription class"
+* valueString ^comment = "Priority: Medium"
+
+Extension: T1DMedicationSubClass
+Id: t1d-medication-sub-class
+Title: "T1D Medication Sub Class Extension"
+Description: "Prescription sub class"
+* ^context.type = #element
+* ^context.expression = "MedicationRequest"
+* value[x] only string
+* valueString ^definition = "Prescription sub class"
+* valueString ^short = "Prescription sub class"
+* valueString ^comment = "Priority: Medium"
 
 Profile: T1DMedicationStatement
 Parent: MedicationStatement

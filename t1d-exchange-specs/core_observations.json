@@ -1,0 +1,196 @@
+[
+  {
+    "variable_number": 1,
+    "name": "HbA1c",
+    "definition": "Hemoglobin A1c",
+    "codes": [
+      "4548-4 - Hemoglobin A1c/ Hemoglobin.total in Blood",
+      "4549-2 - Hemoglobin A1c/ Hemoglobin.total in Blood by Electrophoresis",
+      "17856-6 - Hemoglobin A1c/ Hemoglobin.total in Blood by HPLC"
+    ]
+  },
+  {
+    "variable_number": 2,
+    "name": "Anti-IA2\nIslet Cell Antibodies\nAnti-ICA512",
+    "definition": "",
+    "codes": [
+      "31209-0 - Islet cell 512 Ab [Units/ volume] in Serum",
+      "56718-0 - Islet cell 512 Ab [Units/ volume] in Serum by Immunoassay",
+      "32636-3 - Islet cell 512 Ab [Titer] in Serum"
+    ]
+  },
+  {
+    "variable_number": 3,
+    "name": "Insulin Autoantibodies",
+    "definition": "",
+    "codes": [
+      "8072-1 - Insulin Ab [Units/volume] in Serum"
+    ]
+  },
+  {
+    "variable_number": 4,
+    "name": "Zinc Transporter 8",
+    "definition": "",
+    "codes": [
+      "76651-9 - Zinc transporter 8 Ab [Units/volume] in Serum or Plasma by Immunoassay"
+    ]
+  },
+  {
+    "variable_number": 5,
+    "name": "Anti-GAD",
+    "definition": "Anti-glutamic acid decarboxylase antibody",
+    "codes": [
+      "13926-1 - Glutamate decarboxylase 65 Ab [Units/ volume] in Serum",
+      "56540-8 - Glutamate decarboxylase 65 Ab [Units/ volume] in Serum by Immunoassay"
+    ]
+  },
+  {
+    "variable_number": 6,
+    "name": "Total cholesterol",
+    "definition": "",
+    "codes": [
+      "2093-3 - Cholesterol [Mass/ volume] in Serum or Plasma"
+    ]
+  },
+  {
+    "variable_number": 7,
+    "name": "HDL",
+    "definition": "HDL cholesterol",
+    "codes": [
+      "2085-9 - Cholesterol in HDL [Mass/ volume] in Serum or Plasma"
+    ]
+  },
+  {
+    "variable_number": 8,
+    "name": "LDL",
+    "definition": "LDL cholesterol (direct only)",
+    "codes": [
+      "2089-1 - Cholesterol in LDL [Mass/volume] in Serum or Plasma",
+      "NOT 13457-7 - Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
+    ]
+  },
+  {
+    "variable_number": 9,
+    "name": "Triglyceride",
+    "definition": "",
+    "codes": [
+      "2571-8 - Triglyceride [Mass/ volume] in Serum or Plasma"
+    ]
+  },
+  {
+    "variable_number": 10,
+    "name": "TSH",
+    "definition": "Thyroid stimulating hormone",
+    "codes": [
+      "3016-3 - Thyrotropin [Units/ volume] in Serum or Plasma"
+    ]
+  },
+  {
+    "variable_number": 11,
+    "name": "Free T4",
+    "definition": "Thyroxine, free",
+    "codes": [
+      "3024-7 - Thyroxine (T4) free [Mass/ volume] in Serum or Plasma"
+    ]
+  },
+  {
+    "variable_number": 12,
+    "name": "Total T4",
+    "definition": "Thyroxine, total",
+    "codes": [
+      "3026-2 - Thyroxine (T4) [Mass/ volume] in Serum or Plasma"
+    ]
+  },
+  {
+    "variable_number": 13,
+    "name": "TPO Ab",
+    "definition": "Thyroid peroxidase antibody",
+    "codes": [
+      "8099-4 - Thyroperoxidase Ab [Units/volume] in Serum or Plasma"
+    ]
+  },
+  {
+    "variable_number": 14,
+    "name": "Thyroglobulin Ab",
+    "definition": "Thyroglobulin antibody",
+    "codes": [
+      "8098-6 - Thyroglobulin Ab [Units/ volume] in Serum or Plasma"
+    ]
+  },
+  {
+    "variable_number": 15,
+    "name": "TTG IgA",
+    "definition": "Tissue transglutaminase, IgA",
+    "codes": [
+      "31017-7 - Tissue transglutaminase IgA Ab [Units/volume] in Serum"
+    ]
+  },
+  {
+    "variable_number": 16,
+    "name": "TTG IgG",
+    "definition": "Tissue transglutaminase, IgG",
+    "codes": [
+      "32998-7 - Tissue transglutaminase IgG Ab [Units/volume] in Serum"
+    ]
+  },
+  {
+    "variable_number": 17,
+    "name": "IgA",
+    "definition": "Serum IgA, quantitative",
+    "codes": [
+      "2458-8 - IgA [Mass/volume] in Serum or Plasma"
+    ]
+  },
+  {
+    "variable_number": 18,
+    "name": "Endomysial Ab",
+    "definition": "Anti-endomysial antibodies",
+    "codes": [
+      "13092-2 - Endomysium Ab [Units/ volume] in Serum",
+      "14708-2 - Endomysium Ab [Titer] in Serum"
+    ]
+  },
+  {
+    "variable_number": 19,
+    "name": "Albumin, urine",
+    "definition": "Urine albumin",
+    "codes": [
+      "14957-5 - Microalbumin [Mass/ volume] in Urine",
+      "6942-7 - Albumin [Mass/volume] in Urine by Electrophoresis"
+    ]
+  },
+  {
+    "variable_number": 20,
+    "name": "Creatinine, urine",
+    "definition": "Urine creatinine",
+    "codes": [
+      "2161-8 - Creatinine [Mass/volume] in Urine"
+    ]
+  },
+  {
+    "variable_number": 21,
+    "name": "Creatinine, serum",
+    "definition": "Serum creatinine",
+    "codes": [
+      "2160-0 - Creatinine [Mass/volume] in Serum or Plasma"
+    ]
+  },
+  {
+    "variable_number": 22,
+    "name": "AG",
+    "definition": "Anion gap (calculated)",
+    "codes": [
+      "10466-1 - Anion gap 3 in Serum or Plasma",
+      "1863-0 - Anion gap 4 in Serum or Plasma",
+      "33037-3 - Anion gap in Serum or Plasma"
+    ]
+  },
+  {
+    "variable_number": 23,
+    "name": "C-peptide",
+    "definition": "C peptide [Mass/Vol]",
+    "codes": [
+      "1986-9 - C peptide [Mass/volume] in Serum or Plasma"
+    ]
+  }
+]

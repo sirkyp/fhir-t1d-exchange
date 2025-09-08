@@ -1,11 +1,26 @@
 // T1D Exchange Code Systems
+
+// Update all ValueSets to include status and experimental flags where missing
+RuleSet: StandardValueSet
+* ^version = "0.3.0"
+* ^status = #active
+* ^experimental = false
+* ^date = "2025-09-08"
+
+// Update all CodeSystems to include status and experimental flags where missing
+RuleSet: StandardCodeSystem  
+* ^version = "0.3.0"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = true
+* ^content = #complete
+* ^date = "2025-09-08"
 CodeSystem: T1DIdentifierType
 Id: t1d-identifier-type
 Title: "T1D Identifier Types"
 Description: "Identifier types used in T1D Exchange"
 * ^url = "http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type"
-* ^experimental = false
-* ^caseSensitive = true
+* insert StandardCodeSystem
 * #T1D-ID "T1D Patient ID" "T1D Exchange patient identifier"
 * #T1D-PROVIDER-ID "T1D Provider ID" "T1D Exchange provider identifier"
 * #T1D-ORG-ID "T1D Organization ID" "T1D Exchange organization identifier"
@@ -20,7 +35,6 @@ Description: "T1D-specific codes for observations and measurements"
 * ^caseSensitive = true
 * #t1d-dx-dt "T1D Diagnosis Date" "Date of Type 1 diabetes diagnosis"
 * #bgm-mean "BGM Mean" "Blood glucose meter mean/average"
-* #cgm-high-above-180 "CGM High Above 180" "Percentage of time above 180 mg/dL"
 * #time-in-range "Time in Range" "Percentage of time in target glucose range"
 * #ins-regimen "Insulin Regimen" "Type of insulin regimen"
 * #bgm-company "BGM Company" "Blood glucose meter manufacturer"
@@ -28,10 +42,68 @@ Description: "T1D-specific codes for observations and measurements"
 * #documented-transition-plan "Documented Transition Plan" "Transition plan from pediatric to adult care"
 * #transportation-insecurity "Transportation Insecurity" "Transportation access challenges"
 * #housing-insecurity "Housing Insecurity" "Housing stability challenges"
+* #hypo-sym "Hypoglycemia Symptoms" "Patient's ability to self identify hypoglycemia"
+* #hypo-sym-value "Hypoglycemia Symptom Value" "Typical glucose value for hypoglycemia symptoms"
+* #sh-events-amb "Severe Hypoglycemia Ambulatory" "Severe hypoglycemia events requiring ED/urgent care"
+* #sh-events-inp "Severe Hypoglycemia Inpatient" "Severe hypoglycemia events requiring hospitalization"
+* #dka-events-amb "DKA Ambulatory" "DKA episodes requiring ED/urgent care"
+* #dka-events-inp "DKA Inpatient" "DKA episodes requiring hospitalization"
+* #dka-serum-bicarb "DKA Serum Bicarbonate" "Serum bicarbonate level during DKA"
+* #dka-blood-ph "DKA Blood pH" "Arterial pH value during DKA"
+* #dka-events-inp-pro "DKA Inpatient Patient Reported" "Patient reported DKA episodes requiring hospitalization"
+* #dka-events-pro-dt "DKA Event Date Patient Reported" "Date of patient reported DKA events"
+* #sh-events-amb-pro "Severe Hypoglycemia Ambulatory Patient Reported" "Patient reported severe hypoglycemia requiring ED/urgent care"
+* #sh-events-inp-pro "Severe Hypoglycemia Inpatient Patient Reported" "Patient reported severe hypoglycemia requiring hospitalization"
+* #flu-dt "Flu Vaccine Date" "Date of last flu vaccine"
+* #eye-exam-dt "Eye Exam Date" "Date of last eye exam (dilated or retinal photographs)"
+* #foot-exam-dt "Foot Exam Date" "Date of last foot exam"
+* #dental-exam-dt "Dental Exam Date" "Date of last dental exam"
 * #basal-bolus "Basal-Bolus" "Basal-bolus insulin regimen"
 * #pump "Insulin Pump" "Insulin pump therapy"
 * #mixed "Mixed Insulin" "Mixed insulin regimen"
 * #other "Other" "Other insulin regimen type"
+* #organization-id "Organization ID" "Submitting Member Organization ID"
+* #provider-id "Provider ID" "Provider identifier for diabetes specialist"
+* #encounter-id "Encounter ID" "Unique encounter identifier"
+// Device Integration and Insulin Management Codes
+* #insulin-dosing "Insulin Dosing" "Daily insulin dosing observation"
+* #basal-insulin-daily "Basal Insulin Daily" "Daily basal insulin dose in units"
+* #bolus-insulin-daily "Bolus Insulin Daily" "Daily bolus insulin dose in units"
+* #basal-insulin-injections "Basal Insulin Injections" "Number of daily basal insulin injections"
+* #bolus-insulin-injections "Bolus Insulin Injections" "Number of daily bolus insulin injections"
+* #insulin-pump-management "Insulin Pump Management" "Insulin pump site changes and adjustments"
+* #pump-site-change-method "Pump Site Change Method" "Method for reporting pump site change frequency"
+* #insulin-dose-adjustments "Insulin Dose Adjustments" "Number of insulin dose adjustments since last visit"
+* #bgm-usage "BGM Usage" "Blood glucose meter usage frequency"
+* #bgm-test-freq-method "BGM Test Frequency Method" "Method for reporting BGM test frequency"
+* #cgm-usage "CGM Usage" "Continuous glucose monitor usage"
+* #cgm-use-percentage "CGM Use Percentage" "Percentage of time CGM used per 2 weeks"
+* #cgm-use-report "CGM Use Report" "Method for reporting CGM usage"
+* #cgm-binary "CGM Binary" "Binary indicator if patient is on CGM"
+* #cgm-sensor-change-freq "CGM Sensor Change Frequency" "Frequency of CGM sensor changes in days"
+* #device-report-review "Device Report Review" "Patient reviewed device reports since last visit"
+* #insulin-pump "Insulin Pump" "Insulin pump device type"
+* #cgm "CGM" "Continuous glucose monitor device type"
+* #bgm "BGM" "Blood glucose meter device type"
+* #insulin-pen "Insulin Pen" "Insulin pen device type"
+// Glucose Analytics Codes
+* #bgm-statistics "BGM Statistical Analysis" "Blood glucose meter statistical analysis"
+* #bgm-sd "BGM Standard Deviation" "Standard deviation of BGM readings"
+* #bgm-high-count "BGM High Count" "Number of BGM readings above target range"
+* #bgm-low-count "BGM Low Count" "Number of BGM readings below target range"
+* #bgm-high-perc "BGM High Percentage" "Percentage of BGM readings above target range"
+* #bgm-low-perc "BGM Low Percentage" "Percentage of BGM readings below target range"
+* #cgm-statistics "CGM Statistical Analysis" "Continuous glucose monitor statistical analysis"
+* #cgm-mean "CGM Mean" "Average continuous glucose monitor reading"
+* #cgm-sd "CGM Standard Deviation" "Standard deviation of CGM readings"
+* #cgm-high-count "CGM High Count" "Number of CGM readings above target range"
+* #cgm-low-count "CGM Low Count" "Number of CGM readings below target range"
+* #cgm-high-perc "CGM High Percentage" "Percentage of CGM readings above target range"
+* #cgm-low-perc "CGM Low Percentage" "Percentage of CGM readings below target range"
+* #cgm-low-below-70 "CGM Low Below 70" "Percentage of time glucose values below 70 mg/dL"
+* #cgm-low-below-54 "CGM Low Below 54" "Percentage of time glucose values below 54 mg/dL"
+* #cgm-high-above-180 "CGM High Above 180" "Percentage of time glucose values above 180 mg/dL"
+* #cgm-high-above-250 "CGM High Above 250" "Percentage of time glucose values above 250 mg/dL"
 
 // Value Sets
 ValueSet: T1DGenderValueSet
@@ -65,6 +137,45 @@ Description: "Observation categories for T1D Exchange"
 * http://terminology.hl7.org/CodeSystem/observation-category|1.0.1#social-history "Social History"
 * http://terminology.hl7.org/CodeSystem/observation-category|1.0.1#exam "Exam"
 
+ValueSet: T1DObservationCodeValueSet
+Id: t1d-observation-code-valueset
+Title: "T1D Observation Code Value Set"
+Description: "All observation codes for T1D Exchange including core laboratory observations"
+* ^experimental = false
+// Core Laboratory Observations
+* http://loinc.org#4548-4 "Hemoglobin A1c/Hemoglobin.total in Blood"
+* http://loinc.org#4549-2 "Hemoglobin A1c/Hemoglobin.total in Blood by Electrophoresis"
+* http://loinc.org#17856-6 "Hemoglobin A1c/Hemoglobin.total in Blood by HPLC"
+* http://loinc.org#31209-0 "Islet cell 512 Ab [Units/volume] in Serum"
+* http://loinc.org#56718-0 "Islet cell 512 Ab [Units/volume] in Serum by Immunoassay"
+* http://loinc.org#32636-3 "Islet cell 512 Ab [Titer] in Serum"
+* http://loinc.org#8072-1 "Insulin Ab [Units/volume] in Serum"
+* http://loinc.org#76651-9 "Zinc transporter 8 Ab [Units/volume] in Serum or Plasma by Immunoassay"
+* http://loinc.org#13926-1 "Glutamate decarboxylase 65 Ab [Units/volume] in Serum"
+* http://loinc.org#56540-8 "Glutamate decarboxylase 65 Ab [Units/volume] in Serum by Immunoassay"
+* http://loinc.org#2093-3 "Cholesterol [Mass/volume] in Serum or Plasma"
+* http://loinc.org#2085-9 "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
+* http://loinc.org#2089-1 "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
+* http://loinc.org#2571-8 "Triglyceride [Mass/volume] in Serum or Plasma"
+* http://loinc.org#3016-3 "Thyrotropin [Units/volume] in Serum or Plasma"
+* http://loinc.org#3024-7 "Thyroxine (T4) free [Mass/volume] in Serum or Plasma"
+* http://loinc.org#3026-2 "Thyroxine (T4) [Mass/volume] in Serum or Plasma"
+* http://loinc.org#8099-4 "Thyroperoxidase Ab [Units/volume] in Serum or Plasma"
+* http://loinc.org#8098-6 "Thyroglobulin Ab [Units/volume] in Serum or Plasma"
+* http://loinc.org#31017-7 "Tissue transglutaminase IgA Ab [Units/volume] in Serum"
+* http://loinc.org#32998-7 "Tissue transglutaminase IgG Ab [Units/volume] in Serum"
+* http://loinc.org#2458-8 "IgA [Mass/volume] in Serum or Plasma"
+* http://loinc.org#13092-2 "Endomysium Ab [Units/volume] in Serum"
+* http://loinc.org#14708-2 "Endomysium Ab [Titer] in Serum"
+* http://loinc.org#14957-5 "Microalbumin [Mass/volume] in Urine"
+* http://loinc.org#6942-7 "Albumin [Mass/volume] in Urine by Electrophoresis"
+* http://loinc.org#2161-8 "Creatinine [Mass/volume] in Urine"
+* http://loinc.org#2160-0 "Creatinine [Mass/volume] in Serum or Plasma"
+* http://loinc.org#10466-1 "Anion gap 3 in Serum or Plasma"
+* http://loinc.org#1863-0 "Anion gap 4 in Serum or Plasma"
+* http://loinc.org#33037-3 "Anion gap in Serum or Plasma"
+* http://loinc.org#1986-9 "C peptide [Mass/volume] in Serum or Plasma"
+
 ValueSet: T1DGlucoseCodeValueSet
 Id: t1d-glucose-code-valueset
 Title: "T1D Glucose Code Value Set"
@@ -95,10 +206,7 @@ Id: t1d-insulin-regimen-valueset
 Title: "T1D Insulin Regimen Value Set"
 Description: "Types of insulin regimens for T1D patients"
 * ^experimental = false
-* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#basal-bolus "Basal-Bolus"
-* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#pump "Insulin Pump"
-* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#mixed "Mixed Insulin"
-* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#other "Other"
+* include codes from system T1DInsulinRegimenCS
 
 ValueSet: T1DTransitionPlanValueSet
 Id: t1d-transition-plan-valueset
@@ -108,6 +216,26 @@ Description: "Documented transition plan options"
 * http://snomed.info/sct#182836005 "Medication review"
 * http://snomed.info/sct#408403008 "Patient referral to specialist"
 * http://snomed.info/sct#385651009 "In progress"
+
+ValueSet: T1DCareScreeningCodeValueSet
+Id: t1d-care-screening-code-valueset
+Title: "T1D Care Screening Code Value Set"
+Description: "Codes for preventive care screening dates"
+* ^experimental = false
+* ^url = "http://t1dexchange.org/fhir/ValueSet/t1d-care-screening-code-valueset"
+* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#flu-dt "Flu Vaccine Date"
+* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#eye-exam-dt "Eye Exam Date"
+* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#foot-exam-dt "Foot Exam Date"
+* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dental-exam-dt "Dental Exam Date"
+
+ValueSet: T1DSDOHInsecurityCodeValueSet
+Id: t1d-sdoh-insecurity-code-valueset
+Title: "T1D SDOH Insecurity Code Value Set"
+Description: "Codes for transportation and housing insecurity screening"
+* ^experimental = false
+* ^url = "http://t1dexchange.org/fhir/ValueSet/t1d-sdoh-insecurity-code-valueset"
+* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#transportation-insecurity "Transportation Insecurity"
+* http://t1dexchange.org/fhir/CodeSystem/t1d-codes#housing-insecurity "Housing Insecurity"
 
 ValueSet: T1DLanguageValueSet
 Id: t1d-language-valueset
@@ -157,3 +285,120 @@ Description: "Insurance type categories for T1D Exchange"
 * http://terminology.hl7.org/CodeSystem/v3-NullFlavor#NA "Not applicable"
 * http://terminology.hl7.org/CodeSystem/v3-NullFlavor#OTH "Other"
 * http://terminology.hl7.org/CodeSystem/v3-NullFlavor#UNK "Unknown"
+
+ValueSet: T1DConditionCategoryValueSet
+Id: t1d-condition-category-valueset
+Title: "T1D Condition Category Value Set"
+Description: "Condition categories for T1D Exchange"
+* ^experimental = false
+* http://terminology.hl7.org/CodeSystem/condition-category#problem-list-item "Problem List Item"
+* http://terminology.hl7.org/CodeSystem/condition-category#encounter-diagnosis "Encounter Diagnosis"
+
+ValueSet: T1DConditionCodeValueSet
+Id: t1d-condition-code-valueset
+Title: "T1D Condition Code Value Set"
+Description: "Condition codes for T1D and related conditions"
+* ^experimental = false
+* http://snomed.info/sct#46635009 "Type 1 diabetes mellitus"
+* http://snomed.info/sct#44054006 "Type 2 diabetes mellitus"
+* http://snomed.info/sct#8801005 "Secondary diabetes mellitus"
+* http://snomed.info/sct#237599002 "Insulin dependent diabetes mellitus"
+
+ValueSet: T1DFamilyRelationshipValueSet
+Id: t1d-family-relationship-valueset
+Title: "T1D Family Relationship Value Set"
+Description: "Family relationship codes for T1D Exchange"
+* ^experimental = false
+* http://terminology.hl7.org/CodeSystem/v3-RoleCode#FTH "Father"
+* http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH "Mother"
+* http://terminology.hl7.org/CodeSystem/v3-RoleCode#SIB "Sibling"
+* http://terminology.hl7.org/CodeSystem/v3-RoleCode#GRPRN "Grandparent"
+
+ValueSet: T1DFamilyHistoryConditionValueSet
+Id: t1d-family-history-condition-valueset
+Title: "T1D Family History Condition Value Set"
+Description: "Conditions for family history relevant to T1D"
+* ^experimental = false
+* http://snomed.info/sct#46635009 "Type 1 diabetes mellitus"
+* http://snomed.info/sct#44054006 "Type 2 diabetes mellitus"
+* http://snomed.info/sct#73211009 "Diabetes mellitus"
+
+ValueSet: T1DEncounterClassValueSet
+Id: t1d-encounter-class-valueset
+Title: "T1D Encounter Class Value Set"
+Description: "Encounter class codes for T1D Exchange"
+* ^experimental = false
+* http://terminology.hl7.org/CodeSystem/v3-ActCode#AMB "ambulatory"
+* http://terminology.hl7.org/CodeSystem/v3-ActCode#IMP "inpatient encounter"
+* http://terminology.hl7.org/CodeSystem/v3-ActCode#EMER "emergency"
+* http://terminology.hl7.org/CodeSystem/v3-ActCode#HH "home health"
+
+ValueSet: T1DEncounterTypeValueSet
+Id: t1d-encounter-type-valueset
+Title: "T1D Encounter Type Value Set"
+Description: "Encounter type codes for T1D Exchange"
+* ^experimental = false
+* http://snomed.info/sct#185349003 "Encounter for check up"
+* http://snomed.info/sct#390906007 "Follow-up encounter"
+* http://snomed.info/sct#11429006 "Consultation"
+
+ValueSet: T1DEncounterReasonValueSet
+Id: t1d-encounter-reason-valueset
+Title: "T1D Encounter Reason Value Set"
+Description: "Encounter reason codes for T1D Exchange"
+* ^experimental = false
+* http://snomed.info/sct#46635009 "Type 1 diabetes mellitus"
+* http://snomed.info/sct#182836005 "Review of medication"
+* http://snomed.info/sct#408403008 "Patient referral to specialist"
+
+ValueSet: T1DMedicationCategoryValueSet
+Id: t1d-medication-category-valueset
+Title: "T1D Medication Category Value Set"
+Description: "Medication categories for T1D Exchange"
+* ^experimental = false
+* http://terminology.hl7.org/CodeSystem/medicationrequest-category#inpatient "Inpatient"
+* http://terminology.hl7.org/CodeSystem/medicationrequest-category#outpatient "Outpatient"
+* http://terminology.hl7.org/CodeSystem/medicationrequest-category#community "Community"
+
+ValueSet: T1DMedicationCodeValueSet
+Id: t1d-medication-code-valueset
+Title: "T1D Medication Code Value Set"
+Description: "Medication codes for T1D Exchange"
+* ^experimental = false
+* http://www.nlm.nih.gov/research/umls/rxnorm#253182 "Insulin, regular, human"
+* http://www.nlm.nih.gov/research/umls/rxnorm#274783 "Insulin glargine"
+* http://www.nlm.nih.gov/research/umls/rxnorm#51428 "Insulin lispro"
+
+ValueSet: T1DMedicationRouteValueSet
+Id: t1d-medication-route-valueset
+Title: "T1D Medication Route Value Set"
+Description: "Medication routes for T1D Exchange"
+* ^experimental = false
+* http://snomed.info/sct#263887005 "Subcutaneous route"
+* http://snomed.info/sct#47625008 "Intravenous route"
+
+ValueSet: T1DInsulinDeliveryValueSet
+Id: t1d-insulin-delivery-valueset
+Title: "T1D Insulin Delivery Value Set"
+Description: "Insulin delivery methods for T1D Exchange"
+* ^experimental = false
+* http://snomed.info/sct#33633005 "Prescription of drug"
+* http://snomed.info/sct#61968008 "Injection"
+
+ValueSet: T1DProviderSpecialtyValueSet
+Id: t1d-provider-specialty-valueset
+Title: "T1D Provider Specialty Value Set"
+Description: "Provider specialty codes for T1D Exchange"
+* ^experimental = false
+* http://nucc.org/provider-taxonomy#207RE0101X "Endocrinology, Diabetes & Metabolism Physician"
+* http://nucc.org/provider-taxonomy#363L00000X "Nurse Practitioner"
+* http://nucc.org/provider-taxonomy#207R00000X "Internal Medicine Physician"
+
+ValueSet: T1DOrganizationTypeValueSet
+Id: t1d-organization-type-valueset
+Title: "T1D Organization Type Value Set"
+Description: "Organization type codes for T1D Exchange"
+* ^experimental = false
+* http://terminology.hl7.org/CodeSystem/organization-type#prov "Healthcare Provider"
+* http://terminology.hl7.org/CodeSystem/organization-type#dept "Hospital Department"
+* http://terminology.hl7.org/CodeSystem/organization-type#team "Organizational team"

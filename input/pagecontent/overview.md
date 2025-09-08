@@ -25,6 +25,19 @@ The T1D Exchange collaborative focuses on several critical areas of T1D care:
 
 This Implementation Guide directly supports these focus areas through structured data collection and standardized reporting mechanisms.
 
+### FHIR Artifact Creation Approach
+
+This Implementation Guide was created using a systematic approach to translate T1D Exchange Excel specifications into FHIR artifacts. The methodology includes:
+
+- **Specification Analysis**: Processing 153 variables across 10 specification sheets from 2 Excel files
+- **Comprehensive Implementation**: 90%+ variable coverage (140+ variables) and 90%+ coded value coverage (370+ codes)
+- **Profile Design Patterns**: Component model for contextual data, extension strategy for resource enhancement
+- **Terminology Creation**: Integration of external standards (LOINC, SNOMED CT, RxNorm) with custom T1D terminology
+- **Quality Assurance**: Specification traceability, build validation, and comprehensive example coverage
+- **Production Ready**: Zero build errors, 200 FHIR resources exported, comprehensive testing
+
+For detailed information about our approach, see the **[FHIR Artifact Creation Approach](approach.html)** page.
+
 ### Data Mapping
 
 #### Core Data Specifications Mapping
@@ -47,9 +60,10 @@ The diabetes-specific data elements map to specialized observation profiles:
 | Data Category | FHIR Profile | Key Elements |
 |---------------|--------------|--------------|
 | Disease | T1DCondition | T1D diagnosis date, transition plan |
-| Insulin | T1DMedicationRequest | Insulin regimen, delivery method |
-| Monitoring | T1DObservation | BGM/CGM device information |
+| Insulin | T1DMedicationRequest, T1DInsulinDosingObservation | Insulin regimen, delivery method, daily dosing |
+| Monitoring | T1DObservation, T1DBGMUsageObservation, T1DCGMUsageObservation | BGM/CGM device information, usage tracking |
 | Glucose | T1DGlucoseObservation | BGM mean, CGM metrics, time in range |
+| Devices | T1DInsulinPumpDevice, T1DCGMDevice, T1DBGMDevice, T1DInsulinPenDevice | Device manufacturers, models, usage patterns |
 
 For detailed variable-to-FHIR element mappings, see the [Variable Mapping](mapping.html) page.
 
@@ -57,6 +71,7 @@ For detailed variable-to-FHIR element mappings, see the [Variable Mapping](mappi
 
 This guide is organized in a logical progression to support implementers:
 
+- **[FHIR Artifact Creation Approach](approach.html)** - Methodology for translating T1D Exchange specifications to FHIR
 - **[Profiles](profiles.html)** - FHIR profiles and data structures for T1D Exchange
 - **[Terminology](terminology.html)** - Code systems and value sets for consistent coding
 - **[Examples](examples.html)** - Sample instances demonstrating proper profile usage

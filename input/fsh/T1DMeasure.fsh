@@ -8,6 +8,9 @@ Description: "Example quality measure for HbA1c control in T1D patients"
 
 * url = "http://example.org/Measure/hba1c-control"
 * version = "1.0.0"
+* identifier[+]
+  * system = "urn:ietf:rfc:3986"
+  * value = "urn:oid:2.16.840.1.113883.4.642.12.999"  // Example OID, replace with actual assigned OID
 * name = "T1DHbA1cControlMeasure"
 * title = "T1D HbA1c Control Rate"
 * status = #active
