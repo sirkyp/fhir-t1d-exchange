@@ -1,0 +1,120 @@
+name: Deploy FHIR IG Main
+
+on:
+  push    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Setup Java
+      uses: actions/setup-java@v4nches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+      - '.github/workflows/**'  # Prevent workflow changes from triggering builds
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Debug Event Info
+      env:
+        EVENT_NAME: ${{ github.event_name }}
+        EVENT_REF: ${{ github.ref }}
+        ACTOR: ${{ github.actor }}
+        SHA: ${{ github.sha }}
+        COMMIT_MSG: ${{ github.event.head_commit.message }}
+      run: |
+        echo "Event name: $EVENT_NAME"
+        echo "Event ref: $EVENT_REF"
+        echo "Actor: $ACTOR"
+        echo "Commit SHA: $SHA"
+        echo "Commit message: $COMMIT_MSG"
+        echo "Full event path: ${{ github.event_path }}"
+        cat ${{ github.event_path }}
+        
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        
+    - name: Set up Ruby
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ruby-full build-essential zlib1g-dev
+        
+    - name: Set up Bundler
+      run: |
+        # Create Gemfile
+        echo "source 'https://rubygems.org'" > Gemfile
+        echo "gem 'jekyll'" >> Gemfile
+        echo "gem 'webrick'" >> Gemfile  # Required for Ruby >= 3.0
+        
+        # Set up gems directory
+        export GEM_HOME="$HOME/.gem"
+        export GEM_PATH="$HOME/.gem"
+        export PATH="$HOME/.gem/bin:$PATH"
+        
+        # Install bundler
+        gem install bundler
+        
+        # Install gems via bundler
+        bundle install
+        
+        # Verify installations
+        echo "Ruby version: $(ruby -v)"
+        echo "Bundler version: $(bundle -v)"
+        bundle exec jekyll -v
+        
+        # Make paths available to subsequent steps
+        echo "GEM_HOME=$GEM_HOME" >> $GITHUB_ENV
+        echo "GEM_PATH=$GEM_PATH" >> $GITHUB_ENV
+        echo "$HOME/.gem/bin" >> $GITHUB_PATH
+        
+    - name: Verify Jekyll Installation
+      run: |
+        echo "Checking Jekyll installation..."
+        which jekyll
+        bundle exec jekyll -v
+        
+    - name: Install SUSHI
+      run: npm install -g fsh-sushi
+      
+    - name: Download IG Publisher
+      run: |
+        mkdir -p input-cache
+        wget -q https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -O input-cache/publisher.jar
+        
+    - name: Build IG
+      run: java -jar input-cache/publisher.jar -ig ig.ini
+
+    # Deploy to root of gh-pages
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v4
+      with:
+        path: ./output
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+
+    - name: Output Published URL
+      run: |
+        echo "::notice::IG Published to https://sirkyp.github.io/fhir-t1d-exchange/"
