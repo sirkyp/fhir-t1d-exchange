@@ -2,11 +2,14 @@ name: Build and Publish FHIR IG
 
 on:
   push:
-    branches: 
+    branches:
       - main
-      - '**'  # This will trigger on all branches
+      - '**'
+      - '!main'  # Exclude main branch pushes (handled by pull_request)
   pull_request:
-    branches: [ main ]
+    branches: 
+      - main     # Only build PRs targeting main branch
+    types: [opened, synchronize, reopened]  # Don't build on other PR events
 
 permissions:
   contents: read
@@ -31,23 +34,22 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
         
-    - name: Install rbenv and Ruby
+    - name: Install Ruby
       run: |
-        sudo apt update
-        sudo apt install -y git build-essential libssl-dev libreadline-dev zlib1g-dev
-        git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-        echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-        echo 'eval "$(~/.rbenv/bin/rbenv init -)"' >> ~/.bashrc
+        sudo apt-get update
+        sudo apt-get install -y ruby-full build-essential
+        
+    - name: Configure Gem Installation Directory
+      run: |
+        echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+        echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+        echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
         source ~/.bashrc
-        git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-        ~/.rbenv/bin/rbenv install 3.2.2
-        ~/.rbenv/bin/rbenv global 3.2.2
-        ruby -v
-
+        
     - name: Install Jekyll and Bundler
       run: |
         source ~/.bashrc
-        gem install jekyll bundler
+        gem install jekyll bundler --user-install
         
     - name: Install SUSHI
       run: npm install -g fsh-sushi
