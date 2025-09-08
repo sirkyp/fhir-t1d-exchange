@@ -1,15 +1,14 @@
 name: Build and Publish FHIR IG
 
 on:
-  push:
-    branches:
-      - main
-      - '**'
-      - '!main'  # Exclude main branch pushes (handled by pull_request)
+  # Only trigger on PR events when targeting main
   pull_request:
-    branches: 
-      - main     # Only build PRs targeting main branch
-    types: [opened, synchronize, reopened]  # Don't build on other PR events
+    branches: [ main ]
+    types: [opened, synchronize, reopened]
+  # Only trigger on push events to non-PR branches
+  push:
+    branches-ignore:
+      - main  # Ignore main branch pushes as they're handled by PR events
 
 permissions:
   contents: read
@@ -18,9 +17,32 @@ permissions:
 
 jobs:
   build:
+    # Skip if this is a push event on a PR branch
+    if: |
+      (github.event_name == 'pull_request') || 
+      (github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]') && !github.event.pull_request)
     runs-on: ubuntu-latest
     
     steps:
+    - name: Debug Event Info
+      env:
+        EVENT_NAME: ${{ github.event_name }}
+        EVENT_REF: ${{ github.ref }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        HEAD_REF: ${{ github.head_ref }}
+        BASE_REF: ${{ github.base_ref }}
+        ACTOR: ${{ github.actor }}
+      run: |
+        echo "Event name: $EVENT_NAME"
+        echo "Event ref: $EVENT_REF"
+        echo "PR number: $PR_NUMBER"
+        echo "Head ref: $HEAD_REF"
+        echo "Base ref: $BASE_REF"
+        echo "Actor: $ACTOR"
+        echo "Is PR? ${{ github.event.pull_request != null }}"
+        echo "Full event path: ${{ github.event_path }}"
+        cat ${{ github.event_path }}
+        
     - uses: actions/checkout@v3
     
     - name: Setup Node.js
@@ -34,22 +56,29 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
         
-    - name: Install Ruby
+    - name: Install Ruby and Jekyll Dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y ruby-full build-essential
+        sudo apt-get install -y ruby-full build-essential zlib1g-dev
         
-    - name: Configure Gem Installation Directory
+    - name: Set up Ruby and Gems
       run: |
-        echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
-        echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
-        echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
-        source ~/.bashrc
+        # Install gems to user directory
+        mkdir -p $HOME/.gem
+        export GEM_HOME="$HOME/.gem"
+        export PATH="$HOME/.gem/bin:$PATH"
         
-    - name: Install Jekyll and Bundler
-      run: |
-        source ~/.bashrc
-        gem install jekyll bundler --user-install
+        # Install Jekyll and Bundler
+        gem install jekyll bundler
+        
+        # Verify installations
+        echo "Ruby version: $(ruby -v)"
+        echo "Gem version: $(gem -v)"
+        echo "Jekyll version: $(jekyll -v)"
+        echo "Bundler version: $(bundle -v)"
+        
+        # Add to GITHUB_PATH to persist across steps
+        echo "$HOME/.gem/bin" >> $GITHUB_PATH
         
     - name: Install SUSHI
       run: npm install -g fsh-sushi
