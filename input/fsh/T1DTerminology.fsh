@@ -1,11 +1,26 @@
 // T1D Exchange Code Systems
+
+// Update all ValueSets to include status and experimental flags where missing
+RuleSet: StandardValueSet
+* ^version = "0.3.0"
+* ^status = #active
+* ^experimental = false
+* ^date = "2025-09-08"
+
+// Update all CodeSystems to include status and experimental flags where missing
+RuleSet: StandardCodeSystem  
+* ^version = "0.3.0"
+* ^status = #active
+* ^experimental = false
+* ^caseSensitive = true
+* ^content = #complete
+* ^date = "2025-09-08"
 CodeSystem: T1DIdentifierType
 Id: t1d-identifier-type
 Title: "T1D Identifier Types"
 Description: "Identifier types used in T1D Exchange"
 * ^url = "http://t1dexchange.org/fhir/CodeSystem/t1d-identifier-type"
-* ^experimental = false
-* ^caseSensitive = true
+* insert StandardCodeSystem
 * #T1D-ID "T1D Patient ID" "T1D Exchange patient identifier"
 * #T1D-PROVIDER-ID "T1D Provider ID" "T1D Exchange provider identifier"
 * #T1D-ORG-ID "T1D Organization ID" "T1D Exchange organization identifier"
@@ -350,7 +365,7 @@ Id: t1d-medication-code-valueset
 Title: "T1D Medication Code Value Set"
 Description: "Medication codes for T1D Exchange"
 * ^experimental = false
-* http://www.nlm.nih.gov/research/umls/rxnorm#5856 "Insulin"
+* http://www.nlm.nih.gov/research/umls/rxnorm#253182 "Insulin, regular, human"
 * http://www.nlm.nih.gov/research/umls/rxnorm#274783 "Insulin glargine"
 * http://www.nlm.nih.gov/research/umls/rxnorm#51428 "Insulin lispro"
 
@@ -367,7 +382,7 @@ Id: t1d-insulin-delivery-valueset
 Title: "T1D Insulin Delivery Value Set"
 Description: "Insulin delivery methods for T1D Exchange"
 * ^experimental = false
-* http://snomed.info/sct#182817000 "Drug prescription"
+* http://snomed.info/sct#33633005 "Prescription of drug"
 * http://snomed.info/sct#61968008 "Injection"
 
 ValueSet: T1DProviderSpecialtyValueSet

@@ -185,15 +185,15 @@ Description: "Example of insulin pump regimen with delivery method tracking"
 * status = #active
 * intent = #order
 * category = http://terminology.hl7.org/CodeSystem/medicationrequest-category#outpatient
-* medicationCodeableConcept = http://www.nlm.nih.gov/research/umls/rxnorm#5856 "Insulin"
+* medicationCodeableConcept = http://www.nlm.nih.gov/research/umls/rxnorm#253182 "Insulin, regular, human"
 * subject = Reference(T1DPatientExample)
 * encounter = Reference(T1DEncounterExample)
 * authoredOn = "2024-01-15"
 * requester = Reference(T1DProviderExample)
 
 * extension[insulinRegimen].valueCodeableConcept = T1DInsulinRegimenCS#1 "Insulin pump"
-* extension[deliveryMethod].valueCodeableConcept = http://snomed.info/sct#182817000 "Drug prescription"
+* extension[deliveryMethod].valueCodeableConcept = http://snomed.info/sct#33633005 "Prescription of drug"
 
 * dosageInstruction.text = "Continuous subcutaneous insulin infusion via insulin pump with hybrid closed loop technology"
 * dosageInstruction.route = http://snomed.info/sct#263887005 "Subcutaneous"
-* dosageInstruction.method = http://snomed.info/sct#182817000 "Drug prescription"
+* dosageInstruction.method = http://snomed.info/sct#33633005 "Prescription of drug"

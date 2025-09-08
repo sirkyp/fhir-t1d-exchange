@@ -97,6 +97,21 @@ Description: "Glucose measurement observation for T1D patients"
     cgmHighAbove180 0..1 MS and
     timeInRange 0..1 MS
 
+// Pattern for bgmMean component
+* component[bgmMean].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#bgm-mean
+* component[bgmMean].value[x] only Quantity
+* component[bgmMean].valueQuantity.unit = "mg/dL"
+
+// Pattern for cgmHighAbove180 component  
+* component[cgmHighAbove180].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#cgm-high-above-180
+* component[cgmHighAbove180].value[x] only Quantity
+* component[cgmHighAbove180].valueQuantity.unit = "%"
+
+// Pattern for timeInRange component
+* component[timeInRange].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#time-in-range
+* component[timeInRange].value[x] only Quantity
+* component[timeInRange].valueQuantity.unit = "%"
+
 * component[bgmMean] ^definition = "Mean (average) value of blood glucose values reported in mg/dL. When possible, mean value should be based on glucose values used to determine average blood glucose monitoring frequency."
 * component[bgmMean] ^short = "Mean blood glucose value"
 * component[bgmMean] ^comment = "Priority: Medium | Notes: Round to nearest integer. Do not report mmol/L; to convert, multiply by 18 to convert mmol/L to mg/dL."
@@ -162,6 +177,14 @@ Description: "Severe hypoglycemia events requiring medical attention"
     patientReportedAmbulatory 0..1 MS and
     patientReportedInpatient 0..1 MS
 
+// Pattern for patientReportedAmbulatory component
+* component[patientReportedAmbulatory].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#sh-events-amb-pro
+* component[patientReportedAmbulatory].value[x] only integer
+
+// Pattern for patientReportedInpatient component
+* component[patientReportedInpatient].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#sh-events-inp-pro
+* component[patientReportedInpatient].value[x] only integer
+
 * component[patientReportedAmbulatory] ^definition = "Patient reported number of severe hypoglycemia episodes requiring ED or urgent care since last visit (not requiring overnight stay or hospitalization)"
 * component[patientReportedAmbulatory] ^short = "Patient reported ambulatory severe hypoglycemia"
 * component[patientReportedAmbulatory] ^comment = "Priority: High | Notes: Will vary by site's acceptance of PRO (Patient Reported Outcomes)"
@@ -197,6 +220,28 @@ Description: "Diabetic ketoacidosis episodes requiring medical attention. Uses c
     patientReportedInpatient 0..1 MS and
     patientReportedEventDate 0..1 MS and
     ambulatoryEvents 0..1 MS
+
+// Pattern for serumBicarbonate component
+* component[serumBicarbonate].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dka-serum-bicarb
+* component[serumBicarbonate].value[x] only Quantity
+* component[serumBicarbonate].valueQuantity.unit = "mmol/L"
+
+// Pattern for bloodPH component
+* component[bloodPH].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dka-blood-ph
+* component[bloodPH].value[x] only Quantity
+* component[bloodPH].valueQuantity.unit = "[pH]"
+
+// Pattern for patientReportedInpatient component
+* component[patientReportedInpatient].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dka-events-inp-pro
+* component[patientReportedInpatient].value[x] only integer
+
+// Pattern for patientReportedEventDate component
+* component[patientReportedEventDate].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dka-events-pro-dt
+* component[patientReportedEventDate].value[x] only dateTime or Period or string
+
+// Pattern for ambulatoryEvents component
+* component[ambulatoryEvents].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#dka-events-amb
+* component[ambulatoryEvents].value[x] only integer
 
 * component[serumBicarbonate] ^definition = "Serum bicarbonate level during DKA (mmol/L) to 1 decimal place"
 * component[serumBicarbonate] ^short = "Serum bicarbonate during DKA"
@@ -250,6 +295,11 @@ Description: "Patient's ability to self-identify hypoglycemia symptoms"
 * component ^slicing.rules = #open
 * component contains
     symptomThreshold 0..1 MS
+
+// Pattern for symptomThreshold component
+* component[symptomThreshold].code = http://t1dexchange.org/fhir/CodeSystem/t1d-codes#hypo-sym-value
+* component[symptomThreshold].value[x] only Quantity
+* component[symptomThreshold].valueQuantity.unit = "mg/dL"
 
 * component[symptomThreshold] ^definition = "Typical glucose value (mg/dL) for which patient consistently experiences symptoms of hypoglycemia. If range, use high end of range. Prefer blood glucose over sensor glucose value, if available."
 * component[symptomThreshold] ^short = "Glucose threshold for symptoms"

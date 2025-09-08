@@ -158,7 +158,7 @@ Description: "Example of an insulin medication request"
 * dosageInstruction.doseAndRate.doseQuantity.value = 10
 * dosageInstruction.doseAndRate.doseQuantity.unit = "units"
 * extension[insulinRegimen].valueCodeableConcept = T1DInsulinRegimenCS#2 "Injection, basal-bolus"
-* extension[deliveryMethod].valueCodeableConcept = http://snomed.info/sct#182817000 "Drug prescription"
+* extension[deliveryMethod].valueCodeableConcept = http://snomed.info/sct#33633005 "Prescription of drug"
 * extension[prescriberIdType].valueCodeableConcept = http://t1dexchange.org/fhir/CodeSystem/t1d-provider-id-type#npi "NPI"
 * extension[medicationName].valueString = "Insulin Glargine"
 * extension[medicationGenericName].valueString = "insulin glargine"
@@ -301,8 +301,8 @@ Description: "Example of T1D medication with detailed information (Medium priori
 * identifier.value = "MED-54321"
 * status = #active
 * intent = #order
-* medicationCodeableConcept = http://www.nlm.nih.gov/research/umls/rxnorm#5856
-* medicationCodeableConcept.text = "Insulin"
+* medicationCodeableConcept = http://www.nlm.nih.gov/research/umls/rxnorm#253182
+* medicationCodeableConcept.text = "Insulin, regular, human"
 * subject = Reference(T1DPatientExample)
 * authoredOn = "2024-01-15"
 * requester = Reference(T1DProviderExample)

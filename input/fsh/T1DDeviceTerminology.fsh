@@ -10,8 +10,8 @@ Id: t1d-device-type-cs
 Title: "T1D Device Type Code System"
 Description: "Types of T1D devices"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 
@@ -25,8 +25,8 @@ Id: t1d-device-type-vs
 Title: "T1D Device Type Value Set"
 Description: "Types of T1D devices"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * include codes from system T1DDeviceTypeCS
 
 // ============================================================================
@@ -38,8 +38,8 @@ Id: t1d-insulin-pump-company-cs
 Title: "T1D Insulin Pump Company Code System"
 Description: "Insulin pump manufacturers from T1D Exchange specifications"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 
@@ -59,8 +59,8 @@ Id: t1d-insulin-pump-company-vs
 Title: "T1D Insulin Pump Company Value Set"
 Description: "Insulin pump manufacturers"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * include codes from system T1DInsulinPumpCompanyCS
 
 // ============================================================================
@@ -72,8 +72,8 @@ Id: t1d-insulin-pump-model-cs
 Title: "T1D Insulin Pump Model Code System"
 Description: "Insulin pump models from T1D Exchange specifications"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 
@@ -135,8 +135,8 @@ Id: t1d-insulin-pump-model-vs
 Title: "T1D Insulin Pump Model Value Set"
 Description: "Insulin pump models"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * include codes from system T1DInsulinPumpModelCS
 
 // ============================================================================
@@ -148,8 +148,8 @@ Id: t1d-pump-delivery-system-cs
 Title: "T1D Pump Delivery System Code System"
 Description: "Insulin pump delivery system types from T1D Exchange specifications"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 
@@ -166,8 +166,8 @@ Id: t1d-pump-delivery-system-vs
 Title: "T1D Pump Delivery System Value Set"
 Description: "Insulin pump delivery system types"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * include codes from system T1DPumpDeliverySystemCS
 
 // ============================================================================
@@ -179,8 +179,8 @@ Id: t1d-cgm-company-cs
 Title: "T1D CGM Company Code System"
 Description: "CGM manufacturers from T1D Exchange specifications"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 
@@ -196,8 +196,8 @@ Id: t1d-cgm-company-vs
 Title: "T1D CGM Company Value Set"
 Description: "CGM manufacturers"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * include codes from system T1DCGMCompanyCS
 
 // ============================================================================
@@ -209,8 +209,8 @@ Id: t1d-cgm-model-cs
 Title: "T1D CGM Model Code System"
 Description: "CGM models from T1D Exchange specifications"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 
@@ -239,8 +239,8 @@ Id: t1d-cgm-model-vs
 Title: "T1D CGM Model Value Set"
 Description: "CGM models"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * include codes from system T1DCGMModelCS
 
 // ============================================================================
@@ -252,8 +252,8 @@ Id: t1d-bgm-company-cs
 Title: "T1D BGM Company Code System"
 Description: "BGM manufacturers from T1D Exchange specifications"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 
@@ -277,8 +277,8 @@ Id: t1d-bgm-company-vs
 Title: "T1D BGM Company Value Set"
 Description: "BGM manufacturers"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * include codes from system T1DBGMCompanyCS
 
 // ============================================================================
@@ -290,8 +290,8 @@ Id: t1d-bgm-model-cs
 Title: "T1D BGM Model Code System"
 Description: "BGM models from T1D Exchange specifications"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 
@@ -364,8 +364,8 @@ Id: t1d-bgm-model-vs
 Title: "T1D BGM Model Value Set"
 Description: "BGM models"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * include codes from system T1DBGMModelCS
 
 // ============================================================================
@@ -377,8 +377,8 @@ Id: t1d-insulin-pen-company-cs
 Title: "T1D Insulin Pen Company Code System"
 Description: "Insulin pen manufacturers from T1D Exchange specifications"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 
@@ -397,8 +397,8 @@ Id: t1d-insulin-pen-company-vs
 Title: "T1D Insulin Pen Company Value Set"
 Description: "Insulin pen manufacturers"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * include codes from system T1DInsulinPenCompanyCS
 
 // ============================================================================
@@ -410,8 +410,8 @@ Id: t1d-insulin-pen-model-cs
 Title: "T1D Insulin Pen Model Code System"
 Description: "Insulin pen models from T1D Exchange specifications"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 
@@ -448,8 +448,8 @@ Id: t1d-insulin-pen-model-vs
 Title: "T1D Insulin Pen Model Value Set"
 Description: "Insulin pen models"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * include codes from system T1DInsulinPenModelCS
 
 // ============================================================================
@@ -461,8 +461,8 @@ Id: t1d-device-usage-method-cs
 Title: "T1D Device Usage Method Code System"
 Description: "Device usage reporting methods from T1D Exchange specifications"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 
@@ -476,8 +476,8 @@ Id: t1d-device-usage-method-vs
 Title: "T1D Device Usage Method Value Set"
 Description: "Device usage reporting methods"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * include codes from system T1DDeviceUsageMethodCS
 
 // ============================================================================
@@ -489,8 +489,8 @@ Id: t1d-insulin-regimen-cs
 Title: "T1D Insulin Regimen Code System"
 Description: "Insulin regimen types from T1D Exchange specifications"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 
@@ -508,6 +508,6 @@ Id: t1d-insulin-regimen-vs
 Title: "T1D Insulin Regimen Value Set"
 Description: "Insulin regimen types"
 * ^version = "0.3.0"
-* ^status = #draft
-* ^experimental = true
+* ^status = #active
+* ^experimental = false
 * include codes from system T1DInsulinRegimenCS
