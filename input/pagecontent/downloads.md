@@ -1,5 +1,4 @@
 
-
 ### Package File
 
 The following package file includes all the resource definitions for this Implementation Guide:
