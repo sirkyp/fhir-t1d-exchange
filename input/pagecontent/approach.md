@@ -1,8 +1,6 @@
-### FHIR Artifact Creation Approach
-
 This page documents the systematic approach used to create FHIR artifacts from the T1D Exchange data specifications.
 
-#### T1D Exchange Specification Structure
+### T1D Exchange Specification Structure
 
 The T1D Exchange data specifications consist of two primary Excel files containing comprehensive variable definitions:
 
@@ -35,7 +33,7 @@ Each variable includes:
 - `notes`: Implementation guidance and clinical context
 - `coded_values`: Allowed values for coded fields (409 total coded values)
 
-#### FHIR Artifact Translation Process
+### FHIR Artifact Translation Process
 
 **1. Variable Analysis and Grouping**
 
@@ -103,7 +101,7 @@ Variables were analyzed and grouped by clinical domain:
 - T1D Exchange quality reporting workflows
 - Batch data submission scenarios
 
-#### Key Design Patterns and Architectural Decisions
+### Key Design Patterns and Architectural Decisions
 
 **1. Component Model for Contextual Data**
 
@@ -190,7 +188,7 @@ Every FHIR element maintains traceability to source specifications:
 - **Element.comment**: Priority level + notes + implementation guidance
 - **Must Support**: Based on specification priority levels
 
-#### Quality Assurance Process
+### Quality Assurance Process
 
 **Build Validation**:
 - Zero FHIR validation errors maintained

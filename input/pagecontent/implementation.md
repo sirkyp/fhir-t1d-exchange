@@ -1,7 +1,5 @@
 > **IMPLEMENTER NOTE**: This Implementation Guide is an early work in progress developed through human-AI collaboration. It requires expert review, testing, and validation before any production use. The profiles, terminology, and guidance should be considered draft and subject to significant revision based on clinical expert feedback and real-world testing.
 
-### Technical Implementation Requirements
-
 This page provides detailed technical requirements for implementing T1D Exchange profiles.
 
 ### Must Support Elements
